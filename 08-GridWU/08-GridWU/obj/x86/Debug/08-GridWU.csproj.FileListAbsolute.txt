@@ -220,3 +220,15 @@ C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\08-GridWU\08-GridWU\ob
 C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\08-GridWU\08-GridWU\obj\x86\Debug\resources.en-us.resfiles.intermediate
 C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\08-GridWU\08-GridWU\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\08-GridWU\08-GridWU\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758516200000000.json
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\08-GridWU.csprojAssemblyReference.cache
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\App.g.i.cs
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\App.g.cs
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\MainPage.g.i.cs
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\MainPage.g.cs
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\App.xaml
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\MainPage.xaml
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\App.xbf
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\MainPage.xbf
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\XamlSaveStateFile.xml
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\08-GridWU.exe
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-GridWU\08-GridWU\obj\x86\Debug\08-GridWU.pdb
