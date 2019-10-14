@@ -1,9 +1,0 @@
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\App.g.i.cs
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\App.g.cs
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\Views\MainPage.g.i.cs
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\Views\MainPage.g.cs
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\App.xaml
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\Views\MainPage.xaml
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\App.xbf
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\Views\MainPage.xbf
-C:\Users\nyeghiazaryan\Documents\Desarrollo-de-Interfaces\09-ModeloVisatasWU\09-ModeloVisatasWU\obj\x86\Debug\09-ModeloVisatasWU.csprojAssemblyReference.cache
