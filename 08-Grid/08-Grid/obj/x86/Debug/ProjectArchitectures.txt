@@ -1,1 +1,1 @@
-C:\Users\Nzhdeh\Desktop\Windows universal\08-Grid\08-Grid\08-Grid.csproj;x86
+C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\08-Grid\08-Grid\08-Grid.csproj;x86

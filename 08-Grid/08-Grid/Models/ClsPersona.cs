@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04_HolaMundoWebForms.Models
+namespace _08_Grid.Models
 {
    public class ClsPersona
     {
@@ -16,9 +16,9 @@ namespace _04_HolaMundoWebForms.Models
         //const por defecto
         public ClsPersona()
         {
-            _nombre = "No hay nombre";
-            _apellidos = "No hay apellidos";
-            _fechaNacimiento = new DateTime();
+            this.nombre = "No hay nombre";
+            this.apellidos = "No hay apellidos";
+            this.fechaNacimiento = new DateTime();
         }
 
         //constr sobrecargado

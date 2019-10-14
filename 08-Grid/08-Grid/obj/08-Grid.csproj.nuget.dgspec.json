@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nzhdeh\\Desktop\\Windows universal\\08-Grid\\08-Grid\\08-Grid.csproj": {}
+    "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\08-Grid\\08-Grid\\08-Grid.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nzhdeh\\Desktop\\Windows universal\\08-Grid\\08-Grid\\08-Grid.csproj": {
+    "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\08-Grid\\08-Grid\\08-Grid.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nzhdeh\\Desktop\\Windows universal\\08-Grid\\08-Grid\\08-Grid.csproj",
+        "projectUniqueName": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\08-Grid\\08-Grid\\08-Grid.csproj",
         "projectName": "08-Grid",
-        "projectPath": "C:\\Users\\Nzhdeh\\Desktop\\Windows universal\\08-Grid\\08-Grid\\08-Grid.csproj",
+        "projectPath": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\08-Grid\\08-Grid\\08-Grid.csproj",
         "packagesPath": "C:\\Users\\Nzhdeh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nzhdeh\\Desktop\\Windows universal\\08-Grid\\08-Grid\\obj\\",
+        "outputPath": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\08-Grid\\08-Grid\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -24,20 +24,20 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "uap10.0.18362"
+          "uap10.0.17763"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "uap10.0.18362": {
+          "uap10.0.17763": {
             "projectReferences": {}
           }
         }
       },
       "frameworks": {
-        "uap10.0.18362": {
+        "uap10.0.17763": {
           "dependencies": {
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
