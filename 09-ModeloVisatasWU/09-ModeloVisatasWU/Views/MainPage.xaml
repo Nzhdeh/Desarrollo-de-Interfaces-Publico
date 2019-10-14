@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="_09_ModeloVisatasWU.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_09_ModeloVisatasWU"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="_09_ModeloVisatasWU.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <models:ClsPersona></models:ClsPersona>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" 
+                       FontWeight="Bold" FontSize="24"  
+                       Grid.ColumnSpan="3">Your Data</TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Name: " Margin="0" 
+                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Surname: " Margin="0" 
+                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Date of brth: " Margin="0" 
+                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+        <Button Name="Send" Margin="10" Grid.Row="4" Grid.Column="1">Send</Button>
+
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="10"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="10"/>
+        <TextBox Grid.Row="1" Grid.Column="2"/>
+        <TextBox Grid.Row="2" Grid.Column="2"/>
+        <TextBox Grid.Row="3" Grid.Column="2"/>
+    </Grid>
+</Page>
