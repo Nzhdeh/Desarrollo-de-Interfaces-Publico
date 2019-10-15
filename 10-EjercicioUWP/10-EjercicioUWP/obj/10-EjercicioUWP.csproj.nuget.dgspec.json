@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\10-EjercicioUWP\\10-EjercicioUWP\\10-EjercicioUWP.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\10-EjercicioUWP\\10-EjercicioUWP\\10-EjercicioUWP.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\10-EjercicioUWP\\10-EjercicioUWP\\10-EjercicioUWP.csproj",
+        "projectName": "10-EjercicioUWP",
+        "projectPath": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\10-EjercicioUWP\\10-EjercicioUWP\\10-EjercicioUWP.csproj",
+        "packagesPath": "C:\\Users\\Nzhdeh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\10-EjercicioUWP\\10-EjercicioUWP\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Nzhdeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "uap10.0.18362"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "uap10.0.18362": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "uap10.0.18362": {
+          "dependencies": {
+            "Microsoft.NETCore.UniversalWindowsPlatform": {
+              "target": "Package",
+              "version": "[6.2.9, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="_10_EjercicioUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_10_EjercicioUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ListView x:Name="lw1" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+
+        <RelativePanel x:Name="rp1">
+        
+            <Border x:Name="tb1" BorderBrush="Black" BorderThickness="5" Margin="10,10,10,10"  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                <TextBlock Text="Primer textblock" Height="50" Width="Auto"/>
+            </Border>
+
+            <Border x:Name="tb2" BorderBrush="Black" BorderThickness="5" Margin="10,10,10,10" RelativePanel.Below="tb1" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                <TextBlock Text="Primer textblock" Height="100" Width="Auto"/>
+            </Border>
+
+            <Grid x:Name="Grid1" BorderBrush="Black" BorderThickness="5" Margin="10,10,10,10" RelativePanel.Below="tb2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <VariableSizedWrapGrid x:Name="imagenes" Orientation="Horizontal" > <!-- aqui se puede poner Grid.Column="0"-->
+                    <Border x:Name="imagen1" BorderBrush="Black" BorderThickness="5" Margin="10">
+                        <Rectangle x:Name="rectImagen1" Fill="Orange" Height="150" Width="150"/>
+                    </Border>
+                    <Border x:Name="imagen2" BorderBrush="Black" BorderThickness="5" Margin="10">
+                        <Rectangle x:Name="rectImagen2" Fill="Turquoise" Height="150" Width="150"/>
+                    </Border>
+                    <Border x:Name="imagen3" BorderBrush="Black" BorderThickness="5" Margin="10">
+                        <Rectangle x:Name="rectImagen3" Fill="GreenYellow" Height="150" Width="150"/>
+                    </Border>
+                </VariableSizedWrapGrid>
+
+                <StackPanel x:Name="cuadrados" Orientation="Vertical" Grid.Column="1">
+                    <!--queria poner otro VariableSizedWrapGrid pero no me salio bien jajaj-->
+                    <Border x:Name="cuadrado1" BorderBrush="Black" BorderThickness="5" Margin="10">
+                        <TextBlock x:Name="txt1" Text="es el primero" Height="150" Width="700"/>
+                    </Border>
+
+                    <Border x:Name="cuadrado2" BorderBrush="Black" BorderThickness="5" Margin="10">
+                        <TextBlock x:Name="txt2" Text="es el segundo" Height="100" Width="700"/><!--El Auto no funciona bien cuando todo está en un ListViiew-->
+                    </Border>
+
+                    <Border x:Name="cuadrado3" BorderBrush="Black" BorderThickness="5" Margin="10">
+                        <TextBlock x:Name="txt3" Text="es el tercero" Height="100" Width="700"/>
+                    </Border>
+
+                    <Border x:Name="cuadrado4" BorderBrush="Black" BorderThickness="5" Margin="10">
+                        <TextBlock x:Name="txt4" Text="es el cuarto" Height="100" Width="700"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+                <Border x:Name="ultimo" BorderBrush="Black" BorderThickness="5" Margin="10" RelativePanel.Below="Grid1" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                    <TextBlock x:Name="final" Text="el ultimo" Height="50"/>
+                </Border>
+        </RelativePanel>
+    </ListView>
+</Page>
