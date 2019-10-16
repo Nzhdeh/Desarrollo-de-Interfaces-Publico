@@ -5,24 +5,41 @@
     xmlns:local="using:SolarizrApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d"
     Opacity="0.35"
     Background="Green">
 
-    <RelativePanel>
-        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="24">Cita</TextBlock>
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+    <RelativePanel BorderBrush="Black" CornerRadius="5" Background="White">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <TextBlock x:Name="cita" HorizontalAlignment="Center" FontWeight="Bold" 
+                   FontSize="100" RelativePanel.AlignLeftWithPanel="True" 
+                   RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">Cita</TextBlock>
 
-           
-        </Grid>
+        <TextBlock x:Name="nombre" HorizontalAlignment="Center" FontWeight="Bold" 
+                   FontSize="25" RelativePanel.Below="cita"
+                   RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">Pepe Gomez</TextBlock>
+
+        <TextBlock x:Name="telefono" HorizontalAlignment="Center" FontWeight="Bold" 
+                   FontSize="25" RelativePanel.Below="nombre"
+                   RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">696969696</TextBlock>
+
+
+        <Button x:Name="btnNotas" FontSize="25" RelativePanel.Below="telefono" 
+                RelativePanel.AlignLeftWithPanel="True" 
+                Margin="15,15,15,15">Notas</Button>
+
+        <TextBlock x:Name="direccion" FontSize="25" RelativePanel.Below="telefono"
+                 RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">Calle ciudad de paterna Nº6</TextBlock>
+
+        <TextBlock x:Name="codigoPostal" FontSize="25" RelativePanel.Below="direccion"
+                 RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">CP.: 41019</TextBlock>
+
+        <maps:MapControl x:Name="Map" RelativePanel.Below="codigoPostal" RelativePanel.AlignLeftWithPanel="True" 
+                         RelativePanel.AlignRightWithPanel="True"
+                         RelativePanel.AlignBottomWithPanel="True"
+                MapServiceToken="Bing_Maps_API_Token_To_Remove_MapControl_Error" />
     </RelativePanel>
-    
+
+
 </Page>
