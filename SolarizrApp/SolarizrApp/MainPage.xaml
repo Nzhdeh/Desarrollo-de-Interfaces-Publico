@@ -7,15 +7,23 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d"
+<<<<<<< HEAD
     Background="Black">
 
     <ScrollViewer>
         <RelativePanel x:Name="rp1" Background="Aqua">
+=======
+    Opacity="0.8"
+    Background="AliceBlue">
+
+    <RelativePanel>
+>>>>>>> master
 
             <TextBlock x:Name="cita" HorizontalAlignment="Center" FontWeight="Bold" 
                    FontSize="60" RelativePanel.AlignLeftWithPanel="True" 
                    RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">Cita</TextBlock>
 
+<<<<<<< HEAD
             <RelativePanel x:Name="rp2" Background="White" BorderBrush="Black" RelativePanel.Below="cita"
                            CornerRadius="25" RelativePanel.AlignLeftWithPanel="True"  
                            RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">
@@ -27,10 +35,20 @@
                    RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">Pepe Gomez</TextBlock>
 
                 <TextBlock x:Name="telefono" HorizontalAlignment="Center" FontWeight="Bold" 
+=======
+        <RelativePanel x:Name="rl2" Background="White" RelativePanel.Below="cita" RelativePanel.AlignLeftWithPanel="True" 
+                       RelativePanel.AlignRightWithPanel="True" BorderBrush="Black" CornerRadius="30" Margin="15,15,15,15">
+            <TextBlock x:Name="nombre" HorizontalAlignment="Center" FontWeight="Bold" 
+                   FontSize="25" RelativePanel.AlignTopWithPanel="True"
+                   RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">Pepe Gomez</TextBlock>
+
+            <TextBlock x:Name="telefono" HorizontalAlignment="Center" FontWeight="Bold" 
+>>>>>>> master
                    FontSize="25" RelativePanel.Below="nombre"
                    RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">696969696</TextBlock>
 
 
+<<<<<<< HEAD
                 <Button x:Name="btnNotas" FontSize="25" RelativePanel.Below="direccion" 
                 RelativePanel.AlignLeftWithPanel="True" 
                 Margin="15,15,15,15">Notas</Button>
@@ -39,8 +57,21 @@
                  RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">Calle ciudad de paterna Nº6</TextBlock>
 
                 <TextBlock x:Name="codigoPostal" FontSize="25" RelativePanel.Below="direccion"
-                 RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">CP.: 41019</TextBlock>
+=======
+            <Button x:Name="btnNotas" FontSize="25" RelativePanel.Below="telefono" 
+                RelativePanel.AlignLeftWithPanel="True" 
+                Margin="15,15,15,15">Notas</Button>
 
+            <TextBlock x:Name="direccion" FontSize="25" RelativePanel.Below="telefono"
+                 RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">Calle ciudad de paterna Nº6</TextBlock>
+
+            <TextBlock x:Name="codigoPostal" FontSize="25" RelativePanel.Below="direccion"
+>>>>>>> master
+                 RelativePanel.AlignRightWithPanel="True" Margin="15,15,15,15">CP.: 41019</TextBlock>
+            
+        </RelativePanel>
+
+<<<<<<< HEAD
                 
             </RelativePanel>
 
@@ -59,4 +90,11 @@
            
         </RelativePanel>
     </ScrollViewer>
+=======
+        <maps:MapControl x:Name="Map" RelativePanel.Below="rl2" RelativePanel.AlignLeftWithPanel="True"  Margin="15,15,15,15"
+                         RelativePanel.AlignRightWithPanel="True"
+                         RelativePanel.AlignBottomWithPanel="True" CornerRadius="30"
+                MapServiceToken="Bing_Maps_API_Token_To_Remove_MapControl_Error" />
+    </RelativePanel>
+>>>>>>> master
 </Page>
