@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -23,16 +24,113 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        
-            <StackPanel x:Name="rpChoose" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left">
-                <TextBlock Text="This text demonstrates the wrapping behavior of a TextBlock." Width="240"
-                 IsTextSelectionEnabled="True" TextWrapping="Wrap"/>
-            </StackPanel>
+        <StackPanel x:Name="sp1" Grid.Row="0" Grid.Column="0">
+            <TextBlock x:Name="tx1" Text="Esto es un TextBlock"/>
+        </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" RelativePanel.Below="rpChoose">
-            <Pivot  x:Name="Pivot" >
-                
-            </Pivot>
+        <StackPanel  Grid.Row="1" Grid.Column="0" Width="200" Height="200">
+            <ListBox >
+                <Pivot >
+                    <PivotItem>
+                        <PivotItem.Header>Economia</PivotItem.Header>
+                        <PivotItem.Content>
+                            <StackPanel >
+                                <CheckBox Content="Setting One"/>
+                                <CheckBox Content="Setting Two"/>
+                                <CheckBox Content="Setting Three"/>
+                            </StackPanel>
+                        </PivotItem.Content>
+                    </PivotItem>
+                    <PivotItem>
+                        <PivotItem.Header>Two Tab</PivotItem.Header>
+                    </PivotItem>
+                    <PivotItem>
+                        <PivotItem.Header>Three Tab</PivotItem.Header>
+                    </PivotItem>
+                </Pivot>
+            </ListBox>
+        </StackPanel>
+        
+        
+        <StackPanel  Grid.Row="2" Grid.Column="0" Width="200" Height="200">
+            <ListBox >
+                <ListBoxItem Content="Verde"/>
+                <ListBoxItem Content="Rojo"/>
+                <ListBoxItem Content="Amarillo"/>
+                <ListBoxItem Content="Gris"/>
+                <ListBoxItem Content="Naranja"/>
+                <ListBoxItem Content="Azúl"/>
+                <ListBoxItem Content="Turquesa"/>
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="3" Grid.Column="0">
+            <CalendarView/>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Button>Cancel</Button>
+            <Button>Default</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <ComboBox Header="Seleccione" PlaceholderText="Pick a color" Width="200" >
+                <x:String>Blue</x:String>
+                <x:String>Green</x:String>
+                <x:String>Red</x:String>
+                <x:String>Yellow</x:String>
+            </ComboBox>
+        </StackPanel>
+        
+
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <CalendarDatePicker />
+        </StackPanel>
+       
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="2">
+            <RadioButton Content="Yes" Tag="Green"/>
+            <RadioButton Content="No" Tag="Yellow"/>
+            <RadioButton Content="Maybe" Tag="Blue"/>
+            <Button>Go</Button>
+        </StackPanel>
+
+        <!--hay que poner que sea introable y que autocorrija las palabras-->
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <TextBox AcceptsReturn="True" IsSpellCheckEnabled="True" VerticalAlignment="Center"/>
+
+        </StackPanel>
+
+        <!--<StackPanel Grid.Row="2" Grid.Column="2" Margin="5">
+            <Slider x:Name="volumeSlider" Header="Slider" Width="200"/>
+        </StackPanel>-->
+
+        <StackPanel Grid.Row="3" Grid.Column="2" Margin="5">
+            <DatePicker/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="3" Margin="5">
+            <Button Content="Hello" ToolTipService.ToolTip="Click to submit" Click="Hello_Clickable"/>
+        </StackPanel>
+        
+
+        <StackPanel Grid.Row="1" Grid.Column="3">
+            <PasswordBox x:Name="passwordBox" Width="200" MaxLength="16"/>
+        </StackPanel>
+
+        <!--<StackPanel Grid.Row="2" Grid.Column="3">
+            <ProgressBar x:Name="progressBar1" Value="0" Maximum="200" Margin="5"/>
+        </StackPanel>-->
+
+        <StackPanel Grid.Row="3" Grid.Column="3">
+            <Button>Make reservation</Button>
+            <Button>Validate datepicker</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+            <Slider Name="slider"  Margin="5"/>
+            <ProgressBar Value="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" Height="15" Width="400" HorizontalAlignment="Right" Margin="5"/>
         </StackPanel>
     </Grid>
 </Page>
