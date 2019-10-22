@@ -8,7 +8,27 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+ 
+        
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+            
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <AppBarButton x:Name="atras" Icon="Back" Click="Back_Click"  Margin="15,15,15,15"></AppBarButton>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <PersonPicture
+            DisplayName="Betsy Sherman"
+            ProfilePicture="Assets\imagen.jpg"
+            Initials="BS" />
+        </StackPanel>
     </Grid>
 </Page>

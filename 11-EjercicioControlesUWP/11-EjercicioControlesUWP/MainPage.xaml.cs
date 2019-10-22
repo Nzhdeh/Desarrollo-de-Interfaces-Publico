@@ -27,9 +27,14 @@ namespace _11_EjercicioControlesUWP
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// va a la pagina 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Hello_Clickable(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Pagina2));//hay que poner lo de Rafa
+            Frame.Navigate(typeof(Pagina2));
         }
     }
 }

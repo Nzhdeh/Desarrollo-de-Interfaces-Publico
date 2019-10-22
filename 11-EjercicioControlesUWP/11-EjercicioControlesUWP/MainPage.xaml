@@ -29,18 +29,27 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="1" Grid.Column="0" Width="200" Height="200">
-            <ListBox >
-                <Pivot >
+            <ListBox>
+                <Pivot>
                     <PivotItem>
-                        <PivotItem.Header>Economia</PivotItem.Header>
+                        <PivotItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="txtBlock">Economia</TextBlock>
+                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE825;" Margin="5"/>
+                            </StackPanel>
+                            
+                        </PivotItem.Header>
+                        
                         <PivotItem.Content>
-                            <StackPanel >
+                            <StackPanel>
                                 <CheckBox Content="Setting One"/>
                                 <CheckBox Content="Setting Two"/>
                                 <CheckBox Content="Setting Three"/>
                             </StackPanel>
                         </PivotItem.Content>
+
                     </PivotItem>
+
                     <PivotItem>
                         <PivotItem.Header>Two Tab</PivotItem.Header>
                     </PivotItem>

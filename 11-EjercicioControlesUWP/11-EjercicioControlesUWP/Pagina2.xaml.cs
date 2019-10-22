@@ -26,5 +26,15 @@ namespace _11_EjercicioControlesUWP
         {
             this.InitializeComponent();
         }
+
+        /// <summary>
+        /// va a la pagina principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));//hay que poner lo de Rafa
+        }
     }
 }
