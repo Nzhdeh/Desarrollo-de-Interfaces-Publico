@@ -120,7 +120,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="3" Margin="5">
-            <Button Content="Hello" ToolTipService.ToolTip="Click to submit" Click="Hello_Clickable"/>
+            <Button Content="Hello" ToolTipService.ToolTip="Click para pasar a la pagina siguente" Click="Hello_Clickable"/>
         </StackPanel>
         
 
