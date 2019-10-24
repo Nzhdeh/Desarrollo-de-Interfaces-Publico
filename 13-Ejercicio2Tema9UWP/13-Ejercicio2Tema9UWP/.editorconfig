@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0628: Nuevo miembro protegido declarado en la clase sealed
+dotnet_diagnostic.CS0628.severity = none

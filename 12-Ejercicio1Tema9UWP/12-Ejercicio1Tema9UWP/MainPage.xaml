@@ -25,8 +25,8 @@
             
             <TextBlock x:Name="tb1" Text="Hola mundo" 
                     FontSize="{Binding ElementName=slider,Path=Value,Mode=OneWay}"/>
-            
-            <TextBox x:Name="tbox1" FontFamily="{Binding ElementName=slider,Path=Value,Mode=TwoWay}" ></TextBox>
+
+            <TextBox x:Name="tbox1" Text="{Binding ElementName=slider,Path=Value,Mode=TwoWay}"></TextBox>
         </StackPanel>
         
 
