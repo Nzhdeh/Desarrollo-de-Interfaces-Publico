@@ -1,26 +1,28 @@
-create database PersonaDepartamento
-go
-use PersonaDepartamento
+use Personas
 go
 
 create table PD_Departamentos
 (
-	ID int not null,
-	Nombre varchar (20) null,
+	IdDepartamento int identity(1,1) not null,
+	NombreDepartamento varchar (20) null,
 
-	constraint PK_PD_Departamentos primary key (ID)
+	constraint PK_PD_Departamentos primary key (IdDepartamento)
 )
 go
 
 create table PD_Personas
 (
-	ID int not null,
-	Nombre varchar (20) null,
-	Apellidos varchar (30) null,
-	IDDepartamento int not null,
+	IdPersona int identity(1,1) not null,
+	NombrePersona varchar (20) null,
+	ApellidosPersona varchar (30) null,
+	IDDepartamento int null,
+	FechaNacimientoPersona date null,
+	TelefonoPersona varchar (15) null,
+	FotoPersona varbinary(max) null,
 
-	constraint PK_PD_Personas primary key (ID),
-	constraint FK_Persona_Departamento foreign key (IDDepartamento) references PD_Departamentos(ID)
+	constraint PK_PD_Personas primary key (IdPersona),
+	constraint FK_Persona_Departamento foreign key (IDDepartamento) 
+	references PD_Departamentos(IdDepartamento) on delete no action on update cascade
 )
 
 --drop database PersonaDepartamento
