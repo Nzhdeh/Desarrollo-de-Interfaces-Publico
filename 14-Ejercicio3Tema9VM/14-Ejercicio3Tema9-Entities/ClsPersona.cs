@@ -32,7 +32,7 @@ namespace _14_Ejercicio3Tema9_Entities
         }
 
         //propiedades publicas
-        public string nombre
+        public string Nombre
         {
             get
             {
@@ -41,11 +41,11 @@ namespace _14_Ejercicio3Tema9_Entities
             set
             {
                 _nombre = value;
-                InvokePropertyChanged(new PropertyChangedEventArgs("Nombre"));
+                //INotifyPropertyChange(new PropertyChangedEventArgs("Nombre"));
             }
         }
 
-        public string apellidos
+        public string Apellidos
         {
             get
             {
@@ -53,8 +53,7 @@ namespace _14_Ejercicio3Tema9_Entities
             }
             set
             {
-                if (_apellidos != "")
-                    _apellidos = value;
+                 _apellidos = value;
             }
         }
 
@@ -71,25 +70,8 @@ namespace _14_Ejercicio3Tema9_Entities
         //}
     }
 
-    //public event PropertyChangedEventHandler PropertyChanged;
-
-    /// <summary>
-    /// no funcionaaaaa
-    /// </summary>
     public interface INotifyPropertyChange
     {
 
     }
-
-    /// <summary>
-    /// PropertyChanged no funciona
-    /// </summary>
-    /// <param name="propertyName"></param>
-    //protected virtual void OnPropertyChanged(string propertyName)
-    //{
-    //    if (PropertyChanged != null)
-    //    {
-    //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-    //    }
-    //}
 }
