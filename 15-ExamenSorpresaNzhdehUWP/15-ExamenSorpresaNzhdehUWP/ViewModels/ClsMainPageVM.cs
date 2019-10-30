@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace _15_ExamenSorpresaNzhdehUWP.ViewModels
 {
-    public class ClsMainPageVM : INotifyPropertyChange
+    public class ClsMainPageVM //: INotifyPropertyChange
     {
         private List<ClsCocheMarca> listadoMarcas;
         private List<ClsCocheModelo> listadoModelos;
@@ -45,7 +45,7 @@ namespace _15_ExamenSorpresaNzhdehUWP.ViewModels
             }
         }
 
-        public ClsCocheMarca ModeloSeleccionada
+        public ClsCocheModelo ModeloSeleccionado
         {
             get
             {
