@@ -14,8 +14,8 @@ namespace _15_ExamenSorpresaNzhdehUWP.Models
 
         public ClsCocheMarca()
         {
-            this.id = 1;
-            this.marca = "Ford";
+            this.id = 0;
+            this.marca = "";
         }
 
         public ClsCocheMarca(int id,String marca)
@@ -34,7 +34,6 @@ namespace _15_ExamenSorpresaNzhdehUWP.Models
             set
             {
                 id = value;
-                //OnPropertyChanged("Seleccionado");//nombre de la propiedad publica
             }
         }
 
@@ -47,7 +46,6 @@ namespace _15_ExamenSorpresaNzhdehUWP.Models
             set
             {
                 marca = value;
-                //OnPropertyChanged("Seleccionado");//nombre de la propiedad publica
             }
         }
     }

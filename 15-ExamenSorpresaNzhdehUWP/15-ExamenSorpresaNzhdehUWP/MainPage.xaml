@@ -5,10 +5,38 @@
     xmlns:local="using:_15_ExamenSorpresaNzhdehUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:_15_ExamenSorpresaNzhdehUWP.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.DataContext>
+        <vm:ClsMainPageVM/>
+    </Page.DataContext>
+    
+    <RelativePanel>
 
-    </Grid>
+        <ListView x:Name="lv1" ItemsSource="{Binding ListadoMarcas}" 
+                  SelectedItem="{Binding MarcaSeleccionada,Mode=TwoWay}" 
+                  RelativePanel.AlignLeftWithPanel="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock x:Name="marca" Text="{Binding Path=Marca}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView x:Name="lv2" ItemsSource="{Binding ListadoModelos}" 
+                  SelectedItem="{Binding ModeloSeleccionado,Mode=TwoWay}" 
+                  RelativePanel.RightOf="lv1" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock x:Name="modelo" Text="{Binding Path=Modelo}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        
+        <TextBlock x:Name="tb1" Text="{Binding SeleccionFinal}" RelativePanel.Below="lv1" Margin="15"/>
+
+    </RelativePanel>
 </Page>

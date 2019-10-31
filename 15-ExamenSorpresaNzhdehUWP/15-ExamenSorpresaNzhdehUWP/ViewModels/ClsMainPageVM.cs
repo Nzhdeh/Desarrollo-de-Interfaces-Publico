@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace _15_ExamenSorpresaNzhdehUWP.ViewModels
 {
-    public class ClsMainPageVM //: INotifyPropertyChange
+    public class ClsMainPageVM : INotifyPropertyChanged
     {
         private List<ClsCocheMarca> listadoMarcas;
         private List<ClsCocheModelo> listadoModelos;
@@ -17,11 +18,30 @@ namespace _15_ExamenSorpresaNzhdehUWP.ViewModels
         private ClsCocheMarca marcaSeleccionada;
         private ClsCocheModelo modeloSeleccionado;
 
+        private string seleccionFinal;
 
         public ClsMainPageVM()
         {
-            listadoMarcas = ClsUtilListados.listadoCompletoMarcas();
-            listadoModelos = ClsUtilListados.listadoCompletoModelos(1);
+            this.listadoMarcas = ClsUtilListados.listadoCompletoMarcas();
+        }
+
+
+        //propiedades publicas
+
+        public List<ClsCocheMarca> ListadoMarcas
+        {
+            get
+            {
+                return listadoMarcas;
+            }
+        }
+
+        public List<ClsCocheModelo> ListadoModelos
+        {
+            get
+            {
+                return listadoModelos;
+            }
         }
 
         public ClsCocheMarca MarcaSeleccionada
@@ -33,15 +53,8 @@ namespace _15_ExamenSorpresaNzhdehUWP.ViewModels
             set
             {
                 marcaSeleccionada = value;
-                //OnPropertyChanged("MarcaSeleccionada");//nombre de la propiedad publica
-            }
-        }
-
-        public List<ClsCocheMarca> ListadoMarcas
-        {
-            get
-            {
-                return listadoMarcas;
+                this.listadoModelos = ClsUtilListados.listadoCompletoModelos(marcaSeleccionada.Id);
+                NotificarCambioDePropiedad("ListadoModelos");
             }
         }
 
@@ -54,30 +67,34 @@ namespace _15_ExamenSorpresaNzhdehUWP.ViewModels
             set
             {
                 modeloSeleccionado = value;
-                //OnPropertyChanged("ModeloSeleccionada");//nombre de la propiedad publica
+                NotificarCambioDePropiedad("SeleccionFinal");
+                this.seleccionFinal = "";//limpio para que cuando cambie de marca no se vea la seleccion anterior
             }
         }
 
-        public List<ClsCocheModelo> ListadoModelos
+        public String SeleccionFinal
         {
             get
             {
-                return listadoModelos;
+                if (marcaSeleccionada != null && modeloSeleccionado != null)
+                {
+                    seleccionFinal = marcaSeleccionada.Marca + " " + modeloSeleccionado.Modelo;
+                }
+
+                return seleccionFinal;
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// no entiendo nada
+        /// 
         /// </summary>
-        /// <param name="name"></param>
-        protected void OnPropertyChanged(string name)
+        /// <param name="nombrePropiedad"></param>
+        protected virtual void NotificarCambioDePropiedad([CallerMemberName] string nombrePropiedad = "")
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nombrePropiedad));
         }
+
     }
 }

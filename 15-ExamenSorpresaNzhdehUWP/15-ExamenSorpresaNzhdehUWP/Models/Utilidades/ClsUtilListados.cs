@@ -32,25 +32,32 @@ namespace _15_ExamenSorpresaNzhdehUWP.Models.Utilidades
         {
             List<ClsCocheModelo> listado = new List<ClsCocheModelo>();
 
-            if (idMarca == 1)
+            switch(idMarca)
             {
-                listado.Add(new ClsCocheModelo(1, "Fiesta",idMarca));
-                listado.Add(new ClsCocheModelo(2, "Focus",idMarca));
-                listado.Add(new ClsCocheModelo(3, "Kuga",idMarca));
-            }
-            else if (idMarca == 2)
-            {
-                listado.Add(new ClsCocheModelo(1, "Clio", idMarca));
-                listado.Add(new ClsCocheModelo(2, "Megane", idMarca));
-                listado.Add(new ClsCocheModelo(3, "Scenic", idMarca));
-            }
-            else if (idMarca == 3)
-            {
-                listado.Add(new ClsCocheModelo(1, "Ibiza", idMarca));
-                listado.Add(new ClsCocheModelo(2, "Leon", idMarca));
-                listado.Add(new ClsCocheModelo(3, "Tarranco", idMarca));
-            }
+                case 1:
 
+                    listado.Add(new ClsCocheModelo(1, "Fiesta",idMarca));
+                    listado.Add(new ClsCocheModelo(2, "Focus",idMarca));
+                    listado.Add(new ClsCocheModelo(3, "Kuga",idMarca));
+
+                    break;
+
+                case 2:
+
+                    listado.Add(new ClsCocheModelo(1, "Clio", idMarca));
+                    listado.Add(new ClsCocheModelo(2, "Megane", idMarca));
+                    listado.Add(new ClsCocheModelo(3, "Scenic", idMarca));
+
+                    break;
+
+                case 3:
+
+                    listado.Add(new ClsCocheModelo(1, "Ibiza", idMarca));
+                    listado.Add(new ClsCocheModelo(2, "Leon", idMarca));
+                    listado.Add(new ClsCocheModelo(3, "Tarranco", idMarca));
+
+                    break;
+            }
 
             return listado;
         }

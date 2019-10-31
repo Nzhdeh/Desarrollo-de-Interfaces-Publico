@@ -13,63 +13,6 @@
         <vm:ClsMainPageVM/>
     </Page.DataContext>
 
-    <!--<RelativePanel>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="normal">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="grid.(RelativePanel.RightOf)" Value="listView"></Setter>
-                    </VisualState.Setters>
-                </VisualState>
-
-                <VisualState x:Name="chico">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="grid.(RelativePanel.Below)" Value="listView"></Setter>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-
-        <ListView RelativePanel.AlignLeftWithPanel="True"  SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersona}" Name="listView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="n" Text="{Binding Path=Nombre}"/>
-                        <TextBlock Margin="3,0,0,0" Name="pa" Text="{Binding Path=PrimerApellido}"/>
-                        <TextBlock Margin="3,0,0,0" Name="sa" Text="{Binding Path=SegundoApellido}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <Grid Margin="10,0,0,0" Name="grid" Background="Beige">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Name="Nombre" Margin="10">Nombre:</TextBlock>
-            <TextBox Name="tbNombre" Grid.Column="1" Margin="10" Text="{Binding PersonaSeleccionada.Nombre,Mode=TwoWay}"></TextBox>
-            <TextBlock Name="PrimerApellido" Grid.Row="1" Margin="10">Primer Apellido:</TextBlock>
-            <TextBox Name="tbPrimerApellido" Grid.Column="1" Grid.Row="1" Margin="10" Text="{Binding PersonaSeleccionada.PrimerApellido,Mode=TwoWay}"></TextBox>
-            <TextBlock Name="FechaNacimiento" Grid.Row="3" Margin="10">Fecha de Nacimiento:</TextBlock>
-            <TextBox Name="tbFechaNacimiento" Grid.Column="2" Grid.Row="3" Margin="10" Text="{Binding PersonaSeleccionada.FechaNacimiento,Mode=TwoWay}"></TextBox>
-        </Grid>
-    </RelativePanel>-->
-
     <Grid x:Name="rp1">
 
         <Grid.RowDefinitions>
@@ -93,7 +36,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Name="nombre" Text="{Binding Path=Nombre}"/>
-                            <TextBlock Margin="2,0,0,0" Name="pa" Text="{Binding Path=Apellidos}"/>
+                            <TextBlock Margin="2,0,0,0" Name="apellidos" Text="{Binding Path=Apellidos}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
