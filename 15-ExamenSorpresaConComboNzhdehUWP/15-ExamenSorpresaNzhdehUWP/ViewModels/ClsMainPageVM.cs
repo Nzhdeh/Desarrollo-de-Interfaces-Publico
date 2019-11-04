@@ -26,6 +26,7 @@ namespace _15_ExamenSorpresaNzhdehUWP.ViewModels
         }
 
 
+        #region propiedades publicas
         //propiedades publicas
 
         public List<ClsCocheMarca> ListadoMarcas
@@ -87,8 +88,10 @@ namespace _15_ExamenSorpresaNzhdehUWP.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #endregion 
+
         /// <summary>
-        /// 
+        /// el encargado de notificar el cambio
         /// </summary>
         /// <param name="nombrePropiedad"></param>
         protected virtual void NotificarCambioDePropiedad([CallerMemberName] string nombrePropiedad = "")
