@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace _16_BuscaminasUWP.Models
 {
-    public class ClsCasilla
+    public class ClsCasilla : INotifyPropertyChanged
     {
         private bool esBomba;
         private string rutaIcono;
@@ -40,6 +42,7 @@ namespace _16_BuscaminasUWP.Models
             set
             {
                 yaPulsada = value;
+                NotificarCambioDePropiedad("RutaIcono");
             }
         }
 
@@ -49,6 +52,35 @@ namespace _16_BuscaminasUWP.Models
             {
                 return rutaIcono;
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// sirve para asignar una imagen a la casilla pulsada
+        /// </summary>
+        public void GirarCarta()
+        {
+            if (YaPulsada == true)
+            {
+                if (EsBomba == true)
+                {
+                    rutaIcono = "ms-appx://_16_BuscaminasUWP/Assets/Imagenes/bomba.png";
+                }
+                else
+                {
+                    rutaIcono = "ms-appx://_16_BuscaminasUWP/Assets/Imagenes/salvado.png";
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void NotificarCambioDePropiedad([CallerMemberName] string nombrePropiedad = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nombrePropiedad));
         }
     }
 }
