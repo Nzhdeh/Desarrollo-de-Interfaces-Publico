@@ -5,10 +5,22 @@
     xmlns:local="using:_16_BuscaminasUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:_16_BuscaminasUWP.ViewModels"
     mc:Ignorable="d"
+    
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.DataContext>
+        <vm:ClsMainPageVM/>
+    </Page.DataContext>
+    <StackPanel>
+        <GridView ItemsSource="{Binding Listado}" SelectedItem="{Binding CasillaSeleccionada, Mode=TwoWay}" Width="1500">
+            <GridView.ItemTemplate>
+                <DataTemplate x:Name="datos" >
+                    <Image Source="{Binding Path=Imagen}" Width="200" Height="200"></Image>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
 
-    </Grid>
+    </StackPanel>
 </Page>
