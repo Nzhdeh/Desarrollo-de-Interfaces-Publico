@@ -44,13 +44,13 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="0">
-            <AppBarButton Icon="Delete" Command="{Binding Path=Eliminar_Click}"/>
+            <AppBarButton Icon="Delete" Command="{Binding DataContext.EliminarExecute,ElementName=lista}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
             <TextBlock Margin="5">Buscar:</TextBlock>
             <TextBox></TextBox>
-            <AppBarButton Icon="Find"></AppBarButton>
+            <AppBarButton Icon="Find" Command="{Binding Buscar}"></AppBarButton>
         </StackPanel>
 
     </Grid>
