@@ -34,7 +34,8 @@ namespace _14_Ejercicio3Tema9VM_UI.ViewModels
             eliminar = new DelegateCommand(EliminarExecute, EliminarCanExecute);
             buscar = new DelegateCommand(BuscarExecute, BuscarCanExecute);
         }
-        
+
+        #region propiedades publicas
         //propiedades publicas
         public ClsPersona PersonaSeleccionada
         {
@@ -99,6 +100,8 @@ namespace _14_Ejercicio3Tema9VM_UI.ViewModels
 
 
         public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
 
         /// <summary>
         /// 
@@ -138,6 +141,10 @@ namespace _14_Ejercicio3Tema9VM_UI.ViewModels
             return hayPersonaSeleccionada;
         }
 
+        /// <summary>
+        /// codigo asociado al canexecute del comando buscar
+        /// </summary>
+        /// <returns></returns>
         private bool BuscarCanExecute()
         {
             bool hayTextoEscrito = true;
@@ -148,6 +155,10 @@ namespace _14_Ejercicio3Tema9VM_UI.ViewModels
             return hayTextoEscrito;
         }
 
+        /// <summary>
+        /// codigo asociado al execute del comando buscar
+        /// buscará los nombres que contengan lo que queramos buscar
+        /// </summary>
         private void BuscarExecute()
         {
             for(int i = 0; i < listaCompleta.Count; i++)

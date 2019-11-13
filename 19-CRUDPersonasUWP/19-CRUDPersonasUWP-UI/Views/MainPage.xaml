@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="_19_CRUDPersonasUWP_UI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_19_CRUDPersonasUWP_UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:_19_CRUDPersonasUWP_UI.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:ClsMainPageVM/>
+    </Page.DataContext>
+    
+    <RelativePanel x:Name="rpPrincipal" Background="AliceBlue">
+
+        <StackPanel x:Name="spMenu" Orientation="Horizontal" 
+                    RelativePanel.AlignTopWithPanel="True" Background="Red">
+
+            <TextBlock>aqui va el munu</TextBlock>
+        </StackPanel>
+        
+        <StackPanel x:Name="spBotones" Orientation="Horizontal" 
+                    RelativePanel.Below="spMenu">
+
+            <AppBarButton Icon="Add"></AppBarButton>
+            <AppBarButton Icon="Save"></AppBarButton>
+            <AppBarButton Icon="Refresh"></AppBarButton>
+        </StackPanel>
+
+        <StackPanel x:Name="spBuscar" Orientation="Horizontal" 
+                    RelativePanel.Below="spBotones">
+            <TextBox></TextBox>
+            <AppBarButton Icon="Find"></AppBarButton>
+        </StackPanel>
+        
+        <StackPanel x:Name="spBody" Orientation="Horizontal" 
+                    RelativePanel.Below="spBuscar">
+
+            <Grid Background="Blue" Width="1000" Height="500">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel x:Name="spLista" Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                    <!--<ListView x:Name="lv1" ItemsSource="{Binding ListadoMarcas}" 
+                          SelectedItem="{Binding MarcaSeleccionada,Mode=TwoWay}" 
+                          RelativePanel.AlignLeftWithPanel="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="marca" Text="{Binding Path=Marca}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>-->
+                </StackPanel>
+
+                <StackPanel x:Name="spDetalles" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                    <TextBlock>Nombre</TextBlock>
+                    <TextBox></TextBox>
+                    <TextBlock>Apellidos</TextBlock>
+                    <TextBox></TextBox>
+                    <TextBlock>Fecha de nacimiento</TextBlock>
+                    <TextBox></TextBox>
+                    <TextBlock>Telefono</TextBlock>
+                    <TextBox></TextBox>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+
+    </RelativePanel>
+</Page>
