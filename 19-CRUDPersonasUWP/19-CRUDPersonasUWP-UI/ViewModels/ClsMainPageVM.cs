@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _19_CRUDPersonasUWP_UI.ViewModels
 {
-    class ClsMainPageVM
+    public class ClsMainPageVM
     {
 
     }

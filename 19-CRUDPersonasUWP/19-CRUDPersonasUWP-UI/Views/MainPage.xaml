@@ -6,8 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:_19_CRUDPersonasUWP_UI.ViewModels"
+    xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="AliceBlue">
 
     <Page.DataContext>
         <vm:ClsMainPageVM/>
@@ -16,29 +17,39 @@
     <RelativePanel x:Name="rpPrincipal" Background="AliceBlue">
 
         <StackPanel x:Name="spMenu" Orientation="Horizontal" 
-                    RelativePanel.AlignTopWithPanel="True" Background="Red">
+                    RelativePanel.AlignTopWithPanel="True" 
+                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
 
-            <TextBlock>aqui va el munu</TextBlock>
+            <muxc:MenuBar>
+                <muxc:MenuBarItem Title="Archivo"> <!--hay que bindear-->
+                    <MenuFlyoutItem Text="Eliminar"/>
+                    <MenuFlyoutItem Text="Guardar"/>
+                </muxc:MenuBarItem>
+            </muxc:MenuBar>
         </StackPanel>
         
         <StackPanel x:Name="spBotones" Orientation="Horizontal" 
-                    RelativePanel.Below="spMenu">
+                    RelativePanel.Below="spMenu"
+                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
 
-            <AppBarButton Icon="Add"></AppBarButton>
-            <AppBarButton Icon="Save"></AppBarButton>
-            <AppBarButton Icon="Refresh"></AppBarButton>
+            <AppBarButton Icon="Add" Label="Añadir"/> <!--Click="AppBarButton_Click"-->
+            <AppBarButton Icon="Save" Label="Guardar"/>
+            <AppBarButton Icon="Refresh" Label="Refrescar"/><!--hay que bindear-->
+            <AppBarButton Icon="Delete" Label="Borrar"/>
         </StackPanel>
 
         <StackPanel x:Name="spBuscar" Orientation="Horizontal" 
-                    RelativePanel.Below="spBotones">
-            <TextBox></TextBox>
-            <AppBarButton Icon="Find"></AppBarButton>
+                    RelativePanel.Below="spBotones" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <TextBlock Text="Buscar:" Margin="0,0,15,0"/>
+            <TextBox Width="200" Height="35"/>
+            <AppBarButton Icon="Find" Height="35"></AppBarButton><!--hay que bindear-->
         </StackPanel>
-        
-        <StackPanel x:Name="spBody" Orientation="Horizontal" 
-                    RelativePanel.Below="spBuscar">
 
-            <Grid Background="Blue" Width="1000" Height="500">
+        <StackPanel x:Name="spBody" Orientation="Horizontal" Background="Brown" 
+                    RelativePanel.Below="spBuscar" RelativePanel.AlignLeftWithPanel="True" 
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
@@ -47,31 +58,39 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel x:Name="spLista" Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-                    <!--<ListView x:Name="lv1" ItemsSource="{Binding ListadoMarcas}" 
-                          SelectedItem="{Binding MarcaSeleccionada,Mode=TwoWay}" 
+                <StackPanel x:Name="spListaPersona" Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                    <ListView x:Name="lv1" ItemsSource="{Binding ListadoPersona}" 
+                          SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" 
                           RelativePanel.AlignLeftWithPanel="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock x:Name="marca" Text="{Binding Path=Marca}"/>
+                                <TextBlock x:Name="persona" Text="{Binding Path=Marca}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-                    </ListView>-->
+                    </ListView>
                 </StackPanel>
 
                 <StackPanel x:Name="spDetalles" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                    <StackPanel x:Name="spFoto">
+                        <PersonPicture
+                        DisplayName="Betsy Sherman"
+                        ProfilePicture="Assets\LockScreenLogo.scale-200.png"
+                        Initials="BS"/>
+                    </StackPanel>
+
                     <TextBlock>Nombre</TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding NombrePersona}"></TextBox>
+                    <!--hay que bindear con el nombre de la persona seleccionada-->
                     <TextBlock>Apellidos</TextBlock>
                     <TextBox></TextBox>
                     <TextBlock>Fecha de nacimiento</TextBlock>
-                    <TextBox></TextBox>
+                    <DatePicker/>
                     <TextBlock>Telefono</TextBlock>
                     <TextBox></TextBox>
-                </StackPanel>
 
+                    <AppBarButton Icon="Save" Label="Guardar" />
+                </StackPanel>
             </Grid>
         </StackPanel>
-
     </RelativePanel>
 </Page>
