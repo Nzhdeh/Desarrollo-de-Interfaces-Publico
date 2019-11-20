@@ -28,21 +28,21 @@
             </muxc:MenuBar>
         </StackPanel>
         
-        <StackPanel x:Name="spBotones" Orientation="Horizontal" 
+        <!--<StackPanel x:Name="spBotones" Orientation="Horizontal" 
                     RelativePanel.Below="spMenu"
                     RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
 
-            <AppBarButton Icon="Add" Label="Añadir"/> <!--Click="AppBarButton_Click"-->
+            <AppBarButton Icon="Add" Label="Añadir"/> --><!--Click="AppBarButton_Click"--><!--
             <AppBarButton Icon="Save" Label="Guardar"/>
-            <AppBarButton Icon="Refresh" Label="Refrescar"/><!--hay que bindear-->
+            <AppBarButton Icon="Refresh" Label="Refrescar"/>--><!--hay que bindear--><!--
             <AppBarButton Icon="Delete" Label="Borrar"/>
-        </StackPanel>
+        </StackPanel>-->
 
         <StackPanel x:Name="spBuscar" Orientation="Horizontal" 
-                    RelativePanel.Below="spBotones" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <TextBlock Text="Buscar:" Margin="0,0,15,0"/>
-            <TextBox Width="200" Height="35"/>
-            <AppBarButton Icon="Find" Height="35"></AppBarButton><!--hay que bindear-->
+                    RelativePanel.Below="spMenu" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <!--<TextBlock Text="Buscar:" Margin="0,0,15,0"/>-->
+            <TextBox Width="200" Height="35" Margin="5,0,0,0"/>
+            <AppBarButton Icon="Find"  Label="Buscar"></AppBarButton><!--hay que bindear-->
         </StackPanel>
 
         <StackPanel x:Name="spBody" Orientation="Horizontal" Background="Brown" 
@@ -59,7 +59,15 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel x:Name="spListaPersona" Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-                    <ListView x:Name="lv1" ItemsSource="{Binding ListadoPersona}" 
+                    <StackPanel x:Name="spBotones" Orientation="Horizontal">
+                        <AppBarButton Icon="Add" Label="Añadir"/>
+                        <!--Click="AppBarButton_Click"-->
+                        <AppBarButton Icon="Save" Label="Guardar"/>
+                        <AppBarButton Icon="Refresh" Label="Refrescar"/>
+                        <!--hay que bindear-->
+                        <AppBarButton Icon="Delete" Label="Borrar"/>
+                    </StackPanel>
+                    <ListView x:Name="lv1" Margin="0,5,0,0" ItemsSource="{Binding ListadoPersona}" 
                           SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" 
                           RelativePanel.AlignLeftWithPanel="True">
                         <ListView.ItemTemplate>
@@ -71,7 +79,7 @@
                 </StackPanel>
 
                 <StackPanel x:Name="spDetalles" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-                    <StackPanel x:Name="spFoto">
+                    <StackPanel x:Name="spFoto" Margin="0,5,0,0">
                         <PersonPicture
                         DisplayName="Betsy Sherman"
                         ProfilePicture="Assets\LockScreenLogo.scale-200.png"
