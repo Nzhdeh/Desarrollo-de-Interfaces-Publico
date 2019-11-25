@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:_19_CRUDPersonasUWP_UI.ViewModels"
+    xmlns:conv="using:_19_CRUDPersonas_Entities"
     xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d"
     Background="AliceBlue">
@@ -13,90 +14,85 @@
     <Page.DataContext>
         <vm:ClsMainPageVM/>
     </Page.DataContext>
-    
-    <RelativePanel x:Name="rpPrincipal" Background="AliceBlue">
 
-        <StackPanel x:Name="spMenu" Orientation="Horizontal" 
-                    RelativePanel.AlignTopWithPanel="True" 
-                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+    <Page.Resources>
+        <conv:ClsConverterFecha x:Key="converterFecha"/>
+    </Page.Resources>
 
+    <RelativePanel x:Name="rpPrincipal">
+        <StackPanel x:Name="spMenu">
             <muxc:MenuBar>
-                <muxc:MenuBarItem Title="Archivo"> <!--hay que bindear-->
-                    <MenuFlyoutItem Text="Eliminar"/>
-                    <MenuFlyoutItem Text="Guardar"/>
+                <muxc:MenuBarItem Title="Archivo">
+                    <MenuFlyoutItem Text="Eliminar" Command="{Binding BorrarCommand}"/>
+                    <MenuFlyoutItem Text="Guardar" Command="{Binding SaveCommand}"/>
                 </muxc:MenuBarItem>
             </muxc:MenuBar>
         </StackPanel>
-        
-        <!--<StackPanel x:Name="spBotones" Orientation="Horizontal" 
-                    RelativePanel.Below="spMenu"
-                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
 
-            <AppBarButton Icon="Add" Label="Añadir"/> --><!--Click="AppBarButton_Click"--><!--
-            <AppBarButton Icon="Save" Label="Guardar"/>
-            <AppBarButton Icon="Refresh" Label="Refrescar"/>--><!--hay que bindear--><!--
-            <AppBarButton Icon="Delete" Label="Borrar"/>
-        </StackPanel>-->
-
-        <StackPanel x:Name="spBuscar" Orientation="Horizontal" 
-                    RelativePanel.Below="spMenu" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <!--<TextBlock Text="Buscar:" Margin="0,0,15,0"/>-->
-            <TextBox Width="200" Height="35" Margin="5,0,0,0"/>
-            <AppBarButton Icon="Find"  Label="Buscar"></AppBarButton><!--hay que bindear-->
+        <StackPanel x:Name="spBotones" Orientation="Horizontal" RelativePanel.Below="spMenu">
+            <TextBox x:Name="tbCuadroBuscar" Width="200" Height="35" Margin="5,0,0,0" 
+                     PlaceholderText="Buscar persona" TextWrapping="Wrap" 
+                     Text="{Binding TextoBusqueda, Mode =TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <AppBarButton Icon="Find"  Label="Buscar" Command="{Binding BuscarCommand}"/>
+            <AppBarButton Icon="Add" Label="Añadir" Command="{Binding AddCommand}"/>
+            <AppBarButton Icon="Save" Label="Guardar" Command="{Binding SaveCommand}"/>
+            <AppBarButton Icon="Refresh" Label="Refrescar" Command="{Binding UpdateCommand}"/>
+            <AppBarButton Icon="Delete" Label="Borrar" Command="{Binding BorrarCommand}"/>
         </StackPanel>
 
-        <StackPanel x:Name="spBody" Orientation="Horizontal" Background="Brown" 
-                    RelativePanel.Below="spBuscar" RelativePanel.AlignLeftWithPanel="True" 
-                    RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignBottomWithPanel="True">
+        <StackPanel x:Name="spListadoDetalles" RelativePanel.Below="spBotones">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel x:Name="spListaPersona" Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-                    <StackPanel x:Name="spBotones" Orientation="Horizontal">
-                        <AppBarButton Icon="Add" Label="Añadir"/>
-                        <!--Click="AppBarButton_Click"-->
-                        <AppBarButton Icon="Save" Label="Guardar"/>
-                        <AppBarButton Icon="Refresh" Label="Refrescar"/>
-                        <!--hay que bindear-->
-                        <AppBarButton Icon="Delete" Label="Borrar"/>
-                    </StackPanel>
-                    <ListView x:Name="lv1" Margin="0,5,0,0" ItemsSource="{Binding ListadoPersona}" 
-                          SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" 
-                          RelativePanel.AlignLeftWithPanel="True">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock x:Name="persona" Text="{Binding Path=Marca}"/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                <StackPanel x:Name="spListado" Grid.Column="0" Width="230">
+                    <ScrollViewer x:Name="scrollViewer">
+                        <ListView x:Name="listView" SelectedItem="{Binding PersonaSeleccionada, Mode=TwoWay}" ItemsSource="{Binding ListadoPersonaAuxiliar}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType ="x:String">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Path=NombrePersona }"/>
+                                        <TextBlock Text="{Binding Path=ApellidosPersona}" Margin="10,0,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
                 </StackPanel>
 
-                <StackPanel x:Name="spDetalles" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-                    <StackPanel x:Name="spFoto" Margin="0,5,0,0">
-                        <PersonPicture
-                        DisplayName="Betsy Sherman"
-                        ProfilePicture="Assets\LockScreenLogo.scale-200.png"
-                        Initials="BS"/>
+                <StackPanel x:Name="spDetalles" Orientation="Vertical" Grid.Column="1">
+                    <StackPanel x:Name="spFoto">
+                        <PersonPicture DisplayName="Betsy Sherman"
+                            ProfilePicture="Assets\imagen.jpg"
+                            Initials="image"/>
                     </StackPanel>
 
-                    <TextBlock>Nombre</TextBlock>
-                    <TextBox Text="{Binding NombrePersona}"></TextBox>
-                    <!--hay que bindear con el nombre de la persona seleccionada-->
-                    <TextBlock>Apellidos</TextBlock>
-                    <TextBox></TextBox>
-                    <TextBlock>Fecha de nacimiento</TextBlock>
-                    <DatePicker/>
-                    <TextBlock>Telefono</TextBlock>
-                    <TextBox></TextBox>
-
-                    <AppBarButton Icon="Save" Label="Guardar" />
+                    <StackPanel x:Name="spDetalle" Orientation="Vertical" DataContext="{Binding PersonaSeleccionada}">
+                        <TextBlock>Nombre</TextBlock>
+                        <TextBox Text="{Binding PersonaSeleccionada.NombrePersona, Mode=TwoWay, UpdateSourceTrigger=Explicit}"></TextBox>
+                        <TextBlock>Apellidos</TextBlock>
+                        <TextBox Text="{Binding PersonaSeleccionada.ApellidosPersona, Mode=TwoWay, UpdateSourceTrigger=Explicit}"></TextBox>
+                        <TextBlock>Fecha de nacimiento</TextBlock>
+                        <DatePicker x:Name="dpFechaNac"  Date="{Binding PersonaSeleccionada.FechaNacimientoPersona, ElementName=this, Mode=TwoWay,UpdateSourceTrigger=Explicit}" />
+                        <TextBlock>Telefono</TextBlock>
+                        <TextBox Text="{Binding PersonaSeleccionada.TelefonoPersona, Mode=TwoWay, UpdateSourceTrigger=Explicit}"></TextBox>
+                        <TextBlock Name="IDDepartamento" Grid.Row="4">Departamento:</TextBlock>
+                        <ComboBox ItemsSource="{Binding ListadoDepartamentos}" SelectedValue="{Binding PersonaSeleccionada.IDDepartamento, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="ID" PlaceholderText="Elige un departamento" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Path=NombreDepartamento}"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <AppBarButton Icon="Save" Label="Guardar" Command="{Binding SaveCommand}"/>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </StackPanel>

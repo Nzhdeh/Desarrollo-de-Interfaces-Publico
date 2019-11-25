@@ -1,4 +1,5 @@
-﻿using _19_CRUDPersonas_Entities;
+﻿using _19_CRUDPersonas_DAL.Listados;
+using _19_CRUDPersonas_Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,15 @@ namespace _19_CRUDPersonas_BL.Listados
 {
     public class ClsListadoPersonasBL
     {
-        public List<ClsPersona> ListadoPersonas()
+        public List<ClsPersona> getListadoPersonasBL()
         {
-            return null;
+            List<ClsPersona> lista;
+
+            ClsListadoPersonasDAL listadoPersonasDAL = new ClsListadoPersonasDAL();
+
+            lista = listadoPersonasDAL.ListadoCompletoPersonas();
+
+            return lista;
         }
     }
 }

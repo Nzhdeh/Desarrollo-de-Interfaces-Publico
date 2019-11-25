@@ -9,20 +9,19 @@ using System.Threading.Tasks;
 
 namespace _19_CRUDPersonas_DAL.Listados
 {
-    public class ClsListadoPersonasDAL
+    public class ClsListadoDepartamentosDAL
     {
-        //TODO funcion que devuelve un listado completo de personas
-        public List<ClsPersona> ListadoCompletoPersonas()
+        public List<ClsDepartamento> getListadoDepartamentosDAL()
         {
             ClsMyConnection miConexion=null;
 
-            List<ClsPersona> listadoPersonas = new List<ClsPersona>();
+            List<ClsDepartamento> listadoDepartamentos = new List<ClsDepartamento>();
 
             SqlCommand miComando = new SqlCommand();
 
             SqlDataReader miLector=null;
 
-            ClsPersona oPersona=null;
+            ClsDepartamento departamento=null;
 
             SqlConnection conexion=null;
 
@@ -31,7 +30,7 @@ namespace _19_CRUDPersonas_DAL.Listados
             try
             {
                 conexion = miConexion.getConnection();
-                miComando.CommandText = "SELECT * FROM PD_Personas";
+                miComando.CommandText = "SELECT * FROM PD_Departamentos";
 
                 miComando.Connection = conexion;
                 miLector = miComando.ExecuteReader();
@@ -41,15 +40,10 @@ namespace _19_CRUDPersonas_DAL.Listados
                 {
                     while (miLector.Read())
                     {
-                        oPersona = new ClsPersona();
-                        oPersona.IdPersona = (int)miLector["IDPersona"];
-                        oPersona.NombrePersona = (string)miLector["NombrePersona"];
-                        oPersona.ApellidosPersona = (string)miLector["ApellidosPersona"];
-                        oPersona.FechaNacimientoPersona = (DateTime)miLector["FechaNacimientoPersona"];
-                        oPersona.TelefonoPersona = (string)miLector["TelefonoPersona"];
-                        oPersona.FotoPersona = null;//hay que recuperar la imagen
-                        oPersona.IDDEpartamento = (int)miLector["IDDepartamento"];
-                        listadoPersonas.Add(oPersona);
+                        departamento = new ClsDepartamento();
+                        departamento.IdDepartamentoa = (int)miLector["ID"];
+                        departamento.NombreDepartamento = (string)miLector["Nombre"];
+                        listadoDepartamentos.Add(departamento);
                     }
                 }
             }
@@ -67,7 +61,7 @@ namespace _19_CRUDPersonas_DAL.Listados
                     miConexion.closeConnection(ref conexion);
             }
 
-            return listadoPersonas;
+            return (listadoDepartamentos);
         }
     }
 }

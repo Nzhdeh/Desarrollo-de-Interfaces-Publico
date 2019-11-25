@@ -120,9 +120,11 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ClsConverterFecha .cs" />
+    <Compile Include="ClsDelegateCommand.cs" />
     <Compile Include="ClsDepartamento.cs" />
     <Compile Include="ClsPersona.cs" />
+    <Compile Include="ClsVMBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\_19_CRUDPersonas_Entities.rd.xml" />
   </ItemGroup>

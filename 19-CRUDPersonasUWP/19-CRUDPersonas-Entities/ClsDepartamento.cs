@@ -13,7 +13,7 @@ namespace _19_CRUDPersonas_Entities
             this.NombreDepartamento = "No nombre";
         }
 
-        public int IdDepartamentoa { get; }
+        public int IdDepartamentoa { get; set; }
         public String NombreDepartamento { get; set; }
     }
 }

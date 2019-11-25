@@ -120,8 +120,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Listados\ClsListadoDepartamentosBL.cs" />
     <Compile Include="Listados\ClsListadoPersonasBL.cs" />
+    <Compile Include="Manejadoras\ClsGestoraPersonasBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\_19_CRUDPersonas_BL.rd.xml" />
   </ItemGroup>
@@ -140,9 +141,7 @@
       <Name>19-CRUDPersonas-Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Manejadoras\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
