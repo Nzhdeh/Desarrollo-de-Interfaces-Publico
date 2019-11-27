@@ -1,0 +1,41 @@
+Database en Azure
+
+Nombre de la BBDD:
+	WPFSample
+
+URL del Servidor:
+	iesnervion.database.windows.net
+
+	User:prueba
+	Pssw:iesnervion123.
+
+Nombre del servidor:
+	name:iesnervion
+
+
+Cadena de conexion completa:
+	connection.ConnectionString = "Server=tcp:iesnervion.database.windows.net,1433;Initial Catalog=WPFSample;Persist Security Info=False;User ID=prueba;Password=iesnervion123.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+WebAPI
+http://webapiejemplo.azurewebsites.net/api/values
+
+Web ASP.NET MVC
+http://wpfsample.azurewebsites.net
+
+
+
+
+
+Chat
+
+Nombre de la BBDD:
+	chatnervion
+
+URL del Servidor:
+	chatnervion.database.windows.net
+
+	User:prueba
+	Pssw:iesnervion123.
+
+Nombre del servidor:
+	name:iesnervion
+
