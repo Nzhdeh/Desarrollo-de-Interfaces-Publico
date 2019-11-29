@@ -32,11 +32,13 @@ namespace _19_CRUDPersonasUWP_UI.ViewModels
         #region "Constructores"
         public ClsMainPageVM()
         {
-            ClsListadoPersonasBL listadoPersonasBL = new ClsListadoPersonasBL();
-            listadoPersonas = new ObservableCollection<ClsPersona>(listadoPersonasBL.getListadoPersonasBL());
-            listadoPersonaAuxiliar = listadoPersonas;
-            textoBusqueda = "";
-            DispatcherTimerSample();
+            //ClsListadoPersonasBL listadoPersonasBL = new ClsListadoPersonasBL();
+            //listadoPersonas = new ObservableCollection<ClsPersona>(listadoPersonasBL.getListadoPersonasBL());
+            //listadoPersonaAuxiliar = listadoPersonas;
+            //textoBusqueda = "";
+            //DispatcherTimerSample();
+            CargarListado();
+           
         }
         #endregion
 
@@ -187,6 +189,12 @@ namespace _19_CRUDPersonasUWP_UI.ViewModels
         }
         #endregion
 
+        private async void CargarListado()
+        {
+            ClsListadoPersonasBL listadoPersonasBL = new ClsListadoPersonasBL();
+            listadoPersonas = new ObservableCollection<ClsPersona>(await listadoPersonasBL.getListadoPersonasBL());
+            listadoPersonaAuxiliar = listadoPersonas;
+        }
         #region Metodos
         /// <summary>
         /// Metodo que comprueba si se puede borrar un item

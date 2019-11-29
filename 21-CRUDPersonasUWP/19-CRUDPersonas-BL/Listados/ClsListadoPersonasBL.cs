@@ -16,7 +16,7 @@ namespace _19_CRUDPersonas_BL.Listados
 
             ClsListadoPersonasDAL listadoPersonasDAL = new ClsListadoPersonasDAL();
 
-            lista = listadoPersonasDAL.ListadoCompletoPersonas();
+            lista = await listadoPersonasDAL.ListadoCompletoPersonas();
 
             return lista;
         }
