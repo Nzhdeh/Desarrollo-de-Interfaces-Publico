@@ -25,7 +25,7 @@
 
 
     <RelativePanel x:Name="rpPrincipal">
-        
+
         <!--<StackPanel Margin="10">
             <TextBox Name="txtValue" />
             
@@ -59,11 +59,12 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="52"/>
+                    <muxc:ColumnDefinition Width="178"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel x:Name="spListado" Grid.Column="0" Width="230">
+                <StackPanel x:Name="spListado" Grid.Column="0" Width="230" muxc:Grid.ColumnSpan="2">
                     <ScrollViewer x:Name="scrollViewer">
                         <ListView x:Name="listView" SelectedItem="{Binding PersonaSeleccionada, Mode=TwoWay}" ItemsSource="{Binding ListadoPersonaAuxiliar}">
                             <ListView.ItemTemplate>
@@ -78,8 +79,8 @@
                     </ScrollViewer>
                 </StackPanel>
 
-                <StackPanel x:Name="spDetalles" Orientation="Vertical" Grid.Column="1">
-                    
+                <StackPanel x:Name="spDetalles" Orientation="Vertical" muxc:Grid.Column="2">
+
                     <StackPanel x:Name="spFoto">
                         <PersonPicture DisplayName="Betsy Sherman"
                             ProfilePicture="Assets\imagen.jpg"

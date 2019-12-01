@@ -1,0 +1,7 @@
+﻿<Application
+    x:Class="PreparandoExamen02_12_2019_UI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PreparandoExamen02_12_2019_UI">
+
+</Application>
