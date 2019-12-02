@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="Examen1trimestreNzhdehUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Examen1trimestreNzhdehUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Examen1trimestreNzhdehUWP.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:ClsMainPageVM/>
+    </Page.DataContext>
+
+    <RelativePanel>
+
+        <!--<GridView x:Name="vengadores"
+        ItemsSource="{Binding ListadoVengadoresConFoto}"
+        SelectionMode="Single"
+        SelectedItem="{Binding VengadorSeleccionado, Mode=TwoWay}"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        >
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding Imagen}" Width="150" Height="150"
+                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+        </GridView>-->
+
+        <ListView x:Name="vengadores" ItemsSource="{Binding ListadoVengadoresConFoto}" 
+                  SelectedItem="{Binding VengadorSeleccionado,Mode=TwoWay}" 
+                  RelativePanel.AlignLeftWithPanel="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding Imagen}" Width="150" Height="150"
+                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView x:Name="misiones" ItemsSource="{Binding ListadoMisiones}" 
+                  SelectedItem="{Binding MisionSeleccionada,Mode=TwoWay}" 
+                  RelativePanel.Below="vengadores" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock x:Name="nombreMision" Text="{Binding Path=TituloMision}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Vertical" x:Name="detalles" RelativePanel.Below="misiones">
+            <TextBlock Text="Reservada"/>
+            <TextBox Text="{Binding Reservada,Mode=TwoWay}"/>
+            <TextBlock Text="Observaciones"/>
+            <TextBox Text="{Binding Observaciones}"></TextBox>
+            <StackPanel x:Name="guardar" RelativePanel.Below="misiones">
+                <AppBarButton Icon="Save" Label="Guardar" Command="{Binding SaveCommand}"/>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        
+    </RelativePanel>
+    
+</Page>
