@@ -10,5 +10,17 @@ namespace ChatClienteUWP.Models
     {
         public string Nombre { get; set; }
         public string Mensage { get; set; }
+
+        public ClsMensage()
+        {
+            Nombre = "nada";
+            Mensage = "nada";
+        }
+
+        public ClsMensage(String nombre,String mensage)
+        {
+            Nombre = nombre;
+            Mensage = mensage;
+        }
     }
 }

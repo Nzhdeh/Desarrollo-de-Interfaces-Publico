@@ -10,31 +10,28 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
-        <vm:ClsmainPageVM/>
+        <vm:ClsMainPageVM/>
     </Page.DataContext>
-    
+
     <RelativePanel>
-        <TextBox x:Name="name" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"></TextBox>
-        <ListView x:Name="lv" ItemsSource="{Binding Messages}" RelativePanel.Above="rp" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="name">
+        <TextBox x:Name="nombre" Text="{Binding Mensaje.Nombre,Mode=TwoWay}" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"></TextBox>
+        <ListView x:Name="lv" ItemsSource="{Binding listadoMensaje}" RelativePanel.Above="rp" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="name">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local:ChatMessage">
+                <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>
-                        <Run Text="{x:Bind Username}"></Run>
-                        <Run Text=": "></Run>
-                        <Run Text="{x:Bind Message}"></Run>
+                            <Run Text="{Binding Nombre}"></Run>
+                            <Run Text=": "></Run>
+                            <Run Text="{Binding Mensage}"></Run>
                         </TextBlock>
-
                     </StackPanel>
                 </DataTemplate>
 
             </ListView.ItemTemplate>
         </ListView>
         <RelativePanel x:Name="rp" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <TextBox x:Name="text" RelativePanel.AlignLeftWithPanel="True" RelativePanel.LeftOf="send" ></TextBox>
-            <Button x:Name="send" RelativePanel.AlignRightWithPanel="True" Content="Send" Click="send_Click"></Button>
+            <TextBox x:Name="text" Text="{Binding Mensaje.Mensage,Mode=TwoWay}" RelativePanel.AlignLeftWithPanel="True" RelativePanel.LeftOf="send" ></TextBox>
+            <Button x:Name="send" RelativePanel.AlignRightWithPanel="True" Content="Send"></Button>
         </RelativePanel>
     </RelativePanel>
-
-</Page.DataContext>
 </Page>
