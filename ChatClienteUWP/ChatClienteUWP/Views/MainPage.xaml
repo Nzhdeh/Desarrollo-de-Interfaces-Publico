@@ -30,8 +30,8 @@
             </ListView.ItemTemplate>
         </ListView>
         <RelativePanel x:Name="rp" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <TextBox x:Name="text" Text="{Binding Mensaje.Mensage,Mode=TwoWay}" RelativePanel.AlignLeftWithPanel="True" RelativePanel.LeftOf="send" ></TextBox>
-            <Button x:Name="send" RelativePanel.AlignRightWithPanel="True" Content="Send"></Button>
+            <TextBox x:Name="text" Text="{Binding Mensaje.Mensage,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RelativePanel.AlignLeftWithPanel="True" RelativePanel.LeftOf="send" ></TextBox>
+            <Button x:Name="send" RelativePanel.AlignRightWithPanel="True" Content="Send" Command="{Binding Commando}"></Button>
         </RelativePanel>
     </RelativePanel>
 </Page>

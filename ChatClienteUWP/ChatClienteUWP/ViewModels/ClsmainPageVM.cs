@@ -10,17 +10,30 @@ using Windows.UI.Core;
 
 namespace ChatClienteUWP.ViewModels
 {
-    public class ClsMainPageVM
+    public class ClsMainPageVM : ClsVMBase
     {
         public ObservableCollection<ClsMensage> listadoMensaje { get; set; } = new ObservableCollection<ClsMensage>();
         private HubConnection conn;
         private IHubProxy proxy;
         private ClsMensage mensaje;//nuestro mensaje al servidor 
-        private ClsDelegateCommand command;
+        private ClsDelegateCommand commando;
+
+        public ClsMainPageVM()
+        {
+            conn = new HubConnection("http://< Jump ;chatservernzhdeh.azurewebsites.net");
+            proxy = conn.CreateHubProxy("ChatHub");
+            conn.Start();
+            proxy.On<String, String>("broadcastMessage", OnMessage);
+            //SignalR();
+
+            this.mensaje = new ClsMensage();
+            this.listadoMensaje = new ObservableCollection<ClsMensage>();
+            this.Commando = new ClsDelegateCommand(ExecuteCommand);
+        }
        
 
-       public ClsMensage Mensaje { get; set; }
-        public ClsDelegateCommand Command { get; set; }
+        public ClsMensage Mensaje { get; set; }
+        public ClsDelegateCommand Commando { get; set; }
 
         private void SignalR()
         {
@@ -30,6 +43,11 @@ namespace ChatClienteUWP.ViewModels
 
             proxy.On<String,String>("broadcastMessage", OnMessage);
 
+        }
+
+        public void ExecuteCommand()
+        {
+            Broadcast(this.Mensaje);
         }
 
         public void Broadcast(ClsMensage msg)

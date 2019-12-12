@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="Models\ClsDelegateCommand.cs" />
     <Compile Include="Models\ClsMensage.cs" />
+    <Compile Include="Models\ClsVMBase.cs" />
     <Compile Include="ViewModels\ClsMainPageVM.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
