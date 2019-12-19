@@ -19,7 +19,8 @@ namespace PreparandoExamen1Trimestre_DAL.Conexion
 
         public ClsMyConnection()
         {
-            this.server = "local";
+            //this.server = "local";
+            this.server = "107-06";
 
             this.dataBase = "ApuestasDeportivas";
             this.user = "apuestas";
@@ -50,8 +51,8 @@ namespace PreparandoExamen1Trimestre_DAL.Conexion
             try
             {
 
-                //connection.ConnectionString = string.Format("server={0};database={1};uid={2};pwd={3};", server, dataBase, user, pass);
-                connection.ConnectionString = "Data Source=DESKTOP-68D7LR4\\SQLEXPRESS;Initial Catalog=ApuestasDeportivas;User ID=apuestas;Password=apuestas;";//$"server={server};database={dataBase}; uid={user};pwd={pass};";
+                connection.ConnectionString = string.Format("server={0};database={1};uid={2};pwd={3};", server, dataBase, user, pass);
+                //connection.ConnectionString = "Data Source=DESKTOP-68D7LR4\\SQLEXPRESS;Initial Catalog=ApuestasDeportivas;User ID=apuestas;Password=apuestas;";//$"server={server};database={dataBase}; uid={user};pwd={pass};";
                 //connection.ConnectionString = "";
                 connection.Open();
             }
