@@ -12,9 +12,9 @@
         <StackPanel x:Name="1">
 
                 <Polygon
-            Points="30,200 400,125 400,275"
-            Stroke="Purple"
-            StrokeThickness="2">
+                    Points="30,200 400,125 400,275"
+                    Stroke="Purple"
+                    StrokeThickness="2">
                     <Polygon.Fill>
                         <SolidColorBrush Color="Blue"/>
                     </Polygon.Fill>
@@ -42,10 +42,10 @@
         <StackPanel x:Name="3" RelativePanel.Below="2">
           
                 <Polygon 
-             Points="144 48, 200 222, 53 114, 235 114, 88 222"
-             Fill="Red" 
-             Stroke="Blue"
-             StrokeThickness="5" />
+                 Points="144 48, 200 222, 53 114, 235 114, 88 222"
+                 Fill="Red" 
+                 Stroke="Blue"
+                 StrokeThickness="5" />
        
 
         </StackPanel>
