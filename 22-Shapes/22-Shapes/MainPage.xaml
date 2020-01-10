@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="_22_Shapes.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_22_Shapes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <StackPanel x:Name="1">
+
+                <Polygon
+            Points="30,200 400,125 400,275"
+            Stroke="Purple"
+            StrokeThickness="2">
+                    <Polygon.Fill>
+                        <SolidColorBrush Color="Blue"/>
+                    </Polygon.Fill>
+                </Polygon>
+
+
+        </StackPanel>
+
+        <StackPanel x:Name="2" RelativePanel.Below="1">
+
+                <Polygon
+                    
+                    Points="10,50 100,50 130,30 100,10 10,10"
+                    Stroke="Purple"
+                    StrokeThickness="2">
+                <Polygon.Fill>
+                    <SolidColorBrush Color="Yellow"/>
+                </Polygon.Fill>
+            </Polygon>
+
+
+        </StackPanel>
+
+
+        <StackPanel x:Name="3" RelativePanel.Below="2">
+          
+                <Polygon 
+             Points="144 48, 200 222, 53 114, 235 114, 88 222"
+             Fill="Red" 
+             Stroke="Blue"
+             StrokeThickness="5" />
+       
+
+        </StackPanel>
+    </RelativePanel>
+</Page>
