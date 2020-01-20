@@ -121,7 +121,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ClsCarta.cs" />
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="ClsVMBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClsTopScore.cs" />
     <EmbeddedResource Include="Properties\JuegoParejasRecuperacion_ET.rd.xml" />
   </ItemGroup>
   <ItemGroup>
