@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppXamarin"
+             Title="Hellooo"
+             x:Class="AppXamarin.MainPage">
+
+    <StackLayout Padding="16">
+        <!-- Place new controls here -->
+        <!--<Label Text="Hola Mundo!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />-->
+
+        <Entry Placeholder="Name" x:Name="entry" Text="{Binding Name}"/>
+        <Button Text="dfkjugdre" Command="{Binding EnterCommand}"/>
+    </StackLayout>
+
+</ContentPage>
