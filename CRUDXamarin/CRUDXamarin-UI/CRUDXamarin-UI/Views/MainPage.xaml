@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CRUDXamarin_UI"
+             x:Class="CRUDXamarin_UI.MainPage">
+
+    <StackLayout>
+        <ListView x:Name="listView" 
+                  SelectedItem="{Binding PersonaSeleccionada, Mode=TwoWay}" 
+                  ItemsSource="{Binding ListadoPersonaAuxiliar.Result}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType ="x:String">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Path=NombrePersona }"/>
+                            <Label Text="{Binding Path=ApellidosPersona}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

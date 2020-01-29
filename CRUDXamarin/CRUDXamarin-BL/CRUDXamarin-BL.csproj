@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>CRUDXamarin_BL</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRUDXamarin-DAL\CRUDXamarin-DAL.csproj" />
+    <ProjectReference Include="..\CRUDXamarin-ET\CRUDXamarin-ET.csproj" />
+  </ItemGroup>
+
+</Project>
