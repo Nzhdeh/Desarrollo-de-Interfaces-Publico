@@ -4,11 +4,40 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:JuegoParejasRecuperacion_UI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:vm="using:JuegoParejasRecuperacion_UI.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.DataContext>
+        <vm:JuegoVM/>
+    </Page.DataContext>
+    <StackPanel Orientation="Vertical">
 
-    </Grid>
+        <StackPanel>
+            <TextBlock />
+        </StackPanel>
+        <GridView
+            IsEnabled="{Binding IsPartidaActiva}"
+            
+        ItemsSource="{Binding Tablero}"
+        SelectionMode="Single"
+        SelectedItem="{Binding CartaSeleccionada1, Mode=TwoWay}"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        >
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding ImagenVoltedad}" Width="150" Height="150"
+                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+        </GridView>
+
+    </StackPanel>
 </Page>

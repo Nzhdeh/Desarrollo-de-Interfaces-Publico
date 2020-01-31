@@ -32,7 +32,7 @@ namespace JuegoParejasRecuperacion_ET
             set { idPersona = value; }
         }
 
-        string NombrePersona
+        public string NombrePersona
         {
             get { return nombrePersona; }
             set { nombrePersona = value; }

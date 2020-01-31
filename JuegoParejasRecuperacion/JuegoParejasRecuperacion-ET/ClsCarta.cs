@@ -33,7 +33,7 @@ namespace JuegoParejasRecuperacion_ET
             this.descubierta = false;
         }
 
-        public Uri ImagenNoVoltedad
+        public Uri ImagenNoVolteada
         {
             get
             {
@@ -50,7 +50,14 @@ namespace JuegoParejasRecuperacion_ET
         {
             get
             {
-                return imagenVolteada;
+                if(!Descubierta)
+                {
+                    return ImagenNoVolteada;
+                }
+                else
+                {
+                    return imagenVolteada;
+                }
             }
             set
             {
