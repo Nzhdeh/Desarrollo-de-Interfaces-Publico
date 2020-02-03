@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JuegoParejasRecuperacion_ET
 {
-    public class ClsCarta
+    public class ClsCarta : ClsVMBase
     {
         private int idCarta;
         private Uri imagenNoVolteada;
@@ -33,6 +33,16 @@ namespace JuegoParejasRecuperacion_ET
             this.descubierta = false;
         }
 
+        public ClsCarta(int idCarta, Uri imagenVolteada)
+        {
+            this.idCarta = idCarta;
+            this.imagenVolteada = imagenVolteada;
+            this.imagenNoVolteada = new Uri("ms-appx:///Assets/Imagenes/NoVolteada.jpg");
+            this.imagenAMostrar = ImagenNoVolteada;
+            
+            this.descubierta = false;
+        }
+
         public Uri ImagenNoVolteada
         {
             get
@@ -46,7 +56,7 @@ namespace JuegoParejasRecuperacion_ET
             }
         }
 
-        public Uri ImagenVoltedad
+        public Uri ImagenVolteada
         {
             get
             {
@@ -88,7 +98,21 @@ namespace JuegoParejasRecuperacion_ET
         public bool Descubierta
         {
             get { return descubierta; }
-            set { descubierta = value; }
+
+            set
+            {
+                descubierta = value;
+
+                if(descubierta)
+                {
+                    imagenAMostrar = imagenVolteada;
+                }
+                else
+                {
+                    imagenAMostrar = imagenNoVolteada;
+                }
+                NotifyPropertyChanged("ImagenAMostrar");
+            }
         }
     }
 }

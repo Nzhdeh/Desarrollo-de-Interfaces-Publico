@@ -1,31 +1,26 @@
 ﻿<Page
-    x:Class="JuegoParejasRecuperacion_UI.Menu"
+    x:Class="JuegoParejasRecuperacion_UI.Views.Menu"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:JuegoParejasRecuperacion_UI"
+    xmlns:local="using:JuegoParejasRecuperacion_UI.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="using:JuegoParejasRecuperacion_UI.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.DataContext>
-        <vm:MenuVM/>
-    </Page.DataContext>
-    
     <StackPanel>
 
         <HyperlinkButton x:Name="btnJugar" FontSize="40" Foreground="Black"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                Click="PantallaJuego_Click" 
-                Margin="200,500,200,0">Jugar</HyperlinkButton>
+                Click="MainPage_Click" 
+                Margin="200,200,200,0">Jugar</HyperlinkButton>
 
         <HyperlinkButton x:Name="btnRanking" FontSize="40"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
                          Foreground="Black"
-                         Click="PantallaRanking_Click" 
+                         Click="Ranking_Click" 
                          Margin="10">Ranking</HyperlinkButton>
 
     </StackPanel>

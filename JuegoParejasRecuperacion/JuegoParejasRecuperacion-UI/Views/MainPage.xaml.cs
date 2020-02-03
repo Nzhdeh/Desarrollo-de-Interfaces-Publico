@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JuegoParejasRecuperacion_UI.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace JuegoParejasRecuperacion_UI
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void IrRanking_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Ranking));
         }
     }
 }

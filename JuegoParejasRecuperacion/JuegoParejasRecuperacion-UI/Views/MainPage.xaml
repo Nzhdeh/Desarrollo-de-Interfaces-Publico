@@ -12,32 +12,29 @@
     <Page.DataContext>
         <vm:JuegoVM/>
     </Page.DataContext>
-    <StackPanel Orientation="Vertical">
 
-        <StackPanel>
-            <TextBlock />
-        </StackPanel>
-        <GridView
-            IsEnabled="{Binding IsPartidaActiva}"
-            
-        ItemsSource="{Binding Tablero}"
-        SelectionMode="Single"
-        SelectedItem="{Binding CartaSeleccionada1, Mode=TwoWay}"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        >
+
+    <RelativePanel>
+        <GridView x:Name="gridLista" ItemsSource="{Binding Path=ListadoCartasAleatorias}"
+                  SelectedItem="{Binding Path=CartaSeleccionada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    Margin="0,120,0,0" MaxHeight="500">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding ImagenVoltedad}" Width="150" Height="150"
-                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel Margin="20">
+                        <Image Width="200" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
-            <GridView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </GridView.ItemsPanel>
+        <GridView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <ItemsWrapGrid MaximumRowsOrColumns="3"/>
+            </ItemsPanelTemplate>
+        </GridView.ItemsPanel>
         </GridView>
+        
+        
+        <AppBarButton x:Name="irRanking" RelativePanel.Below="gridLista" Click="IrRanking_Click" >Ira al ranking</AppBarButton>
 
-    </StackPanel>
+        <TextBlock x:Name="ganador" RelativePanel.Below="irRanking" Text="{Binding Path=MensajeGanador}"/>
+    </RelativePanel>
 </Page>

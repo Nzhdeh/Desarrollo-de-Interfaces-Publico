@@ -19,14 +19,18 @@ namespace JuegoParejasRecuperacion_DAL.Conexion
 
         public ClsMyConnection()
         {
-            //this.server = "local";
-            this.server = "107-06";
+            //this.server = "(local)";
+            this.server = "nzhdeh.database.windows.net";
+            this.dataBase = "Personas";
+            this.user = "nzhdeh";
+            this.pass = "Dnderdnder21";
 
-            this.dataBase = "ApuestasDeportivas";
-            this.user = "apuestas";
-            this.pass = "apuestas";
+            //this.server = "pablot90.database.windows.net";
+            //this.dataBase = "PersonasDB";
+            //this.user = "pablo";
+            //this.pass = "Mitesoro123";
+
         }
-
         //Con parámetros por si quisiera cambiar las conexiones
         public ClsMyConnection(String server, String database, String user, String pass)
         {
@@ -51,14 +55,13 @@ namespace JuegoParejasRecuperacion_DAL.Conexion
             try
             {
 
-                connection.ConnectionString = string.Format("server={0};database={1};uid={2};pwd={3};", server, dataBase, user, pass);
-                //connection.ConnectionString = "Data Source=DESKTOP-68D7LR4\\SQLEXPRESS;Initial Catalog=ApuestasDeportivas;User ID=apuestas;Password=apuestas;";//$"server={server};database={dataBase}; uid={user};pwd={pass};";
-                //connection.ConnectionString = "";
+                //connection.ConnectionString = string.Format("server={0};database={1};uid={2};pwd={3};", server, dataBase, user, pass);
+                connection.ConnectionString = $"server={server};database={dataBase};uid={user};pwd={pass};";
                 connection.Open();
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
-                throw;
+                throw e;
             }
 
             return connection;
@@ -93,5 +96,7 @@ namespace JuegoParejasRecuperacion_DAL.Conexion
                 throw;
             }
         }
+
+
     }
 }

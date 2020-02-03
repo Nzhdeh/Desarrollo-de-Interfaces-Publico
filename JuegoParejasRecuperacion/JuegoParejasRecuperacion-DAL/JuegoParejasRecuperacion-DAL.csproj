@@ -121,6 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Conexion\ClsMyConnection.cs" />
+    <Compile Include="ListadosDAL\ClsListadoRanking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\JuegoParejasRecuperacion_DAL.rd.xml" />
   </ItemGroup>
@@ -130,7 +131,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ListadosDAL\" />
     <Folder Include="ManejadorasDAL\" />
   </ItemGroup>
   <ItemGroup>
