@@ -23,13 +23,7 @@ namespace JuegoParejasRecuperacion_DAL.Conexion
             this.server = "nzhdeh.database.windows.net";
             this.dataBase = "Personas";
             this.user = "nzhdeh";
-            this.pass = "Dnderdnder21";
-
-            //this.server = "pablot90.database.windows.net";
-            //this.dataBase = "PersonasDB";
-            //this.user = "pablo";
-            //this.pass = "Mitesoro123";
-
+            this.pass = "";
         }
         //Con parámetros por si quisiera cambiar las conexiones
         public ClsMyConnection(String server, String database, String user, String pass)
