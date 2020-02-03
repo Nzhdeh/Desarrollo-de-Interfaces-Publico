@@ -1,0 +1,53 @@
+﻿using JuegoParejasRecuperacion_DAL.Conexion;
+using JuegoParejasRecuperacion_ET;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace JuegoParejasRecuperacion_DAL.ManejadorasDAL
+{
+    public class ClsGestionTopScore
+    {
+        /// <summary>
+        /// este metodo sirve para insertar el resultado de la partida en la base de datos
+        /// </summary>
+        /// <param name="score"></param>
+        /// <returns>devuelve un entero si todo va bien y un cero si no</returns>
+        public int InsertarPuntuacionDAL(ClsTopScore score)
+        {
+            int resultado = 0;
+
+            SqlConnection conexion = null;
+            SqlCommand miComando = new SqlCommand();
+            ClsMyConnection miConexion = new ClsMyConnection(); ;
+            miComando.CommandText = "INSERT INTO TopScore (NombrePersona,Tiempo) " +
+                                    "VALUES @nombre, @tiempo)";
+
+            miComando.Parameters.Add("@nombre", System.Data.SqlDbType.VarChar).Value = score.NombrePersona;
+            miComando.Parameters.Add("@tiempo", System.Data.SqlDbType.Time).Value = score.Tiempo;
+
+
+            try
+            {
+                conexion = miConexion.getConnection();
+                miComando.Connection = conexion;
+                resultado = miComando.ExecuteNonQuery();
+            }
+
+            catch (Exception exSql)
+            {
+                throw exSql;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return resultado;
+        }
+    }
+}

@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="Conexion\ClsMyConnection.cs" />
     <Compile Include="ListadosDAL\ClsListadoRanking.cs" />
+    <Compile Include="ManejadorasDAL\ClsGestionTopScore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\JuegoParejasRecuperacion_DAL.rd.xml" />
   </ItemGroup>
@@ -130,9 +131,7 @@
       <Version>6.2.8</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ManejadorasDAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\JuegoParejasRecuperacion-ET\JuegoParejasRecuperacion-ET.csproj">
       <Project>{590136c6-0cf0-44cb-92d6-086d57f592f6}</Project>

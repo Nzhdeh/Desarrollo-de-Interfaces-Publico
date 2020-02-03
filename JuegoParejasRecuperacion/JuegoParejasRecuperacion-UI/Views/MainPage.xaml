@@ -14,27 +14,35 @@
     </Page.DataContext>
 
 
-    <RelativePanel>
-        <GridView x:Name="gridLista" ItemsSource="{Binding Path=ListadoCartasAleatorias}"
+    
+        <StackPanel Orientation="Vertical"  Background="Red">
+            <StackPanel Orientation="Horizontal" x:Name="sptiempo" Background="Aquamarine" Margin="0">
+                <TextBlock x:Name="tbTiempo"
+                FontSize="30"
+                Text="Tiempo: "
+                ></TextBlock>
+                <TextBlock x:Name="tbTemporizador" Margin="80,0,0,0"
+                FontSize="40"
+                Text="{Binding Temporizador, Mode=TwoWay}"
+                ></TextBlock>
+            </StackPanel>
+            <GridView x:Name="gridLista"
+                  ItemsSource="{Binding Path=ListadoCartasAleatorias}"
                   SelectedItem="{Binding Path=CartaSeleccionada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                     Margin="0,120,0,0" MaxHeight="500">
-            <GridView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="20">
-                        <Image Width="200" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        <GridView.ItemsPanel>
-            <ItemsPanelTemplate>
-                <ItemsWrapGrid MaximumRowsOrColumns="3"/>
-            </ItemsPanelTemplate>
-        </GridView.ItemsPanel>
-        </GridView>
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="20">
+                            <Image Width="200" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="6"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+        </StackPanel>
         
-        
-        <AppBarButton x:Name="irRanking" RelativePanel.Below="gridLista" Click="IrRanking_Click" >Ira al ranking</AppBarButton>
-
-        <TextBlock x:Name="ganador" RelativePanel.Below="irRanking" Text="{Binding Path=MensajeGanador}"/>
-    </RelativePanel>
 </Page>

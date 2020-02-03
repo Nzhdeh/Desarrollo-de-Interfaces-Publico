@@ -121,6 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ListadosBL\ClsListadoRankingBL.cs" />
+    <Compile Include="ManejadorasBL\ClsGestionTopScoreBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\JuegoParejasRecuperacion_BL.rd.xml" />
   </ItemGroup>
@@ -139,9 +140,7 @@
       <Name>JuegoParejasRecuperacion-ET</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ManejadorasBL\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
