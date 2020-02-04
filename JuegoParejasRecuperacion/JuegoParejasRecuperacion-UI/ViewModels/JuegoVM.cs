@@ -1,4 +1,5 @@
-﻿using JuegoParejasRecuperacion_ET;
+﻿using JuegoParejasRecuperacion_BL.ManejadorasBL;
+using JuegoParejasRecuperacion_ET;
 using JuegoParejasRecuperacion_UI.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         private ClsCarta carta2;
         private int parejasEncontradas=0;
         private DelegateCommand volverMenuPrincipal;
+        private bool isPartidaActiva;
 
         private DispatcherTimer tiempo;
         private string temporizador;
@@ -33,10 +35,11 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         #region constructores
         public JuegoVM()
         {
-            
+            this.isPartidaActiva = true;
             this.tiempo = new DispatcherTimer();
             this.tiempo.Interval = new TimeSpan(0, 0, 1);
             this.tiempo.Tick += Timer_Tik;
+            this.tiempo.Start();
             this.Temporizador = "00:00:59";
 
             ClsObtenerListadoCartasAleatorias lista = new ClsObtenerListadoCartasAleatorias();
@@ -46,8 +49,15 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         #endregion
 
         #region temporizador
-        private void Timer_Tik(object sender, object e)
+        /// <summary>
+        /// sirve para calcular el tiempo transcurrido
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void Timer_Tik(object sender, object e)
         {
+            string res=null;
+
             if (time > 0)
             {
 
@@ -63,11 +73,46 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
                     Temporizador = string.Format("00:0{0}:{1}", time / 60, time % 60);
                     NotifyPropertyChanged("Temporizador");
                 }
+
+
+
+            }
+            else
+            {
+                this.tiempo.Stop();
+                if (this.isPartidaActiva)
+                {
+                    this.isPartidaActiva = false;
+                    NotifyPropertyChanged("IsPartidaActiva");
+                }
+
+                if (time == 0)
+                {
+                    res = await MensajeGanador();
+                    //this.isPartidaActiva = false;
+                    //NotifyPropertyChanged("IsPartidaActiva");
+                }
+                if (res != null)
+                {
+                    guardarResultado();
+                }
+                else
+                {
+                    this.tiempo.Stop();
+                    this.isPartidaActiva = false;
+                    NotifyPropertyChanged("IsPartidaActiva");
+                }
             }
         }
         #endregion temporizador
 
         #region propiedades publicas
+        public bool IsPartidaActiva
+        {
+            get { return this.isPartidaActiva; }
+            set { this.isPartidaActiva = value; }
+        }
+
         public ObservableCollection<ClsCarta> ListadoCartasAleatorias
         {
             get { return this.listadoCartasAleatorias; }
@@ -95,6 +140,13 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
             get;
             set;
         }
+
+        //public string NickJugador
+        //{
+        //    get { return nickJugador; }
+        //    set { nickJugador= value;}
+        //}
+        
         #endregion
 
         #region metodos
@@ -121,19 +173,24 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
                 carta2 = cartaSeleccionada;
                 carta2.Descubierta = true;
             }
+           
 
             //comprobamos si son iguales
-            if(carta1!=null && carta2!=null)
+            if (carta1!=null && carta2!=null)
             {
-                if(carta2.IdCarta==carta1.IdCarta)
+                this.isPartidaActiva = false;
+                NotifyPropertyChanged("IsPartidaActiva");
+                if (carta2.IdCarta==carta1.IdCarta)
                 {
                     parejasEncontradas++;
                     carta1=null;
                     carta2=null;
+                    
                 }
                 else
                 {
-                    //para que esperes un poco antes de dar la vuelta
+                    //para que espere un poco antes de dar la vuelta
+                    
                     Task task = Task.Delay(500);
                     await task.AsAsyncAction();
                     carta1.Descubierta = false;
@@ -141,11 +198,26 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
                     carta1 = null;
                     carta2 = null;
                 }
+                this.isPartidaActiva = true;
+                NotifyPropertyChanged("IsPartidaActiva");
             }
 
             if (parejasEncontradas == 6)
             {
+                this.tiempo.Stop();
+                isPartidaActiva = false;
                 string res=await MensajeGanador();
+
+                if (res != null)
+                {
+                    guardarResultado();
+                }
+                else
+                {
+                    this.isPartidaActiva = false;
+                    NotifyPropertyChanged("IsPartidaActiva");
+                }
+                
             }
         }
 
@@ -153,35 +225,36 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         /// para mostrar un dialogo que ya ha acabado la partida o que ha ganado
         /// para que introduzca el nombre
         /// </summary>
-        /// <returns></returns>
+        /// <returns>el alias del jugador o nulo si cancela</returns>
         public async Task<string> MensajeGanador()
         {
-            //    ContentDialog mensaje = new ContentDialog();
-            //    Frame frame = Window.Current.Content as Frame;
-
-            //    mensaje.Title = "Termina";
-            //    mensaje.Content = "Has Terminado";
-            //    mensaje.PrimaryButtonText = "Por fin";
-
-            //    ContentDialogResult finale = await mensaje.ShowAsync();
-
-            string resultado;
             TextBox inputTextBox = new TextBox();
             inputTextBox.AcceptsReturn = false;
-            inputTextBox.Height = 32;
+            inputTextBox.Height = 40;
             ContentDialog dialog = new ContentDialog();
             dialog.Content = inputTextBox;
             dialog.Title = "Has terminado!!! Introduce tu alias";
             dialog.IsSecondaryButtonEnabled = true;
-            dialog.PrimaryButtonText = "Ok";
+            dialog.PrimaryButtonText = "Enviar";
             dialog.SecondaryButtonText = "Cancel";
             if (await dialog.ShowAsync() == ContentDialogResult.Primary)
-                resultado = inputTextBox.Text;
+                nickJugador = inputTextBox.Text;
             else
-                resultado = "";
+                nickJugador = null;
 
-            return resultado;
+            return nickJugador;
 
+        }
+
+        /// <summary>
+        /// este metodo guarda el alias y el tiempo del jugador
+        /// </summary>
+        private void guardarResultado()
+        {
+            ClsTopScore score = new ClsTopScore(nickJugador,Temporizador);
+            ClsGestionTopScoreBL bl = new ClsGestionTopScoreBL();
+
+            bl.InsertarPuntuacionBL(score);
         }
         #endregion
 

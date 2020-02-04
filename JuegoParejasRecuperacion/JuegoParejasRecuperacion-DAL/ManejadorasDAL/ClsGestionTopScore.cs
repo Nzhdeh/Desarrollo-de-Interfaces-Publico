@@ -21,17 +21,21 @@ namespace JuegoParejasRecuperacion_DAL.ManejadorasDAL
             int resultado = 0;
 
             SqlConnection conexion = null;
-            SqlCommand miComando = new SqlCommand();
-            ClsMyConnection miConexion = new ClsMyConnection(); ;
-            miComando.CommandText = "INSERT INTO TopScore (NombrePersona,Tiempo) " +
-                                    "VALUES @nombre, @tiempo)";
-
-            miComando.Parameters.Add("@nombre", System.Data.SqlDbType.VarChar).Value = score.NombrePersona;
-            miComando.Parameters.Add("@tiempo", System.Data.SqlDbType.Time).Value = score.Tiempo;
+            SqlCommand miComando = null;
+            ClsMyConnection miConexion=null; 
+           
 
 
             try
             {
+                miComando = new SqlCommand();
+                miConexion = new ClsMyConnection();
+
+                miComando.CommandText = "insert into TopScore (NombrePersona,Tiempo) values(@NombrePersona, @tiempo)";
+
+                miComando.Parameters.Add("@NombrePersona", System.Data.SqlDbType.VarChar).Value = score.NombrePersona;
+                miComando.Parameters.Add("@tiempo", System.Data.SqlDbType.Time).Value = score.Tiempo; 
+
                 conexion = miConexion.getConnection();
                 miComando.Connection = conexion;
                 resultado = miComando.ExecuteNonQuery();

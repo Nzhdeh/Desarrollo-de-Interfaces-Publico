@@ -26,20 +26,20 @@
                 Text="{Binding Temporizador, Mode=TwoWay}"
                 ></TextBlock>
             </StackPanel>
-            <GridView x:Name="gridLista"
+            <GridView x:Name="gridLista" IsEnabled="{Binding Path=IsPartidaActiva}"
                   ItemsSource="{Binding Path=ListadoCartasAleatorias}"
                   SelectedItem="{Binding Path=CartaSeleccionada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                     Margin="0,120,0,0" MaxHeight="500">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="20">
-                            <Image Width="200" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Image Width="150" Height="100" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <ItemsWrapGrid MaximumRowsOrColumns="6"/>
+                        <ItemsWrapGrid MaximumRowsOrColumns="4"/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
             </GridView>

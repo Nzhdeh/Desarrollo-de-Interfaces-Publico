@@ -26,6 +26,17 @@ namespace JuegoParejasRecuperacion_ET
             this.tiempo = tiempo;
         }
 
+        /// <summary>
+        /// constructor para guardar solo el nombre y el tiempo
+        /// </summary>
+        /// <param name="nombrePersona"></param>
+        /// <param name="tiempo"></param>
+        public ClsTopScore(string nombrePersona, string tiempo)
+        {
+            this.nombrePersona = nombrePersona;
+            this.tiempo = tiempo;
+        }
+
         public int IdPersona
         {
             get { return idPersona; }
