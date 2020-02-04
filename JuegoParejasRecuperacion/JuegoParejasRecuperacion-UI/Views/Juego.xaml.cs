@@ -28,9 +28,15 @@ namespace JuegoParejasRecuperacion_UI
             this.InitializeComponent();
         }
 
-        private void IrRanking_Click(object sender, RoutedEventArgs e)
+        //private void IrRanking_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.Frame.Navigate(typeof(Ranking));
+        //}
+
+        private void AtrasCommand_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Ranking));
+            this.Frame.Navigate(typeof(Menu));
         }
+        
     }
 }

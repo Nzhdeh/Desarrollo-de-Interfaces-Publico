@@ -16,7 +16,7 @@ namespace JuegoParejasRecuperacion_DAL.ManejadorasDAL
         /// </summary>
         /// <param name="score"></param>
         /// <returns>devuelve un entero si todo va bien y un cero si no</returns>
-        public int InsertarPuntuacionDAL(ClsTopScore score)
+        public int InsertarPuntuacionDAL(ClsTopScore score) 
         {
             int resultado = 0;
 
@@ -40,7 +40,6 @@ namespace JuegoParejasRecuperacion_DAL.ManejadorasDAL
                 miComando.Connection = conexion;
                 resultado = miComando.ExecuteNonQuery();
             }
-
             catch (Exception exSql)
             {
                 throw exSql;

@@ -21,7 +21,7 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         private ClsCarta carta1;
         private ClsCarta carta2;
         private int parejasEncontradas=0;
-        private DelegateCommand volverMenuPrincipal;
+        private DelegateCommand updateCommand;
         private bool isPartidaActiva;
 
         private DispatcherTimer tiempo;
@@ -57,10 +57,9 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         private async void Timer_Tik(object sender, object e)
         {
             string res=null;
-
+            //Update();
             if (time > 0)
             {
-
                 if (time <= 10)
                 {
                     time--;
@@ -73,9 +72,6 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
                     Temporizador = string.Format("00:0{0}:{1}", time / 60, time % 60);
                     NotifyPropertyChanged("Temporizador");
                 }
-
-
-
             }
             else
             {
@@ -88,7 +84,7 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
 
                 if (time == 0)
                 {
-                    res = await MensajeGanador();
+                    MensajePerdedor();
                     //this.isPartidaActiva = false;
                     //NotifyPropertyChanged("IsPartidaActiva");
                 }
@@ -107,6 +103,19 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         #endregion temporizador
 
         #region propiedades publicas
+        public DelegateCommand UpdateCommand
+        {
+            get
+            {
+                updateCommand = new DelegateCommand(Update);
+                return updateCommand;
+            }
+            set
+            {
+                updateCommand = value;
+            }
+        }
+
         public bool IsPartidaActiva
         {
             get { return this.isPartidaActiva; }
@@ -129,12 +138,6 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
             }
         }
 
-        public DelegateCommand VolverMenuPrincipal
-        {
-            get { return this.volverMenuPrincipal; }
-            set { this.volverMenuPrincipal = value; }
-        }
-
         public string Temporizador
         {
             get;
@@ -146,10 +149,29 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         //    get { return nickJugador; }
         //    set { nickJugador= value;}
         //}
-        
+
         #endregion
 
         #region metodos
+
+        /// <summary>
+        /// Metodo que inicia una nueva partida
+        /// </summary>
+        public void Update()
+        {
+            //this.time = 59;
+            //this.isPartidaActiva = true;
+            //this.tiempo = new DispatcherTimer();
+            //this.tiempo.Interval = new TimeSpan(0, 0, 1);
+            //this.tiempo.Tick += Timer_Tik;
+            //this.tiempo.Start();
+            //this.Temporizador = "00:00:59";
+
+            //ClsObtenerListadoCartasAleatorias lista = new ClsObtenerListadoCartasAleatorias();
+            //listadoCartasAleatorias = lista.obtenerListadoCartasAleatorias();
+
+            JuegoVM j=new JuegoVM();
+        }
         /// <summary>
         /// este metodo sirve para cambiar el estado del atributo descubierta de la cartaseleccionada
         /// y comprobar si es la primera de las dos, si es asi no compruebo si estáa su pareja y si es la seguinda ,
@@ -205,19 +227,20 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
             if (parejasEncontradas == 6)
             {
                 this.tiempo.Stop();
-                isPartidaActiva = false;
+                
                 string res=await MensajeGanador();
 
                 if (res != null)
                 {
                     guardarResultado();
                 }
-                else
-                {
-                    this.isPartidaActiva = false;
-                    NotifyPropertyChanged("IsPartidaActiva");
-                }
-                
+                //else
+                //{
+                //    this.isPartidaActiva = false;
+                //    NotifyPropertyChanged("IsPartidaActiva");
+                //}
+                this.isPartidaActiva = false;
+                NotifyPropertyChanged("IsPartidaActiva");
             }
         }
 
@@ -247,10 +270,30 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         }
 
         /// <summary>
+        /// para mostrar un dialogo que ya ha acabado la partida y ha perdido
+        /// para que introduzca el nombre
+        /// </summary>
+        
+        private async void MensajePerdedor()
+        {
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = "Has Perdidoooo",
+                Content = "Puedes intentarlo de nuvo",
+                CloseButtonText = "De acuerdo"
+            };
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+            
+        }
+
+        /// <summary>
         /// este metodo guarda el alias y el tiempo del jugador
         /// </summary>
         private void guardarResultado()
         {
+            Temporizador = string.Format("00:0{0}:{1}", time / 60, (60-(time % 60)));//es para que el tiempo se ponga bien
+            
             ClsTopScore score = new ClsTopScore(nickJugador,Temporizador);
             ClsGestionTopScoreBL bl = new ClsGestionTopScoreBL();
 

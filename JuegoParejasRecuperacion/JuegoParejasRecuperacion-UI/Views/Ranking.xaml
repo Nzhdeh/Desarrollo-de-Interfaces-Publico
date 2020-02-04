@@ -13,7 +13,10 @@
         <vm:RankingVM/>
     </Page.DataContext>
 
-    <RelativePanel>
+    <RelativePanel Background="Beige">
+        <StackPanel>
+            <AppBarButton Icon="Back" Label="Atras" Click="AtrasCommand_Click"/>
+        </StackPanel>
         <!--añadir el boton de ir atras-->
         <TextBlock x:Name="ranking" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="50" FontFamily="Comic Sans MS, Verdana">Ranking</TextBlock>
         <ListView x:Name="ListaRanking" RelativePanel.AlignBottomWithPanel="True" Margin="10" 

@@ -26,5 +26,10 @@ namespace JuegoParejasRecuperacion_UI.Views
         {
             this.InitializeComponent();
         }
+
+        private void AtrasCommand_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Menu));
+        }
     }
 }

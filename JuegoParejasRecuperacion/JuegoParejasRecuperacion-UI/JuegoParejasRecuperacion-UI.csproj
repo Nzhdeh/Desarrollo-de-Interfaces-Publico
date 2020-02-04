@@ -122,8 +122,8 @@
     <Compile Include="Utilidades\ClsObtenerListadoCartasAleatorias.cs" />
     <Compile Include="ViewModels\JuegoVM.cs" />
     <Compile Include="ViewModels\RankingVM.cs" />
-    <Compile Include="Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Views\Juego.xaml.cs">
+      <DependentUpon>Juego.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Menu.xaml.cs">
@@ -140,6 +140,7 @@
     <None Include="JuegoParejasRecuperacion-UI_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Imagenes\fondo.jpg" />
     <Content Include="Assets\Imagenes\NoVolteada.jpg" />
     <Content Include="Assets\Imagenes\Volteada1.jpg" />
     <Content Include="Assets\Imagenes\Volteada2.jpg" />
@@ -161,7 +162,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\MainPage.xaml">
+    <Page Include="Views\Juego.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

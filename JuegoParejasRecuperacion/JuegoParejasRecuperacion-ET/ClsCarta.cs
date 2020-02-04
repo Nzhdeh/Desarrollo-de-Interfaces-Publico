@@ -18,7 +18,7 @@ namespace JuegoParejasRecuperacion_ET
         public ClsCarta()
         {
             this.idCarta = 0;
-            this.imagenNoVolteada = new Uri("ms - appx:///Assets/Imagenes/NoVolteada.jpg");
+            this.imagenNoVolteada = new Uri("ms-appx:///Assets/Imagenes/NoVolteada.jpg");
             this.imagenVolteada = new Uri("");
             this.imagenAMostrar = new Uri("");
             this.descubierta = false;
