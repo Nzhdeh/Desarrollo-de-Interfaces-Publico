@@ -11,15 +11,15 @@
     <StackPanel Orientation="Vertical">
 
         <StackPanel.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/Imagenes/fondo.jpg" />
+            <ImageBrush ImageSource="ms-appx:///Assets/Imagenes/fondo.jpg"/>
         </StackPanel.Background>
-        <TextBlock Text="EncuentraParejaAPP" FontSize="40" HorizontalAlignment="Center" FontFamily="Comic Sans MS" Margin="20"/>
+        <TextBlock Text="Encuentra La Pareja" FontSize="40" HorizontalAlignment="Center" FontFamily="Comic Sans MS" Margin="20"/>
 
         <RelativePanel>
             <Button x:Name="btnJugar" FontSize="40"  BorderBrush="Red" 
                        RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                     Margin="450,100,0,0"
-                    Click="MainPage_Click"
+                    Click="Juego_Click"
                     Width="200" Height="100">Jugar</Button>
 
             <Button x:Name="btnRanking" FontSize="40" RelativePanel.Below="btnJugar" BorderBrush="Red" 

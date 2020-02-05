@@ -32,7 +32,7 @@ namespace JuegoParejasNzhdehUI.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MainPage_Click(object sender, RoutedEventArgs e)
+        private void Juego_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Juego));
         }

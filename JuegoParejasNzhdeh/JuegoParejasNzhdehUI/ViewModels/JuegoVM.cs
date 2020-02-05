@@ -41,7 +41,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
             this.tiempo.Interval = new TimeSpan(0, 0, 1);
             this.tiempo.Tick += Timer_Tik;
             this.tiempo.Start();
-            this.Temporizador = "00:00:59";
+            this.Temporizador = "00:00:00";
 
             ClsObtenerListadoCartasAleatorias lista = new ClsObtenerListadoCartasAleatorias();
             listadoCartasAleatorias = lista.obtenerListadoCartasAleatorias();
@@ -86,8 +86,6 @@ namespace JuegoParejasNzhdehUI.ViewModels
                 if (time == 0)
                 {
                     MensajePerdedor();
-                    //this.isPartidaActiva = false;
-                    //NotifyPropertyChanged("IsPartidaActiva");
                 }
                 if (res != null)
                 {
@@ -160,6 +158,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
         /// </summary>
         public void Update()
         {
+            this.tiempo.Stop();//hay que poner esto,porque sino el dialogo del perdedor salta antes del tiempo
             Frame FrameActual =(Frame) Window.Current.Content;
             FrameActual.Navigate(typeof(Juego));
         }
@@ -204,7 +203,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
                 {
                     //para que espere un poco antes de dar la vuelta
                     
-                    Task task = Task.Delay(450);
+                    Task task = Task.Delay(500);
                     await task.AsAsyncAction();
                     carta1.Descubierta = false;
                     carta2.Descubierta = false;
@@ -249,14 +248,17 @@ namespace JuegoParejasNzhdehUI.ViewModels
             TextBox inputTextBox = new TextBox();
             inputTextBox.AcceptsReturn = false;
             inputTextBox.Height = 40;
-            ContentDialog dialog = new ContentDialog();
-            dialog.Content = inputTextBox;
-            dialog.Title = "Has terminado!!! Introduce tu alias";
-            dialog.IsSecondaryButtonEnabled = true;
-            dialog.PrimaryButtonText = "Enviar";
-            dialog.SecondaryButtonText = "Cancel";
-            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+            ContentDialog ganadorDialog = new ContentDialog();
+            ganadorDialog.Content = inputTextBox;
+            ganadorDialog.Title = "Has terminado!!! Introduce tu alias";
+            ganadorDialog.IsSecondaryButtonEnabled = true;
+            ganadorDialog.PrimaryButtonText = "Enviar";
+            ganadorDialog.SecondaryButtonText = "Cancel";
+            if (await ganadorDialog.ShowAsync() == ContentDialogResult.Primary)
+            {
                 nickJugador = inputTextBox.Text;
+               
+            }
             else
                 nickJugador = null;
 
@@ -271,14 +273,14 @@ namespace JuegoParejasNzhdehUI.ViewModels
         
         private async void MensajePerdedor()
         {
-            ContentDialog noWifiDialog = new ContentDialog
+            ContentDialog perdedorDialog = new ContentDialog
             {
                 Title = "Has Perdidoooo",
                 Content = "Puedes intentarlo de nuvo",
                 CloseButtonText = "De acuerdo"
             };
 
-            ContentDialogResult result = await noWifiDialog.ShowAsync();
+            ContentDialogResult result = await perdedorDialog.ShowAsync();
             
         }
 

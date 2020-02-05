@@ -16,19 +16,18 @@
 
     
         <StackPanel Orientation="Vertical"  Background="LightYellow">
-            <StackPanel Orientation="Horizontal" x:Name="sptiempo" Background="Red" MinWidth="400"  MinHeight="50">
+            <StackPanel Orientation="Horizontal" x:Name="sptiempo" Background="Red" MinWidth="400" MaxHeight="70" MinHeight="50">
                 <AppBarButton Icon="Back" Label="Atras" Click="AtrasCommand_Click" x:Name="atras" Margin="0,0,20,0"/>
-                <AppBarButton  x:Name="refrescar" Icon="RepeatAll" Label="Nueva Partida" Command="{Binding UpdateCommand}" Margin="0,0,830,0"/>
-                <TextBlock x:Name="tbTiempo"
-            FontSize="30"
-            Text="Tiempo:"
-            Margin="0,5,0,0"
-            ></TextBlock>
-                <TextBlock x:Name="tbTemporizador" Margin="80,0,0,0"
-            FontSize="40"
-            Text="{Binding Temporizador, Mode=TwoWay}"
-            ></TextBlock>
-            </StackPanel>
+                <AppBarButton x:Name="refrescar" Icon="Refresh" Label="Nueva Partida" Command="{Binding UpdateCommand}" Margin="0,0,830,0"/>
+            <TextBlock x:Name="tbTiempo"
+                        FontSize="30"
+                        Text="Tiempo:"
+                        Margin="0,5,0,0"/>
+            <TextBlock x:Name="tbTemporizador" 
+                        Margin="80,0,0,0"
+                        FontSize="40"
+                        Text="{Binding Temporizador, Mode=TwoWay}"/>
+        </StackPanel>
 
             <GridView x:Name="gridLista" IsEnabled="{Binding Path=IsPartidaActiva}" HorizontalAlignment="Center" VerticalAlignment="Center"
                 ItemsSource="{Binding Path=ListadoCartasAleatorias}" Width="700" 
@@ -43,7 +42,12 @@
                 </GridView.ItemTemplate>
 
             </GridView>
-        </StackPanel>
+        <!--<StackPanel Orientation="Horizontal" x:Name="spFinal" Background="Red" MinWidth="400"  MinHeight="70">
+            <AppBarButton Icon="MoveToFolder" Label="Nivel 1"/>
+            <AppBarButton Icon="MoveToFolder" Label="Nivel 2"/>
+            <AppBarButton Icon="MoveToFolder" Label="Nivel 3"/>
+        </StackPanel>-->
+    </StackPanel>
  
     
 </Page>

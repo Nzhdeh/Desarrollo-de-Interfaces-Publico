@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 
 namespace JuegoParejasNzhdehDAL.ManejadorasDAL
 {
@@ -37,10 +38,16 @@ namespace JuegoParejasNzhdehDAL.ManejadorasDAL
                 conexion = miConexion.getConnection();
                 miComando.Connection = conexion;
                 resultado = miComando.ExecuteNonQuery();
+                
             }
             catch (Exception exSql)
             {
-                throw exSql;
+               if(resultado==0)
+                {
+                    //por si ay algun problema con la conexion
+                    var dlg = new MessageDialog("Problemas de conexión. Inténtalo más tarde por favor");
+                    var res =  dlg.ShowAsync();
+                }
             }
             finally
             {
