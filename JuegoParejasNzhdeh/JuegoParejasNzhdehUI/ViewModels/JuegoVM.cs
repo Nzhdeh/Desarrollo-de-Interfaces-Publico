@@ -1,6 +1,7 @@
-﻿using JuegoParejasRecuperacion_BL.ManejadorasBL;
-using JuegoParejasRecuperacion_ET;
-using JuegoParejasRecuperacion_UI.Utilidades;
+﻿using JuegoParejasNzhdehBL.ManejadorasBL;
+using JuegoParejasNzhdehET;
+using JuegoParejasNzhdehUI.Utilidades;
+using JuegoParejasNzhdehUI.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace JuegoParejasRecuperacion_UI.ViewModels
+namespace JuegoParejasNzhdehUI.ViewModels
 {
     public class JuegoVM : ClsVMBase
     {
@@ -159,17 +160,6 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
         /// </summary>
         public void Update()
         {
-            //this.time = 59;
-            //this.isPartidaActiva = true;
-            //this.tiempo = new DispatcherTimer();
-            //this.tiempo.Interval = new TimeSpan(0, 0, 1);
-            //this.tiempo.Tick += Timer_Tik;
-            //this.tiempo.Start();
-            //this.Temporizador = "00:00:59";
-
-            //ClsObtenerListadoCartasAleatorias lista = new ClsObtenerListadoCartasAleatorias();
-            //listadoCartasAleatorias = lista.obtenerListadoCartasAleatorias();
-            
             Frame FrameActual =(Frame) Window.Current.Content;
             FrameActual.Navigate(typeof(Juego));
         }
@@ -214,7 +204,7 @@ namespace JuegoParejasRecuperacion_UI.ViewModels
                 {
                     //para que espere un poco antes de dar la vuelta
                     
-                    Task task = Task.Delay(500);
+                    Task task = Task.Delay(450);
                     await task.AsAsyncAction();
                     carta1.Descubierta = false;
                     carta2.Descubierta = false;

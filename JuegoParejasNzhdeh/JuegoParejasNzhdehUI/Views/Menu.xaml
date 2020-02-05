@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="JuegoParejasNzhdehUI.Views.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:JuegoParejasNzhdehUI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Orientation="Vertical">
+
+        <StackPanel.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/Imagenes/fondo.jpg" />
+        </StackPanel.Background>
+        <TextBlock Text="EncuentraParejaAPP" FontSize="40" HorizontalAlignment="Center" FontFamily="Comic Sans MS" Margin="20"/>
+
+        <RelativePanel>
+            <Button x:Name="btnJugar" FontSize="40"  BorderBrush="Red" 
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Margin="450,100,0,0"
+                    Click="MainPage_Click"
+                    Width="200" Height="100">Jugar</Button>
+
+            <Button x:Name="btnRanking" FontSize="40" RelativePanel.Below="btnJugar" BorderBrush="Red" 
+                        RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Margin="450,20,0,0"
+                        Click="Ranking_Click" 
+                        Width="200" Height="100">Ranking</Button>
+        </RelativePanel>
+    </StackPanel>
+
+</Page>

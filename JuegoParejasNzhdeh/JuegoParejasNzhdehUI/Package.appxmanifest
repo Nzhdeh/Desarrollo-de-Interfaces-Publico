@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="fe5c8084-641f-4540-a9c7-c69eb3b838b8"
+    Name="fc583fad-fa4d-4000-9f39-18ec39a6f8ea"
     Publisher="CN=nyeghiazaryan"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="fe5c8084-641f-4540-a9c7-c69eb3b838b8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="fc583fad-fa4d-4000-9f39-18ec39a6f8ea" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>JuegoParejasRecuperacion-UI</DisplayName>
+    <DisplayName>JuegoParejasNzhdehUI</DisplayName>
     <PublisherDisplayName>nyeghiazaryan</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="JuegoParejasRecuperacion_UI.App">
+      EntryPoint="JuegoParejasNzhdehUI.App">
       <uap:VisualElements
-        DisplayName="JuegoParejasRecuperacion-UI"
+        DisplayName="JuegoParejasNzhdehUI"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="JuegoParejasRecuperacion-UI"
+        Description="JuegoParejasNzhdehUI"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

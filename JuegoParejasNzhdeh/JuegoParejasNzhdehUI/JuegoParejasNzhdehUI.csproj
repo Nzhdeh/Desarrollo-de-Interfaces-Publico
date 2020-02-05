@@ -4,20 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{9B70C4CF-7F16-4473-A091-D00FC586F3B8}</ProjectGuid>
+    <ProjectGuid>{9F756F17-89F5-4BCA-BE6B-D80C9A641A9D}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JuegoParejasRecuperacion_UI</RootNamespace>
-    <AssemblyName>JuegoParejasRecuperacion-UI</AssemblyName>
+    <RootNamespace>JuegoParejasNzhdehUI</RootNamespace>
+    <AssemblyName>JuegoParejasNzhdehUI</AssemblyName>
     <DefaultLanguage>es-ES</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <PackageCertificateKeyFile>JuegoParejasRecuperacion-UI_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>JuegoParejasNzhdehUI_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -119,13 +119,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\ClsObtenerListadoCartasAleatorias.cs" />
     <Compile Include="ViewModels\JuegoVM.cs" />
     <Compile Include="ViewModels\RankingVM.cs" />
     <Compile Include="Views\Juego.xaml.cs">
       <DependentUpon>Juego.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
@@ -137,7 +137,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="JuegoParejasRecuperacion-UI_TemporaryKey.pfx" />
+    <None Include="JuegoParejasNzhdehUI_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Imagenes\fondo.jpg" />
@@ -163,8 +163,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Views\Juego.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Menu.xaml">
       <SubType>Designer</SubType>
@@ -180,17 +180,17 @@
       <Version>6.2.8</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\JuegoParejasRecuperacion-BL\JuegoParejasRecuperacion-BL.csproj">
-      <Project>{6e1355f0-b8a6-4966-87db-4e9aefe1cc24}</Project>
-      <Name>JuegoParejasRecuperacion-BL</Name>
+    <ProjectReference Include="..\JuegoParejasNzhdehBL\JuegoParejasNzhdehBL.csproj">
+      <Project>{f8b3ad1a-b548-4d9e-9626-da5900503dcd}</Project>
+      <Name>JuegoParejasNzhdehBL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JuegoParejasRecuperacion-ET\JuegoParejasRecuperacion-ET.csproj">
-      <Project>{590136c6-0cf0-44cb-92d6-086d57f592f6}</Project>
-      <Name>JuegoParejasRecuperacion-ET</Name>
+    <ProjectReference Include="..\JuegoParejasNzhdehET\JuegoParejasNzhdehET.csproj">
+      <Project>{76b00c5f-83c1-4003-8141-02a223afd0d4}</Project>
+      <Name>JuegoParejasNzhdehET</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

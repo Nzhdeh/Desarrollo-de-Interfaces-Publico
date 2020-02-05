@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JuegoParejasRecuperacion_DAL.Conexion
+namespace JuegoParejasNzhdehDAL.Conexion
 {
     public class ClsMyConnection
     {
