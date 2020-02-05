@@ -58,7 +58,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
         private async void Timer_Tik(object sender, object e)
         {
             string res=null;
-            //Update();
+            
             if (time > 0)
             {
                 if (time <= 10)
@@ -87,10 +87,10 @@ namespace JuegoParejasNzhdehUI.ViewModels
                 {
                     MensajePerdedor();
                 }
-                if (res != null)
-                {
-                    guardarResultado();
-                }
+                //if (res != null)
+                //{
+                //    guardarResultado();
+                //}
                 else
                 {
                     this.tiempo.Stop();
@@ -162,6 +162,8 @@ namespace JuegoParejasNzhdehUI.ViewModels
             Frame FrameActual =(Frame) Window.Current.Content;
             FrameActual.Navigate(typeof(Juego));
         }
+
+
         /// <summary>
         /// este metodo sirve para cambiar el estado del atributo descubierta de la cartaseleccionada
         /// y comprobar si es la primera de las dos, si es asi no compruebo si estáa su pareja y si es la seguinda ,
@@ -173,6 +175,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
         private async void comprobarJugada()
         {
             cartaSeleccionada.Descubierta = true;
+
             //comprobar si es la primera o la segunda
             if (carta1==null)
             {
@@ -192,6 +195,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
             {
                 this.isPartidaActiva = false;
                 NotifyPropertyChanged("IsPartidaActiva");
+
                 if (carta2.IdCarta==carta1.IdCarta)
                 {
                     parejasEncontradas++;
@@ -221,20 +225,11 @@ namespace JuegoParejasNzhdehUI.ViewModels
             if (parejasEncontradas == 6)
             {
                 this.tiempo.Stop();
-                
-                string res=await MensajeGanador();
 
-                if (res != null)
-                {
-                    guardarResultado();
-                }
-                //else
-                //{
-                //    this.isPartidaActiva = false;
-                //    NotifyPropertyChanged("IsPartidaActiva");
-                //}
                 this.isPartidaActiva = false;
                 NotifyPropertyChanged("IsPartidaActiva");
+
+                MensajeGanador();
             }
         }
 
@@ -243,7 +238,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
         /// para que introduzca el nombre
         /// </summary>
         /// <returns>el alias del jugador o nulo si cancela</returns>
-        public async Task<string> MensajeGanador()
+        public async void MensajeGanador()
         {
             TextBox inputTextBox = new TextBox();
             inputTextBox.AcceptsReturn = false;
@@ -257,12 +252,12 @@ namespace JuegoParejasNzhdehUI.ViewModels
             if (await ganadorDialog.ShowAsync() == ContentDialogResult.Primary)
             {
                 nickJugador = inputTextBox.Text;
-               
+                guardarResultado();
             }
-            else
-                nickJugador = null;
+            //else
+            //    nickJugador = null;
 
-            return nickJugador;
+            //return nickJugador;
 
         }
 
