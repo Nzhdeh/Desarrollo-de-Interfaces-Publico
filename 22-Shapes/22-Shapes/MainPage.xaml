@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <RelativePanel>
-        <StackPanel x:Name="1">
+        <StackPanel x:Name="triangulo">
 
                 <Polygon
                     Points="450,0 600,200 300,200"
@@ -23,7 +23,7 @@
 
         </StackPanel>
 
-        <StackPanel x:Name="2" RelativePanel.Below="1">
+        <StackPanel x:Name="flecha" RelativePanel.Below="triangulo">
 
                 <Polygon
                     
@@ -39,7 +39,7 @@
         </StackPanel>
 
 
-        <StackPanel x:Name="3" RelativePanel.Below="2">
+        <StackPanel x:Name="estrella" RelativePanel.Below="flecha">
           
                 <!--<Polygon 
                  Points="144 48, 200 222, 53 114, 235 114, 88 222"

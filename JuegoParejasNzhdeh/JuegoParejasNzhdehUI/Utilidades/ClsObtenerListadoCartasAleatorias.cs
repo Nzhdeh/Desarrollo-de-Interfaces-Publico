@@ -22,8 +22,8 @@ namespace JuegoParejasNzhdehUI.Utilidades
             for (int i=0;i<6; i++)
             {
                
-                listadoCartasAleatorias.Add(new ClsCarta(i+1, new Uri($"ms-appx:///Assets/Imagenes/Volteada{(i+1)}.jpg")));
-                listadoCartasAleatorias.Add(new ClsCarta(i+1, new Uri($"ms-appx:///Assets/Imagenes/Volteada{(i+1)}.jpg")));
+                listadoCartasAleatorias.Add(new ClsCarta(i+1, new Uri($"ms-appx:///Assets/Imagenes/Nivel1/Volteada{(i+1)}.jpg")));
+                listadoCartasAleatorias.Add(new ClsCarta(i+1, new Uri($"ms-appx:///Assets/Imagenes/Nivel1/Volteada{(i+1)}.jpg")));
             }
 
             //a continuacion se barajan las cartas

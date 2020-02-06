@@ -13,6 +13,7 @@ namespace JuegoParejasNzhdehET
         private Uri imagenVolteada;
         private Uri imagenAMostrar;
         private bool descubierta;
+        //private bool isBloqueada; //cuando hay mas de una pareja de cartas abiertas se puede cerrarlas dando clic en dos de ellas
 
 
         public ClsCarta()
@@ -114,5 +115,18 @@ namespace JuegoParejasNzhdehET
                 NotifyPropertyChanged("ImagenAMostrar");
             }
         }
+
+        //public bool IsBloqueada
+        //{
+        //    get { return isBloqueada; }
+
+        //    set
+        //    {
+        //        if (descubierta)
+        //        {
+        //            isBloqueada = value;
+        //        }
+        //    }
+        //}
     }
 }

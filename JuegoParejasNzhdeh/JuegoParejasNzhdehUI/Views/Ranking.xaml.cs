@@ -27,7 +27,7 @@ namespace JuegoParejasNzhdehUI.Views
             this.InitializeComponent();
         }
 
-        private void AtrasCommand_Click(object sender, RoutedEventArgs e)
+        private void Atras_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Menu));
         }

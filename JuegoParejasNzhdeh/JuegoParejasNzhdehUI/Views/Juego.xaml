@@ -17,8 +17,8 @@
     
         <StackPanel Orientation="Vertical"  Background="LightYellow">
             <StackPanel Orientation="Horizontal" x:Name="sptiempo" Background="Red" MinWidth="400" MaxHeight="70" MinHeight="50">
-                <AppBarButton Icon="Back" Label="Atras" Click="AtrasCommand_Click" x:Name="atras" Margin="0,0,20,0"/>
-                <AppBarButton x:Name="refrescar" Icon="Refresh" Label="Nueva Partida" Command="{Binding UpdateCommand}" Margin="0,0,830,0"/>
+                <AppBarButton Icon="Back" Label="Atras" Command="{Binding AtrasCommand}" x:Name="atras" Margin="0,0,20,0"/>
+                <AppBarButton x:Name="refrescar" Icon="Refresh" Label="Repetir" Command="{Binding UpdateCommand}" Margin="0,0,830,0"/>
             <TextBlock x:Name="tbTiempo"
                         FontSize="30"
                         Text="Tiempo:"

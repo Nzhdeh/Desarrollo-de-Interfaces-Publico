@@ -23,6 +23,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
         private ClsCarta carta2;
         private int parejasEncontradas=0;
         private DelegateCommand updateCommand;
+        private DelegateCommand atrasCommand;
         private bool isPartidaActiva;
 
         private DispatcherTimer tiempo;
@@ -115,6 +116,19 @@ namespace JuegoParejasNzhdehUI.ViewModels
             }
         }
 
+        public DelegateCommand AtrasCommand
+        {
+            get
+            {
+                atrasCommand = new DelegateCommand(Atras);
+                return atrasCommand;
+            }
+            set
+            {
+                atrasCommand = value;
+            }
+        }
+
         public bool IsPartidaActiva
         {
             get { return this.isPartidaActiva; }
@@ -158,10 +172,20 @@ namespace JuegoParejasNzhdehUI.ViewModels
         /// </summary>
         public void Update()
         {
-            this.tiempo.Stop();//hay que poner esto,porque sino el dialogo del perdedor salta antes del tiempo
-            Frame FrameActual =(Frame) Window.Current.Content;
+            this.tiempo.Stop();//hay que poner esto,porque sino el dialogo del perdedor salta antes del tiempo cuando reinicio el juego
+            Frame FrameActual = (Frame)Window.Current.Content;
             FrameActual.Navigate(typeof(Juego));
+
+            //he estado investigando y al parecer c# no implementa el this() y no he encontrado otra forma de reiniciar la partida
         }
+
+        public void Atras()
+        {
+            this.tiempo.Stop();//hay que poner esto,porque si vamos atras el tiempo sigue corriendo
+            Frame FrameActual = (Frame)Window.Current.Content;
+            FrameActual.Navigate(typeof(Menu));
+        }
+        
 
 
         /// <summary>
@@ -175,6 +199,8 @@ namespace JuegoParejasNzhdehUI.ViewModels
         private async void comprobarJugada()
         {
             cartaSeleccionada.Descubierta = true;
+            //List<ClsCarta> listaCartasDescubiertas = new List<ClsCarta>();
+            //bool encontrado = false;
 
             //comprobar si es la primera o la segunda
             if (carta1==null)
@@ -198,9 +224,24 @@ namespace JuegoParejasNzhdehUI.ViewModels
 
                 if (carta2.IdCarta==carta1.IdCarta)
                 {
-                    parejasEncontradas++;
+                    //cuando hay mas de una pareja de cartas abiertas se puede cerrarlas dando clic en dos de ellas
+                    //cuando encuentras una pareja y vuelves a dar a esas dos parejas te va sumando la pareja encontrada
+                    //listaCartasDescubiertas.Add(carta1);
+                    //for (int i = 0; i < listaCartasDescubiertas.Count && encontrado == false; i++)
+                    //{
+                    //    if (listaCartasDescubiertas[i].IdCarta == carta2.IdCarta && listaCartasDescubiertas[i].Descubierta==false)
+                    //        encontrado = true;
+                    //}
+
+                    //if (encontrado == false)
+                    //{
+                        parejasEncontradas++;
+                    //}
+                    
                     carta1=null;
                     carta2=null;
+                    
+                    
                     
                 }
                 else

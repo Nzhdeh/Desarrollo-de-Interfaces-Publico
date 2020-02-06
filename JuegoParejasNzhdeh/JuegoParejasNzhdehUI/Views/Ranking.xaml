@@ -15,7 +15,7 @@
 
     <RelativePanel Background="Beige">
         <StackPanel>
-            <AppBarButton Icon="Back" Label="Atras" Click="AtrasCommand_Click"/>
+            <AppBarButton Icon="Back" Label="Atras" Click="Atras_Click"/>
         </StackPanel>
         <!--añadir el boton de ir atras-->
         <TextBlock x:Name="ranking" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="50" 
