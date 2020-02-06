@@ -9,12 +9,15 @@ namespace JuegoParejasNzhdehDAL.Conexion
 {
     public class ClsMyConnection
     {
+        #region propiedades publicas
         //Atributos
         public String server { get; set; }
         public String dataBase { get; set; }
         public String user { get; set; }
         public String pass { get; set; }
+        #endregion
 
+        #region constructores
         //Constructores
 
         public ClsMyConnection()
@@ -33,7 +36,9 @@ namespace JuegoParejasNzhdehDAL.Conexion
             this.user = user;
             this.pass = pass;
         }
+        #endregion
 
+        #region metodos
 
         //METODOS
 
@@ -90,7 +95,7 @@ namespace JuegoParejasNzhdehDAL.Conexion
                 throw;
             }
         }
-
+        #endregion
 
     }
 }

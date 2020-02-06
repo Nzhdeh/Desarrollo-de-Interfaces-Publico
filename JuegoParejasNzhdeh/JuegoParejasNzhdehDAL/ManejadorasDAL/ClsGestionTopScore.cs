@@ -44,7 +44,7 @@ namespace JuegoParejasNzhdehDAL.ManejadorasDAL
             {
                if(resultado==0)
                 {
-                    //por si ay algun problema con la conexion
+                    //por si ay algun problema con la contraseña o el enlace de la bbdd o el nombre de usuario
                     var dlg = new MessageDialog("Problemas de conexión. Inténtalo más tarde por favor");
                     var res =  dlg.ShowAsync();
                 }
