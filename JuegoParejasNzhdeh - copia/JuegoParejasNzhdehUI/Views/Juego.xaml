@@ -13,8 +13,6 @@
         <vm:JuegoVM/>
     </Page.DataContext>
 
-
-
     <StackPanel Orientation="Vertical"  Background="LightYellow">
         <StackPanel Orientation="Horizontal" x:Name="sptiempo" Background="Red" MinWidth="400" MaxHeight="70" MinHeight="50">
             <AppBarButton Icon="Back" Label="Atras" Command="{Binding AtrasCommand}" x:Name="atras" Margin="0,0,20,0"/>
@@ -31,16 +29,22 @@
 
         <GridView x:Name="gridLista" IsEnabled="{Binding Path=IsPartidaActiva}" HorizontalAlignment="Center" VerticalAlignment="Center"
                 ItemsSource="{Binding Path=ListadoCartasAleatorias}" Width="700" 
-                SelectedItem="{Binding Path=CartaSeleccionada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                >
+                SelectedItem="{Binding Path=CartaSeleccionada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="20">
+                    <StackPanel Loaded="Grid_Loaded" x:Name="TemplateRoot" Opacity="0" Background="White">
+                        <StackPanel.Resources>
+                            <Storyboard x:Key="LoadedStoryboard">
+                                <DoubleAnimation Storyboard.TargetName="TemplateRoot"
+                                             Storyboard.TargetProperty="Opacity"
+                                             Duration="0:0:5"
+                                             To="1" />
+                            </Storyboard>
+                        </StackPanel.Resources>
                         <Image Width="100" Height="150" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
-
         </GridView>
         <!--<StackPanel Orientation="Horizontal" x:Name="spFinal" Background="Red" MinWidth="400"  MinHeight="70">
             <AppBarButton Icon="MoveToFolder" Label="Nivel 1"/>

@@ -20,27 +20,31 @@ namespace JuegoParejasNzhdehUI.Views
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class Juego : Page
+    public sealed partial class Menu : Page
     {
-        public Juego()
+        public Menu()
         {
             this.InitializeComponent();
         }
 
-        //private void IrRanking_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.Frame.Navigate(typeof(Ranking));
-        //}
-
-        private void AtrasCommand_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// navega a la pantalla del juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Juego_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Menu));
+            this.Frame.Navigate(typeof(Juego));
         }
-        //para meter animaciones
-        //private void Grid_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    Storyboard sb = ((Grid)sender).Resources["LoadedStoryboard"] as Storyboard;
-        //    sb.Begin();
-        //}
+
+        /// <summary>
+        /// navega a la pantalla del ranking
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Ranking_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Ranking));
+        }
     }
 }
