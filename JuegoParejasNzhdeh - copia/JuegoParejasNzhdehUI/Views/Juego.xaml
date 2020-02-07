@@ -28,7 +28,7 @@
         </StackPanel>
 
         <GridView x:Name="gridLista" IsEnabled="{Binding Path=IsPartidaActiva}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                ItemsSource="{Binding Path=ListadoCartasAleatorias}" Width="700" 
+                ItemsSource="{Binding Path=ListadoCartasAleatorias}" Width="700" Margin="20"
                 SelectedItem="{Binding Path=CartaSeleccionada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <GridView.ItemTemplate>
                 <DataTemplate>
@@ -41,7 +41,7 @@
                                              To="1" />
                             </Storyboard>
                         </StackPanel.Resources>
-                        <Image Width="100" Height="150" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Image Width="150" Height="150" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
