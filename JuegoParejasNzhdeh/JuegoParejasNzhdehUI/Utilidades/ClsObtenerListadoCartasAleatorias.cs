@@ -16,8 +16,7 @@ namespace JuegoParejasNzhdehUI.Utilidades
         /// <returns>Listado de cartas aleatorias</returns>
         public ObservableCollection<ClsCarta> obtenerListadoCartasAleatorias()
         {
-            ObservableCollection<ClsCarta> listadoCartasAleatorias = null;
-            listadoCartasAleatorias = new ObservableCollection<ClsCarta>();
+            ObservableCollection<ClsCarta> listadoCartasAleatorias = new ObservableCollection<ClsCarta>();
 
             for (int i=0;i<6; i++)
             {

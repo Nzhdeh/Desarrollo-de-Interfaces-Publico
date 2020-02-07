@@ -18,6 +18,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
 
         #region atributos privados
         private ObservableCollection<ClsCarta> listadoCartasAleatorias;
+        //private List<ClsCarta> listaCartasDescubiertas = new List<ClsCarta>();
         private ClsCarta cartaSeleccionada;
         private ClsCarta carta1;
         private ClsCarta carta2;
@@ -120,7 +121,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
         {
             get
             {
-                atrasCommand = new DelegateCommand(Atras);
+                atrasCommand = new DelegateCommand(MensajeSalida);
                 return atrasCommand;
             }
             set
@@ -170,7 +171,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
         /// <summary>
         /// Metodo que inicia una nueva partida
         /// </summary>
-        public void Update()
+        private void Update()
         {
             this.tiempo.Stop();//hay que poner esto,porque sino el dialogo del perdedor salta antes del tiempo cuando reinicio el juego
             Frame FrameActual = (Frame)Window.Current.Content;
@@ -179,9 +180,9 @@ namespace JuegoParejasNzhdehUI.ViewModels
             //he estado investigando y al parecer c# no implementa el this() y no he encontrado otra forma de reiniciar la partida
         }
 
-        public void Atras()
+        private void Atras()
         {
-            this.tiempo.Stop();//hay que poner esto,porque si vamos atras el tiempo sigue corriendo
+            //this.tiempo.Stop();//hay que poner esto,porque si vamos atras el tiempo sigue corriendo
             Frame FrameActual = (Frame)Window.Current.Content;
             FrameActual.Navigate(typeof(Menu));
         }
@@ -199,7 +200,6 @@ namespace JuegoParejasNzhdehUI.ViewModels
         private async void comprobarJugada()
         {
             cartaSeleccionada.Descubierta = true;
-            //List<ClsCarta> listaCartasDescubiertas = new List<ClsCarta>();
             //bool encontrado = false;
 
             //comprobar si es la primera o la segunda
@@ -227,22 +227,26 @@ namespace JuegoParejasNzhdehUI.ViewModels
                     //cuando hay mas de una pareja de cartas abiertas se puede cerrarlas dando clic en dos de ellas
                     //cuando encuentras una pareja y vuelves a dar a esas dos parejas te va sumando la pareja encontrada
                     //listaCartasDescubiertas.Add(carta1);
-                    //for (int i = 0; i < listaCartasDescubiertas.Count && encontrado == false; i++)
+                    //listaCartasDescubiertas.Add(carta2);
+                    //if (parejasEncontradas > 0)
                     //{
-                    //    if (listaCartasDescubiertas[i].IdCarta == carta2.IdCarta && listaCartasDescubiertas[i].Descubierta==false)
-                    //        encontrado = true;
+                    //    for (int i = 0; i < listaCartasDescubiertas.Count && encontrado == false; i++)
+                    //    {
+                    //        if (listaCartasDescubiertas[i].IdCarta == carta1.IdCarta && listaCartasDescubiertas[i].IdCarta == carta2.IdCarta)
+                    //        {
+                    //             encontrado = true;
+                    //        }
+                    //    }
                     //}
+
 
                     //if (encontrado == false)
                     //{
                         parejasEncontradas++;
                     //}
-                    
-                    carta1=null;
+
+                    carta1 =null;
                     carta2=null;
-                    
-                    
-                    
                 }
                 else
                 {
@@ -279,7 +283,7 @@ namespace JuegoParejasNzhdehUI.ViewModels
         /// para que introduzca el nombre
         /// </summary>
         /// <returns>el alias del jugador o nulo si cancela</returns>
-        public async void MensajeGanador()
+        private async void MensajeGanador()
         {
             TextBox inputTextBox = new TextBox();
             inputTextBox.AcceptsReturn = false;
@@ -289,24 +293,42 @@ namespace JuegoParejasNzhdehUI.ViewModels
             ganadorDialog.Title = "Has terminado!!! Introduce tu alias";
             ganadorDialog.IsSecondaryButtonEnabled = true;
             ganadorDialog.PrimaryButtonText = "Enviar";
-            ganadorDialog.SecondaryButtonText = "Cancel";
+            ganadorDialog.SecondaryButtonText = "Cancelar";
             if (await ganadorDialog.ShowAsync() == ContentDialogResult.Primary)
             {
                 nickJugador = inputTextBox.Text;
                 guardarResultado();
             }
-            //else
-            //    nickJugador = null;
+        }
 
-            //return nickJugador;
+        /// <summary>
+        /// sirve para controlar la salida del juego
+        /// </summary>
+        private async void MensajeSalida()
+        {
+            this.tiempo.Stop();//por si se ha equivocado,paro el tiempo para que no pierda segundos
+            ContentDialog saliDialogo = new ContentDialog
+            {
+                Title = "¿Quieres salir del juego?",
+                PrimaryButtonText = "Salir",
+                CloseButtonText = "Cancelar"
+            };
 
+            if (await saliDialogo.ShowAsync() == ContentDialogResult.Primary)
+            {
+                Atras();
+            }
+            else
+            {
+                this.tiempo.Start();//para que siga jugando
+            }
         }
 
         /// <summary>
         /// para mostrar un dialogo que ya ha acabado la partida y ha perdido
         /// para que introduzca el nombre
         /// </summary>
-        
+
         private async void MensajePerdedor()
         {
             ContentDialog perdedorDialog = new ContentDialog
