@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-// La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace JuegoParejasNzhdehUI.Views
 {
@@ -23,25 +22,59 @@ namespace JuegoParejasNzhdehUI.Views
     /// </summary>
     public sealed partial class Juego : Page
     {
+        //private Storyboard rotation = new Storyboard();
+        //private bool rotating = false;
+
         public Juego()
         {
             this.InitializeComponent();
         }
 
-        //private void IrRanking_Click(object sender, RoutedEventArgs e)
+        
+
+        //public void Rotate(string axis, ref GridView target)
         //{
-        //    this.Frame.Navigate(typeof(Ranking));
+        //    if (rotating)
+        //    {
+        //        rotation.Stop();
+        //        rotating = false;
+        //    }
+        //    else
+        //    {
+        //        DoubleAnimation animation = new DoubleAnimation();
+        //        animation.From = 0.0;
+        //        animation.To = 180;
+        //        animation.BeginTime = TimeSpan.FromSeconds(1);
+        //        //animation.RepeatBehavior = RepeatBehavior.Forever;
+        //        Storyboard.SetTarget(animation, Display);
+        //        Storyboard.SetTargetProperty(animation, "(UIElement.Projection).(PlaneProjection.Rotation" + "Y" + ")");
+        //        rotation.Children.Clear();
+        //        rotation.Children.Add(animation);
+        //        rotation.Begin();
+        //        rotating = true;
+        //    }
         //}
 
-        private void AtrasCommand_Click(object sender, RoutedEventArgs e)
+        private void spinme_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Menu));
+            sbImagenes.Begin();
         }
+
+        //private void Pitch_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Rotate("X", ref Display);
+        //}
+
+        //private void AtrasCommand_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.Frame.Navigate(typeof(Menu));
+        //}
         //para meter animaciones
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            Storyboard sb = ((StackPanel)sender).Resources["LoadedStoryboard"] as Storyboard;
-            sb.Begin();
-        }
+        //private void Grid_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    Storyboard sb = ((StackPanel)sender).Resources["LoadedStoryboard"] as Storyboard;
+        //    sb.Begin();
+        //    Rotate("X", ref gwImagenes);
+        //}        
     }
 }

@@ -27,21 +27,28 @@
                         Text="{Binding Temporizador, Mode=TwoWay}"/>
         </StackPanel>
 
-        <GridView x:Name="gridLista" IsEnabled="{Binding Path=IsPartidaActiva}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                ItemsSource="{Binding Path=ListadoCartasAleatorias}" Width="700" Margin="20"
-                SelectedItem="{Binding Path=CartaSeleccionada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <GridView x:Name="gwImagenes" IsEnabled="{Binding Path=IsPartidaActiva}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                ItemsSource="{Binding Path=ListadoCartasAleatorias}" Width="700" 
+                SelectedItem="{Binding Path=CartaSeleccionada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                >
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Loaded="Grid_Loaded" x:Name="TemplateRoot" Opacity="0" Background="White">
+                    <StackPanel x:Name="spImagenes" Margin="20">
                         <StackPanel.Resources>
-                            <Storyboard x:Key="LoadedStoryboard">
-                                <DoubleAnimation Storyboard.TargetName="TemplateRoot"
-                                             Storyboard.TargetProperty="Opacity"
-                                             Duration="0:0:5"
-                                             To="1" />
+                            <Storyboard x:Name="sbImagenes">
+                                <DoubleAnimation To="180" RepeatBehavior="Forever" 
+                                         Storyboard.TargetName="spinme"
+                                         Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" />
                             </Storyboard>
                         </StackPanel.Resources>
-                        <Image Width="150" Height="150" Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <Image Name="spinme" Width="100" Height="150"  RenderTransformOrigin=".5,.5" 
+                               Source="{Binding Path=ImagenAMostrar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            PointerPressed="spinme_PointerPressed">
+                            <Image.RenderTransform>
+                                <RotateTransform/>
+                            </Image.RenderTransform>
+                        </Image>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
