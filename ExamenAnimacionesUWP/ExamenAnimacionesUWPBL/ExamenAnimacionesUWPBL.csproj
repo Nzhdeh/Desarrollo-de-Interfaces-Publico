@@ -120,7 +120,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ListadosBL\ClsListadoBL.cs" />
+    <Compile Include="ListadosBL\ClsListadoCiudadesBL.cs" />
     <Compile Include="ManejadorasBL\ClsManejadoraBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\ExamenAnimacionesUWPBL.rd.xml" />

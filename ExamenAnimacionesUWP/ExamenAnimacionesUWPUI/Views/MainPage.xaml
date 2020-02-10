@@ -14,7 +14,42 @@
     </Page.DataContext>
 
     <RelativePanel>
-        
+        <StackPanel x:Name="spBusqueda" Margin="0,0,0,10">
+            <TextBlock Text="Buscar Personas: "></TextBlock>
+            <TextBox x:Name="busqueda" Width="150"/>
+        </StackPanel>
+        <ListView x:Name="ListadoCiudades" 
+                  ItemsSource="{Binding Path=ListadoCiudadesFiltradas}" 
+                  SelectedItem="{Binding CiudadSeleccionada,Mode=TwoWay}" 
+                  RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="spBusqueda">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="ciudad" Text="{Binding Path=NombreCiudad}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Margin="250,30,0,0" Orientation="Vertical">
+            <TextBlock>Ciudad:</TextBlock>
+            <TextBlock x:Name="ciudadSeleccionada" FontSize="30" Text="{Binding Path=CiudadSeleccionada.NombreCiudad}"/>
+
+            <ListView x:Name="ListadoPredicciones" 
+                  ItemsSource="{Binding Path=ListadoPredicciones}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <!--<TextBlock x:Name="id" Text="{Binding Path=IdCiudad}"/>-->
+                            <TextBlock x:Name="pronostico" Text="{Binding Path=Pronostico}"/>
+                            <TextBlock x:Name="tMax" Text="{Binding Path=TemperaturaMaxima}"/>
+                            <TextBlock x:Name="TMin" Text="{Binding Path=TemperaturaMinima}"/>
+                            <TextBlock x:Name="humedad" Text="{Binding Path=Humedad}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </RelativePanel>
     
 </Page>

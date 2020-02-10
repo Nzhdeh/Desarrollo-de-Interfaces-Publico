@@ -120,6 +120,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ClsCiudad.cs" />
+    <Compile Include="ClsPrediccion.cs" />
     <Compile Include="ClsVMBase.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

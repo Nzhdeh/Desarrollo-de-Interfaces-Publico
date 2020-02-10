@@ -121,7 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Conexion\ClsMyConnection.cs" />
-    <Compile Include="ListadosDAL\ClsListadoDAL.cs" />
+    <Compile Include="ListadosDAL\ClsListadoCiudadesDAL.cs" />
     <Compile Include="ManejadorasDAL\ClsManejadoraDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\ExamenAnimacionesUWPDAL.rd.xml" />
