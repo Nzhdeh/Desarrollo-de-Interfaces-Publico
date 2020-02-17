@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="SimonUI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SimonUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:SimonUI.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:MainPageVM/>
+    </Page.DataContext>
+
+    <RelativePanel Width="1750" Height="2000">
+        <StackPanel x:Name="simon4" Margin="300,0">
+            <Polygon Fill="Green" Points="20,20 175,300 445,300 600,20"/>
+        </StackPanel>
+       
+        <StackPanel x:Name="simon2" Margin="170,130">
+            <Polygon Fill="Yellow" Points="20,20 20,600 300,445 300,175"/>
+        </StackPanel>
+
+        <StackPanel x:Name="simon1" Margin="300,560">
+            <Polygon Fill="Blue" Points="175,20 20,300 600,300 445,20"/>
+        </StackPanel>
+
+        <StackPanel x:Name="simon3" Margin="730,130">
+            <Polygon Fill="Red" Points="300,20 300,600 20,445 20,175"/>
+        </StackPanel>
+        
+        <StackPanel x:Name="cuadrado" Margin="460,290,0,0">
+            <Polygon Fill="Gray" Points="20,20 20,280 280,280 280,20"/>
+        </StackPanel>
+    </RelativePanel>
+    <!--<StackPanel x:Name="simon">
+            <Ellipse Fill="SteelBlue" Height="300" Width="300"></Ellipse>
+            
+        </StackPanel>-->
+
+        <!--<StackPanel x:Name="simon1">
+            <Polygon Fill="Red" Points="175,20 20,300 600,300 445,20"/>
+        </StackPanel>-->
+        
+        <!--<StackPanel x:Name="simon2">
+            <Polygon Fill="Red" Points="20,20 20,600 300,445 300,175"/>
+        </StackPanel>-->
+        <!--<StackPanel x:Name="simon3">
+            <Polygon Fill="Red" Points="300,20 300,600 20,445 20,175"/>
+        </StackPanel>-->
+
+        
+
+        <!--<StackPanel x:Name="simon2">
+            <Polyline Stroke="Black" StrokeThickness="4" Points="10,200,60,140,130,140,180,200" />
+        </StackPanel>-->
+    
+</Page>
