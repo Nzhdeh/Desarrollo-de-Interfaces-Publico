@@ -13,26 +13,30 @@
         <vm:MainPageVM/>
     </Page.DataContext>
 
-    <RelativePanel Width="1750" Height="2000">
-        <StackPanel x:Name="simon4" Margin="300,0">
-            <Polygon Fill="Green" Points="20,20 175,300 445,300 600,20"/>
-        </StackPanel>
-       
-        <StackPanel x:Name="simon2" Margin="170,130">
-            <Polygon Fill="Yellow" Points="20,20 20,600 300,445 300,175"/>
-        </StackPanel>
-
-        <StackPanel x:Name="simon1" Margin="300,560">
-            <Polygon Fill="Blue" Points="175,20 20,300 600,300 445,20"/>
+    <RelativePanel  Width="1750" Height="2000">
+        <Path Stroke="DarkGoldenRod" 
+                              StrokeThickness="5"
+                              Data="M 20,20 110,10 240,10 350,10 500,20 350,200 285,190 240,190 150,190 110,200 20,20 "/>
+        <!--<StackPanel x:Name="simon4" Margin="300,0">
+                <Polygon Fill="Green" Points="20,20 175,300 445,300 600,20"/>
         </StackPanel>
 
-        <StackPanel x:Name="simon3" Margin="730,130">
-            <Polygon Fill="Red" Points="300,20 300,600 20,445 20,175"/>
-        </StackPanel>
-        
+            <StackPanel x:Name="simon2" Margin="170,130">
+                <Polygon Fill="Yellow" Points="20,20 20,600 300,445 300,175"/>
+            </StackPanel>
+
+            <StackPanel x:Name="simon1" Margin="300,560">
+                <Polygon Fill="Blue" Points="175,20 20,300 600,300 445,20"/>
+            </StackPanel>
+
+            <StackPanel x:Name="simon3" Margin="730,130">
+                <Polygon Fill="Red" Points="300,20 300,600 20,445 20,175"/>
+            </StackPanel>
+
         <StackPanel x:Name="cuadrado" Margin="460,290,0,0">
             <Polygon Fill="Gray" Points="20,20 20,280 280,280 280,20"/>
-        </StackPanel>
+        </StackPanel>-->
+          
     </RelativePanel>
     <!--<StackPanel x:Name="simon">
             <Ellipse Fill="SteelBlue" Height="300" Width="300"></Ellipse>
