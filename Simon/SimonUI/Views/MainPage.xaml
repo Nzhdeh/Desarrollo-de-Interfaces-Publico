@@ -14,9 +14,12 @@
     </Page.DataContext>
 
     <RelativePanel  Width="1750" Height="2000">
+        <!--<Path Stroke="DarkGoldenRod" 
+                              StrokeThickness="5"
+                              Data="M 20,20 130,10 240,10 370,10 500,20 370,200 285,190 240,190 150,190 130,200 20,20 "/>-->
         <Path Stroke="DarkGoldenRod" 
                               StrokeThickness="5"
-                              Data="M 20,20 110,10 240,10 350,10 500,20 350,200 285,190 240,190 150,190 110,200 20,20 "/>
+                              Data="M 200 250,471 270,300 50,0 0"/>
         <!--<StackPanel x:Name="simon4" Margin="300,0">
                 <Polygon Fill="Green" Points="20,20 175,300 445,300 600,20"/>
         </StackPanel>

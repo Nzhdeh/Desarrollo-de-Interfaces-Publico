@@ -120,7 +120,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="ClsBoton.cs" />
     <Compile Include="ClsVMBase.cs" />
     <Compile Include="DelegateCommand.cs" />
