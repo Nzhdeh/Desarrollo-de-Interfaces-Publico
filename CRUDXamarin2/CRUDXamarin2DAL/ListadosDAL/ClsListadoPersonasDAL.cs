@@ -1,5 +1,5 @@
-﻿using CRUDPersonasXamarinDAL.Conexion;
-using CRUDPersonasXamarinET;
+﻿using CRUDXamarin2DAL.Conexion;
+using CRUDXamarin2ET;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRUDPersonasXamarinDAL.ListadosDAL
+namespace CRUDXamarin2DAL.ListadosDAL
 {
     public class ClsListadoPersonasDAL
     {

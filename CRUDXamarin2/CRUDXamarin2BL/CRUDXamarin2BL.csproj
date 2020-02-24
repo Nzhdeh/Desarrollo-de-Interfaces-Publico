@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRUDXamarin2DAL\CRUDXamarin2DAL.csproj" />
+    <ProjectReference Include="..\CRUDXamarin2ET\CRUDXamarin2ET.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ManejadorasBL\" />
+  </ItemGroup>
+
+</Project>
