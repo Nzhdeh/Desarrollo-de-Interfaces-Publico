@@ -17,9 +17,27 @@
         <!--<Path Stroke="DarkGoldenRod" 
                               StrokeThickness="5"
                               Data="M 20,20 130,10 240,10 370,10 500,20 370,200 285,190 240,190 150,190 130,200 20,20 "/>-->
-        <Path Stroke="DarkGoldenRod" 
-                              StrokeThickness="5"
-                              Data="M 200 250,471 270,300 50,0 0"/>
+
+        <!--<Path Stroke="Black" 
+                              StrokeThickness="1"
+                              Data="M 68 57,56 60,43 61,29 56,10 75, 25 84, 43 89, 61 88, 77 84, 88 78 z"/>-->
+
+        <Path Stroke="Black" 
+                              StrokeThickness="1"
+                              Data="M 50,40 100,150"/>
+
+        <Path Stroke="Black" 
+                              StrokeThickness="1"
+                              Data="M 200,40 160,150"/>
+
+        <Path Stroke="Black" 
+                              StrokeThickness="1"
+                              Data="M 373.20508075688775 300 A 200 200 0 0 0 200 0 L 200 200 Z M 347.2243186433546 285 A 170 170 0 0 0 200 30 L 200 200 Z"/>
+
+        <!--<Path Stroke="Black" 
+                              StrokeThickness="3"
+                              Data="M 115,115 L 115,5 A110,110 1 0,1 225,115 z"/>-->
+        
         <!--<StackPanel x:Name="simon4" Margin="300,0">
                 <Polygon Fill="Green" Points="20,20 175,300 445,300 600,20"/>
         </StackPanel>
