@@ -13,7 +13,33 @@
         <vm:MainPageVM/>
     </Page.DataContext>
 
-    <RelativePanel  Width="1750" Height="2000">
+    <Canvas x:Name="canvas" MinWidth="800" MinHeight="1000">
+        <Button Width="150" Height="150" Background="Green"
+                Canvas.Top="20" Canvas.Left="20"/>
+
+        <Button Width="150" Height="150" Background="Red"
+                 Canvas.Top="20" Canvas.Left="200"/>
+
+        <Button Width="150" Height="150" Background="Blue"
+                 Canvas.Top="200" Canvas.Left="20"/>
+
+        <Button Width="150" Height="150" Background="Yellow"
+                 Canvas.Top="200" Canvas.Left="200"/>
+
+        <!--<Rectangle x:Name="green" Width="150" Height="150" Fill="Green" 
+            Canvas.Top="20" Canvas.Left="20" StrokeThickness="3"/>
+
+        <Rectangle x:Name="red" Width="150" Height="150" Fill="Red" 
+            Canvas.Top="20" Canvas.Left="200" StrokeThickness="3" />
+
+        <Rectangle x:Name="blue" Width="150" Height="150" Fill="Blue" 
+            Canvas.Top="200" Canvas.Left="20" StrokeThickness="3" />
+
+        <Rectangle x:Name="yellow" Width="150" Height="150" Fill="Yellow" 
+            Canvas.Top="200" Canvas.Left="200" StrokeThickness="3"/>-->
+    </Canvas>
+
+    <!--<RelativePanel  Width="1750" Height="2000">-->
         <!--<Path Stroke="DarkGoldenRod" 
                               StrokeThickness="5"
                               Data="M 20,20 130,10 240,10 370,10 500,20 370,200 285,190 240,190 150,190 130,200 20,20 "/>-->
@@ -22,17 +48,18 @@
                               StrokeThickness="1"
                               Data="M 68 57,56 60,43 61,29 56,10 75, 25 84, 43 89, 61 88, 77 84, 88 78 z"/>-->
 
-        <Path Stroke="Black" 
+        <!--<Path Stroke="Black" 
                               StrokeThickness="1"
                               Data="M 50,40 100,150"/>
 
         <Path Stroke="Black" 
                               StrokeThickness="1"
-                              Data="M 200,40 160,150"/>
+                              Data="M 200,40 160,150"/>-->
 
-        <Path Stroke="Black" 
+        <!--<Path Stroke="Black" 
                               StrokeThickness="1"
-                              Data="M 373.20508075688775 300 A 200 200 0 0 0 200 0 L 200 200 Z M 347.2243186433546 285 A 170 170 0 0 0 200 30 L 200 200 Z"/>
+                              Data="M 373.20508075688775 300 A 200 200 0 0 0 200 0 L 200 200 Z M 347.2243186433546 285 A 170 170 0 0 0 200 30 L 200 200 Z"/>-->
+
 
         <!--<Path Stroke="Black" 
                               StrokeThickness="3"
@@ -57,8 +84,8 @@
         <StackPanel x:Name="cuadrado" Margin="460,290,0,0">
             <Polygon Fill="Gray" Points="20,20 20,280 280,280 280,20"/>
         </StackPanel>-->
-          
-    </RelativePanel>
+        
+    <!--</RelativePanel>-->
     <!--<StackPanel x:Name="simon">
             <Ellipse Fill="SteelBlue" Height="300" Width="300"></Ellipse>
             
