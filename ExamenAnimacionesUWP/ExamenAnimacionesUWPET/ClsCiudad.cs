@@ -44,7 +44,7 @@ namespace ExamenAnimacionesUWPET
             set
             {
                 nombreCiudad = value;
-                NotifyPropertyChanged("NombreCiudad");
+                //NotifyPropertyChanged("NombreCiudad");
             }
         }
     }

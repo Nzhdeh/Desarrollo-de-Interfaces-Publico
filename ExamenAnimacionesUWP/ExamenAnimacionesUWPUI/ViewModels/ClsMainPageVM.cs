@@ -16,6 +16,8 @@ namespace ExamenAnimacionesUWPUI.ViewModels
         private ObservableCollection<ClsCiudad> listadoCiudadesCompleta;
         private ObservableCollection<ClsCiudad> listadoCiudadesFiltradas;
         private ObservableCollection<ClsPrediccion> listadoPredicciones;
+        private string textoBuscado;
+
         #endregion
 
         #region constructores
@@ -41,7 +43,6 @@ namespace ExamenAnimacionesUWPUI.ViewModels
             set
             {
                 listadoCiudadesCompleta = value;
-                NotifyPropertyChanged("CiudadSeleccionada");
             }
         }
 
@@ -54,11 +55,11 @@ namespace ExamenAnimacionesUWPUI.ViewModels
             set
             {
                 ciudadSeleccionada = value;
-                cargarListadoPredicciones();
+
+                if (ciudadSeleccionada!=null)//porque cunado borraba el texto a buscar me daba null pointer exception
+                    cargarListadoPredicciones();
             }
         }
-
-        
 
         public ObservableCollection<ClsCiudad> ListadoCiudadesFiltradas
         {
@@ -69,8 +70,6 @@ namespace ExamenAnimacionesUWPUI.ViewModels
             set
             {
                 listadoCiudadesFiltradas = value;
-                NotifyPropertyChanged("ListadoPredicciones");
-                NotifyPropertyChanged("CiudadSeleccionada");
             }
         }
 
@@ -85,6 +84,19 @@ namespace ExamenAnimacionesUWPUI.ViewModels
                 listadoPredicciones = value;
             }
         }
+
+        public string TextoBuscado
+        {
+            get
+            {
+                return textoBuscado;
+            }
+            set
+            {
+                textoBuscado = value;
+                filtrarCiudades();
+            }
+        }
         #endregion
 
 
@@ -94,12 +106,19 @@ namespace ExamenAnimacionesUWPUI.ViewModels
         /// </summary>
         private async void cargarListadoCiudades()
         {
-            ClsListadoCiudadesBL listBL = new ClsListadoCiudadesBL();
-            this.listadoCiudadesCompleta = new ObservableCollection<ClsCiudad>();
-            this.listadoCiudadesCompleta = await listBL.listadoCiudadesBL();
+            try
+            {
+                ClsListadoCiudadesBL listBL = new ClsListadoCiudadesBL();
+                this.listadoCiudadesCompleta = new ObservableCollection<ClsCiudad>();
+                this.listadoCiudadesCompleta = await listBL.listadoCiudadesBL();
 
-            this.listadoCiudadesFiltradas = this.listadoCiudadesCompleta;
-            NotifyPropertyChanged("ListadoCiudadesFiltradas");
+                this.listadoCiudadesFiltradas = this.listadoCiudadesCompleta;
+                NotifyPropertyChanged("ListadoCiudadesFiltradas");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -107,11 +126,57 @@ namespace ExamenAnimacionesUWPUI.ViewModels
         /// </summary>
         private async void cargarListadoPredicciones()
         {
-            ClsListadoCiudadesBL listBL = new ClsListadoCiudadesBL();
-            this.listadoPredicciones = new ObservableCollection<ClsPrediccion>();
-            this.listadoPredicciones = await listBL.listadoPrediccionPorCiudadDAL(ciudadSeleccionada.IdCiudad);
+            try
+            {
+                ClsListadoPrediccionesBL listBL = new ClsListadoPrediccionesBL();
+                this.listadoPredicciones = new ObservableCollection<ClsPrediccion>();
+                this.listadoPredicciones = await listBL.listadoPrediccionPorCiudadDAL(ciudadSeleccionada.IdCiudad);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-            NotifyPropertyChanged("ListadoPredicciones");
+            cargarImagenesPronostico();
+        }
+
+        /// <summary>
+        /// sirve para asiganr las imagenes correspondientes a cada pronostico
+        /// </summary>
+        private void cargarImagenesPronostico()
+        {
+            for (int i = 0; i < listadoPredicciones.Count; i++)
+            {
+                listadoPredicciones[i].Pronostico = "ms-appx:///Assets/Imagenes/" + listadoPredicciones[i].Pronostico + ".png";//la imagen de Albacete no sale porque en la api esta mal escrito
+                NotifyPropertyChanged("ListadoPredicciones");
+            }
+        }
+
+        /// <summary>
+        /// sirve para filtrar las ciudades para la busqueda
+        /// </summary>
+        private void filtrarCiudades()
+        {
+            ObservableCollection<ClsCiudad> auxiliar = new ObservableCollection<ClsCiudad>();
+
+            if (!String.IsNullOrWhiteSpace(TextoBuscado))
+            {
+                for (int i = 0; i < listadoCiudadesFiltradas.Count; i++)
+                {
+                    if (listadoCiudadesFiltradas[i].NombreCiudad.ToLower().Contains(textoBuscado.ToLower()))
+                    {
+                        auxiliar.Add(listadoCiudadesFiltradas[i]);
+                    }
+                }
+
+                listadoCiudadesFiltradas = auxiliar;
+                NotifyPropertyChanged("ListadoCiudadesFiltradas");
+            }
+            else
+            {
+                listadoCiudadesFiltradas = listadoCiudadesCompleta;
+                NotifyPropertyChanged("ListadoCiudadesFiltradas");
+            }
         }
         #endregion
     }

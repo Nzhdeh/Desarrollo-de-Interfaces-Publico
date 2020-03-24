@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>8944fbe3-1f25-409b-a009-31cd3a272ee1</PackageIdentityName>
     <PackageIdentityPublisher>CN=Nzhdeh</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>202EDC96CAEB819C40EE2F04362CBCB06F3CF541D1DB1421691E1B00B4E6B6FA</RegisteredManifestChecksum>
+    <LayoutDir>E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>0804F3DD4E042E8F18851ABFEC7EA62AF665FF50244BD2918DDE8783AAF22B3D</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8944fbe3-1f25-409b-a009-31cd3a272ee1_1.0.0.0_x86__pgjm5x27vrdfp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8944fbe3-1f25-409b-a009-31cd3a272ee1_pgjm5x27vrdfp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8944fbe3-1f25-409b-a009-31cd3a272ee1</RegisteredPackageID>
@@ -27,86 +27,86 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-14T15:34:50.762</Modified>
+      <Modified>2020-03-16T18:36:23.486</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\09-InterfazBonita.exe">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\09-InterfazBonita.exe">
       <PackagePath>entrypoint\09-InterfazBonita.exe</PackagePath>
-      <Modified>2019-10-14T15:34:50.359</Modified>
+      <Modified>2020-03-16T18:36:21.343</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2019-07-22T12:01:14.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.17763.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
-      <Modified>2019-03-18T16:36:56.000</Modified>
+      <Modified>2018-10-22T23:33:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2019-10-14T15:13:48.310</Modified>
+      <Modified>2020-02-03T16:43:18.580</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2019-09-23T19:06:37.447</Modified>
+      <Modified>2020-02-03T16:43:18.533</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-09-23T19:06:37.447</Modified>
+      <Modified>2020-02-03T16:43:18.549</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-09-23T19:06:37.447</Modified>
+      <Modified>2020-02-03T16:43:18.549</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-09-23T19:06:37.447</Modified>
+      <Modified>2020-02-03T16:43:18.549</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-09-23T19:06:37.447</Modified>
+      <Modified>2020-02-03T16:43:18.549</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-09-23T19:06:37.447</Modified>
+      <Modified>2020-02-03T16:43:18.549</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-09-23T19:06:37.447</Modified>
+      <Modified>2020-02-03T16:43:18.564</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\09-InterfazBonita.xr.xml">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\09-InterfazBonita.xr.xml">
       <PackagePath>09-InterfazBonita.xr.xml</PackagePath>
-      <Modified>2019-10-14T15:34:50.185</Modified>
+      <Modified>2020-02-03T16:43:18.783</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-10-14T15:34:02.068</Modified>
+      <Modified>2020-03-16T18:36:21.174</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-10-14T15:34:50.191</Modified>
+      <Modified>2020-03-16T18:36:21.174</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2019-03-18T15:33:42.000</Modified>
+      <Modified>2018-10-22T22:44:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-10-14T15:22:20.627</Modified>
+      <Modified>2020-03-16T18:36:21.717</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Nzhdeh\Documents\GitHub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\Core\09-InterfazBonita.exe">
+    <AppxPackagedFile Include="E:\Git Hub\Desarrollo-de-Interfaces-Publico\09-InterfazBonita\09-InterfazBonita\bin\x86\Debug\Core\09-InterfazBonita.exe">
       <PackagePath>09-InterfazBonita.exe</PackagePath>
-      <Modified>2019-10-14T15:34:50.758</Modified>
+      <Modified>2020-03-16T18:36:23.461</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

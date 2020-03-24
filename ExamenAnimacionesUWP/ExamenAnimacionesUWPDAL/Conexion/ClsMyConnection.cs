@@ -30,7 +30,7 @@ namespace ExamenAnimacionesUWPDAL.Conexion
         public static String getUriBase()
         {
             string uriBase;
-            uriBase= "http://webapiaemet.azurewebsites.net/api/";
+            uriBase= "https://webapiaemet.azurewebsites.net/api/";
 
             return uriBase;
         }

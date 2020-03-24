@@ -121,7 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ListadosBL\ClsListadoCiudadesBL.cs" />
-    <Compile Include="ManejadorasBL\ClsManejadoraBL.cs" />
+    <Compile Include="ListadosBL\ClsListadoPrediccionesBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\ExamenAnimacionesUWPBL.rd.xml" />
   </ItemGroup>

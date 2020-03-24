@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ExamenAnimacionesUWPET;
+using ExamenAnimacionesUWPUI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0xc0a
@@ -25,6 +28,18 @@ namespace ExamenAnimacionesUWPUI
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+
+        /// <summary>
+        /// sirve para arrancar las animaciones
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListadoCiudades_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            sbProgressBar.Begin();
+            sbImagenes.Begin();
         }
     }
 }

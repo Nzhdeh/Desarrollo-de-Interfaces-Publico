@@ -29,7 +29,7 @@
                       Background="Yellow"
                       ItemsSource="{Binding ListadoPersonas}"
                       SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}"
-                      Height="100" Width="200"
+                      Height="200" Width="200"
                       
                       >
                 <ListView.ItemTemplate>

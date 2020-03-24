@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\09-InterfazBonita.csproj": {}
+    "E:\\Git Hub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\09-InterfazBonita.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\09-InterfazBonita.csproj": {
+    "E:\\Git Hub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\09-InterfazBonita.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\09-InterfazBonita.csproj",
+        "projectUniqueName": "E:\\Git Hub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\09-InterfazBonita.csproj",
         "projectName": "09-InterfazBonita",
-        "projectPath": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\09-InterfazBonita.csproj",
+        "projectPath": "E:\\Git Hub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\09-InterfazBonita.csproj",
         "packagesPath": "C:\\Users\\Nzhdeh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nzhdeh\\Documents\\GitHub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\obj\\",
+        "outputPath": "E:\\Git Hub\\Desarrollo-de-Interfaces-Publico\\09-InterfazBonita\\09-InterfazBonita\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

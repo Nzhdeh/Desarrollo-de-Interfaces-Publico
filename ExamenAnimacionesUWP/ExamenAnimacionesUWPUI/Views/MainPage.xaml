@@ -5,7 +5,7 @@
     xmlns:local="using:ExamenAnimacionesUWPUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-     xmlns:vm="using:ExamenAnimacionesUWPUI.ViewModels"
+    xmlns:vm="using:ExamenAnimacionesUWPUI.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -13,43 +13,225 @@
         <vm:ClsMainPageVM/>
     </Page.DataContext>
 
+    
     <RelativePanel>
-        <StackPanel x:Name="spBusqueda" Margin="0,0,0,10">
-            <TextBlock Text="Buscar Personas: "></TextBlock>
-            <TextBox x:Name="busqueda" Width="150"/>
+        <RelativePanel.Resources>
+            <Storyboard x:Name="sbProgressBar">
+                <DoubleAnimation EnableDependentAnimation="True"
+                                 Duration="00:00:02"
+                                 From="0" 
+                                 To="{Binding ListadoPredicciones[0].Humedad}" 
+                                 Storyboard.TargetProperty="Value"
+                                 Storyboard.TargetName="humedad1" />
+                
+                <DoubleAnimation EnableDependentAnimation="True"
+                                 Duration="00:00:02"
+                                 From="0" 
+                                 To="{Binding ListadoPredicciones[1].Humedad}" 
+                                 Storyboard.TargetProperty="Value"
+                                 Storyboard.TargetName="humedad2" />
+                
+                <DoubleAnimation EnableDependentAnimation="True"
+                                 Duration="00:00:02"
+                                 From="0" 
+                                 To="{Binding ListadoPredicciones[2].Humedad}" 
+                                 Storyboard.TargetProperty="Value"
+                                 Storyboard.TargetName="humedad3" />
+            </Storyboard>
+            
+            <Storyboard  x:Name="sbImagenes">
+                <DoubleAnimation EnableDependentAnimation="True"
+                                        Duration="0:0:02" 
+                                        From="0"
+                                        To="0.8" 
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleY)" 
+                                        Storyboard.TargetName="agrandando1"/>
+
+                <DoubleAnimation EnableDependentAnimation="True"
+                                        Duration="0:0:02" 
+                                        From="0"
+                                        To="0.8" 
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleX)" 
+                                        Storyboard.TargetName="agrandando1"/>
+
+                <DoubleAnimation EnableDependentAnimation="True"
+                                        Duration="0:0:02" 
+                                        From="0"
+                                        To="0.8" 
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleY)" 
+                                        Storyboard.TargetName="agrandando2"/>
+
+                <DoubleAnimation EnableDependentAnimation="True"
+                                        Duration="0:0:02" 
+                                        From="0"
+                                        To="0.8" 
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleX)" 
+                                        Storyboard.TargetName="agrandando2"/>
+
+                <DoubleAnimation EnableDependentAnimation="True"
+                                        Duration="0:0:02" 
+                                        From="0"
+                                        To="0.8" 
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleY)" 
+                                        Storyboard.TargetName="agrandando3"/>
+
+                <DoubleAnimation EnableDependentAnimation="True"
+                                        Duration="0:0:02" 
+                                        From="0"
+                                        To="0.8" 
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleX)" 
+                                        Storyboard.TargetName="agrandando3"/>
+            </Storyboard>
+
+        </RelativePanel.Resources>
+
+        <StackPanel x:Name="spBusqueda" Margin="10,0,0,10">
+            <TextBlock Text="Buscar Personas: "/>
+            <TextBox x:Name="busqueda" Width="150" Text="{Binding TextoBuscado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-        <ListView x:Name="ListadoCiudades" 
+
+        <ListView x:Name="ListadoCiudades" SelectionChanged="ListadoCiudades_SelectionChanged"
                   ItemsSource="{Binding Path=ListadoCiudadesFiltradas}" 
                   SelectedItem="{Binding CiudadSeleccionada,Mode=TwoWay}" 
-                  RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="spBusqueda">
+                  RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="spBusqueda"
+                  Background="Bisque" Margin="10,0,10,0">
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock x:Name="ciudad" Text="{Binding Path=NombreCiudad}"/>
+                <DataTemplate x:Name="dtCiudad" x:DataType="vm:ClsMainPageVM">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock x:Name="ciudad" Text="{Binding NombreCiudad}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Margin="250,30,0,0" Orientation="Vertical">
-            <TextBlock>Ciudad:</TextBlock>
-            <TextBlock x:Name="ciudadSeleccionada" FontSize="30" Text="{Binding Path=CiudadSeleccionada.NombreCiudad}"/>
+        <TextBlock x:Name="nombreCiudad" Margin="100,0,0,0" FontSize="40" FontStyle="Normal" FontWeight="Bold" Text="{Binding SelectedItem.NombreCiudad, ElementName=ListadoCiudades}"  RelativePanel.RightOf="ListadoCiudades"/>
 
-            <ListView x:Name="ListadoPredicciones" 
+        <StackPanel Orientation="Horizontal" RelativePanel.RightOf="ListadoCiudades" 
+                    RelativePanel.Below="nombreCiudad" Background="Bisque" Margin="100,20,0,0">
+
+            <StackPanel Name="detalles01" Margin="0,0,20,0">
+                <TextBlock FontSize="30">DIA 1</TextBlock>
+                <Image Name="imagen1" HorizontalAlignment="Center" Source="{Binding ListadoPredicciones[0].Pronostico}" Width="100">
+                    <Image.RenderTransform>
+                        <ScaleTransform x:Name="agrandando1"></ScaleTransform>
+                    </Image.RenderTransform>
+                </Image>
+                <TextBlock>Temperatura Maxima</TextBlock>
+                <TextBlock FontSize="20" Margin="6" Text="{Binding Path=ListadoPredicciones[0].TemperaturaMaxima}"></TextBlock>
+                <TextBlock>Temperatura Minima</TextBlock>
+                <TextBlock FontSize="20" Margin="6" Text="{Binding Path=ListadoPredicciones[0].TemperaturaMinima}"></TextBlock>
+                <TextBlock x:Name="tbHumedad1" Text="Humedad: "/>
+                <ProgressBar x:Name="humedad1" Height="15"/>
+            </StackPanel>
+
+            <StackPanel Name="detalles02" Margin="0,0,20,0">
+                <TextBlock FontSize="30">DIA 2</TextBlock>
+                <Image Name="imagen2" HorizontalAlignment="Center" Source="{Binding ListadoPredicciones[1].Pronostico}" Width="100">
+                    <Image.RenderTransform>
+                        <ScaleTransform x:Name="agrandando2"></ScaleTransform>
+                    </Image.RenderTransform>
+                </Image>
+                <TextBlock>Temperatura Maxima</TextBlock>
+                <TextBlock FontSize="20" Margin="6" Text="{Binding Path=ListadoPredicciones[1].TemperaturaMaxima}"></TextBlock>
+                <TextBlock>Temperatura Minima</TextBlock>
+                <TextBlock FontSize="20" Margin="6" Text="{Binding Path=ListadoPredicciones[1].TemperaturaMinima}"></TextBlock>
+                <TextBlock x:Name="tbHumedad2" Text="Humedad: "/>
+                <ProgressBar x:Name="humedad2" Height="15"/>
+            </StackPanel>
+           
+            <StackPanel Name="detalles03">
+                <TextBlock FontSize="30">DIA 3</TextBlock>
+                <Image Name="imagen3" HorizontalAlignment="Center" Source="{Binding ListadoPredicciones[2].Pronostico}" Width="100">
+                    <Image.RenderTransform>
+                        <ScaleTransform x:Name="agrandando3"></ScaleTransform>
+                    </Image.RenderTransform>
+                </Image>
+                <TextBlock>Temperatura Maxima</TextBlock>
+                <TextBlock FontSize="20" Margin="6" Text="{Binding Path=ListadoPredicciones[2].TemperaturaMaxima}"></TextBlock>
+                <TextBlock>Temperatura Minima</TextBlock>
+                <TextBlock FontSize="20" Margin="6" Text="{Binding Path=ListadoPredicciones[2].TemperaturaMinima}"></TextBlock>
+                <TextBlock x:Name="tbHumedad3" Text="Humedad: "/>
+                <ProgressBar x:Name="humedad3" Height="15"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--<StackPanel Margin="250,30,0,0" Orientation="Vertical">
+            --><!--<TextBlock x:Name="ciudadSeleccionada" FontSize="30" Text="{Binding Path=CiudadSeleccionada.NombreCiudad}"/>--><!--
+
+            <GridView Width="Auto" ItemsSource="{Binding Path=ListadoPredicciones, UpdateSourceTrigger=PropertyChanged}">--><!--IsEnabled="False"--><!--
+                <GridView.ItemTemplate>
+                    <DataTemplate x:Name="dtImagenes">
+                        --><!--<StackPanel>--><!--
+                            <Image x:Name="imagen" Width="100" Height="100" Source="{Binding Path=Pronostico}" >
+                                --><!--<Image.Resources>
+                                    <Storyboard  x:Name="sbImagenes">
+                                        <DoubleAnimation EnableDependentAnimation="True"
+                                        Duration="0:0:2" 
+                                        From="0"
+                                        To="0.8" 
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleY)" 
+                                        Storyboard.TargetName="agrandando"/>
+                                        
+                                        <DoubleAnimation EnableDependentAnimation="True"
+                                        Duration="0:0:2" 
+                                        From="0"
+                                        To="0.8" 
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleX)" 
+                                        Storyboard.TargetName="agrandando"/>
+                                    </Storyboard>
+                                </Image.Resources>--><!--
+                                <Image.RenderTransform>
+                                    <ScaleTransform x:Name="agrandando" ScaleX="1" ScaleY="1"/>
+                                </Image.RenderTransform>
+                            </Image>
+                           
+                            --><!--<TextBlock>Temperatura Maxima</TextBlock>
+                            <TextBlock FontSize="20" Margin="6" Text="{Binding Path=TemperaturaMaxima}"></TextBlock>
+                            <TextBlock>Temperatura Minima</TextBlock>
+                            <TextBlock FontSize="20" Margin="6" Text="{Binding Path=TemperaturaMinima}"></TextBlock>
+                            <TextBlock x:Name="humedad" Text="Humedad: "/>
+                            <ProgressBar x:Name="progressBar1" Value="{Binding Path=Humedad,Mode=OneWay}" Maximum="100" Width="200" Height="15"/>
+                        </StackPanel>--><!--
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                --><!--<GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>--><!--
+            </GridView>
+            
+            --><!--<ListView x:Name="ListadoPredicciones" 
                   ItemsSource="{Binding Path=ListadoPredicciones}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <!--<TextBlock x:Name="id" Text="{Binding Path=IdCiudad}"/>-->
-                            <TextBlock x:Name="pronostico" Text="{Binding Path=Pronostico}"/>
-                            <TextBlock x:Name="tMax" Text="{Binding Path=TemperaturaMaxima}"/>
-                            <TextBlock x:Name="TMin" Text="{Binding Path=TemperaturaMinima}"/>
-                            <TextBlock x:Name="humedad" Text="{Binding Path=Humedad}"/>
+                        <StackPanel Orientation="Vertical" Margin="0,0,0,20">
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="pronostico" Text="Pronostico: "/>
+                                <TextBlock x:Name="pronostico2" Text="{Binding Path=Pronostico}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="tMax" Text="Temperatura maxima: "/>
+                                <TextBlock x:Name="tMax2" Text="{Binding Path=TemperaturaMaxima}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="TMin" Text="Temperatura Minima: "/>
+                                <TextBlock x:Name="TMin2" Text="{Binding Path=TemperaturaMinima}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock x:Name="humedad" Text="Humedad: "/>
+                                <ProgressBar x:Name="progressBar1" Value="{Binding Path=Humedad,Mode=OneWay}" Maximum="100" Width="200" Height="15"/>
+                            </StackPanel>
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
+            </ListView>--><!--
+        </StackPanel>-->
     </RelativePanel>
     
 </Page>

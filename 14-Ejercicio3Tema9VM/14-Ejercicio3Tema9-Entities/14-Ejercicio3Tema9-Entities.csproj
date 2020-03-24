@@ -121,6 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ClsPersona.cs" />
+    <Compile Include="ClsVMBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\_14_Ejercicio3Tema9_Entities.rd.xml" />
   </ItemGroup>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _14_Ejercicio3Tema9_Entities
 {
-   public class ClsPersona : INotifyPropertyChange
+   public class ClsPersona : ClsVMBase
     {
         //atributos privados
         private string _nombre;//_ para todos los atributos privados
@@ -41,7 +41,7 @@ namespace _14_Ejercicio3Tema9_Entities
             set
             {
                 _nombre = value;
-                //INotifyPropertyChange(new PropertyChangedEventArgs("Nombre"));
+                //NotifyPropertyChanged("");
             }
         }
 
@@ -68,10 +68,5 @@ namespace _14_Ejercicio3Tema9_Entities
         //        _fechaNacimiento = value;
         //    }
         //}
-    }
-
-    public interface INotifyPropertyChange
-    {
-
     }
 }

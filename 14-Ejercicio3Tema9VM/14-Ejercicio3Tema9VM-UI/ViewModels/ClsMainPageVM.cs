@@ -9,13 +9,11 @@ using System.Threading.Tasks;
 
 namespace _14_Ejercicio3Tema9VM_UI.ViewModels
 {
-    public class ClsMainPageVM : INotifyPropertyChange
+    public class ClsMainPageVM : ClsVMBase
     {
         //atributos
         private ClsPersona _personaSeleccionada;
         private List<ClsPersona> _listadoPersonas;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         //constructor por defecto
         public ClsMainPageVM()
@@ -34,7 +32,7 @@ namespace _14_Ejercicio3Tema9VM_UI.ViewModels
             set
             {
                 _personaSeleccionada = value;
-                OnPropertyChanged("PersonaSeleccionada");//nombre de la propiedad publica
+                NotifyPropertyChanged();//nombre de la propiedad publica
             }
         }
 
@@ -45,24 +43,5 @@ namespace _14_Ejercicio3Tema9VM_UI.ViewModels
                 return _listadoPersonas;
             }
         }
-
-        /// <summary>
-        /// no entiendo nada
-        /// </summary>
-        /// <param name="name"></param>
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-    }
-
-    public interface INotifyPropertyChange
-    {
-
     }
 }
