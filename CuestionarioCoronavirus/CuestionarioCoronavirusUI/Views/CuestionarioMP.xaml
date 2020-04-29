@@ -7,24 +7,64 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:CuestionarioCoronavirusUI.ViewModels"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Beige">
 
     <Page.DataContext>
-        <vm:ClsCuestionarioMP/>
+        <vm:ClsCuestionarioVM/>
     </Page.DataContext>
 
+    <!--viva el x:bind-->
     <StackPanel>
-        <TextBox x:Name="dni" Header="DNI/NIE" PlaceholderText="Insertar DNI o NIE" InputScope="EmailNameOrAddress"
-                     Text="{Binding Persona.DniPersona,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,50,0,0"></TextBox>
-        <TextBox x:Name="nombre" Header="Nombre" PlaceholderText="Insertar nombre" Text="{Binding  Persona.NombrePersona,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
-                     Width="500" Height="60" Margin="0,20,0,0"></TextBox>
-        <TextBox x:Name="apellidos" Header="Apellidos" PlaceholderText="Insertar apellidos" Text="{Binding Persona.ApellidosPerson,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 Width="500" Height="60" Margin="0,20,0,0"></TextBox>
-        <TextBox x:Name="telefono" Header="Teléfono" PlaceholderText="Insertar telefono" Text="{Binding Persona.Telefono,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,20,0,0"></TextBox>
-        <TextBox x:Name="direccion" Header="Dirección" PlaceholderText="Insertar dirección" Text="{Binding Persona.Direccion,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,20,0,0"></TextBox>
-        <TextBlock x:Name="diagnostico" Text="{Binding Persona.Diagnostico,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Margin="0,20,0,0"></TextBlock>
+        <TextBlock x:Name="info"  Text="{x:Bind ViewModel2.MensajeAlUsuario,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="50" 
+                   Foreground="{x:Bind ViewModel2.ColorMensaje,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  
+                   Margin="0,50,0,50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-        <AppBarButton IsEnabled="{Binding IsCuestionarioLleno}" Command="{Binding EnviarCommand, UpdateSourceTrigger=Explicit}"
-                          x:Name="abbEnviarDatos" Margin="0,20,0,0" Background="Gray" Height="35" HorizontalAlignment="Center">Enviar Datos</AppBarButton>
+        <TextBox x:Name="dni" IsReadOnly="{x:Bind ViewModel2.IsReadOnly,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                 Header="DNI/NIE" PlaceholderText="Insertar DNI o NIE" InputScope="EmailNameOrAddress"
+                     Text="{x:Bind ViewModel2.Persona.DniPersona,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,0,0,0"/>
+
+        <TextBox x:Name="nombre"  IsReadOnly="{x:Bind ViewModel2.IsReadOnly,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Header="Nombre" PlaceholderText="Insertar nombre" Text="{x:Bind ViewModel2.Persona.NombrePersona,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                     Width="500" Height="60" Margin="0,20,0,0"/>
+
+        <TextBox x:Name="apellidos" IsReadOnly="{x:Bind ViewModel2.IsReadOnly,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Header="Apellidos" PlaceholderText="Insertar apellidos" Text="{x:Bind ViewModel2.Persona.ApellidosPerson,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Width="500" Height="60" Margin="0,20,0,0"/>
+
+        <TextBox x:Name="telefono" IsReadOnly="{x:Bind ViewModel2.IsReadOnly,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Header="Teléfono" PlaceholderText="Insertar telefono" 
+                 Text="{x:Bind ViewModel2.Persona.Telefono,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,20,0,0"/>
+
+        <TextBox x:Name="direccion" IsReadOnly="{x:Bind ViewModel2.IsReadOnly,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Header="Dirección" PlaceholderText="Insertar dirección" 
+                 Text="{x:Bind ViewModel2.Persona.Direccion,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,20,0,0"/>
+
+        <AppBarButton IsEnabled="True" Command="{x:Bind ViewModel2.EnviarCommand,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        x:Name="abbEnviarDatos" Margin="0,20,0,0" Background="Gray" Height="35" HorizontalAlignment="Center">Enviar Datos</AppBarButton>
+        
+        <!--<TextBlock x:Name="info" Text="{x:Bind ViewModel2.MensajeAlUsuario,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="50" 
+                   Foreground="{x:Bind ViewModel2.ColorMensaje,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="0,50,0,50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        
+        <TextBox x:Name="dni" Header="DNI/NIE" PlaceholderText="Insertar DNI o NIE" InputScope="EmailNameOrAddress"
+                     Text="{Binding Persona.DniPersona,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,0,0,0"/>
+
+        <TextBox x:Name="nombre" Header="Nombre" PlaceholderText="Insertar nombre" Text="{Binding  Persona.NombrePersona,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                     Width="500" Height="60" Margin="0,20,0,0"/>
+        
+        <TextBox x:Name="apellidos" Header="Apellidos" PlaceholderText="Insertar apellidos" Text="{Binding Persona.ApellidosPerson,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Width="500" Height="60" Margin="0,20,0,0"/>
+        
+        <TextBox x:Name="telefono" Header="Teléfono" PlaceholderText="Insertar telefono" 
+                 Text="{Binding Persona.Telefono,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,20,0,0"/>
+        
+        <TextBox x:Name="direccion" Header="Dirección" PlaceholderText="Insertar dirección" 
+                 Text="{Binding Persona.Direccion,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="500" Height="60" Margin="0,20,0,0"/>
+
+        --><!--<TextBox x:Name="diagnosticoPersona" Text="{Binding Persona.Diagnostico,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Width="500" Margin="0,20,0,0" Visibility="Visible"/>--><!--
+
+
+        <AppBarButton IsEnabled="True" Command="{Binding EnviarCommand, UpdateSourceTrigger=Explicit}"
+                        x:Name="abbEnviarDatos" Margin="0,20,0,0" Background="Gray" Height="35" HorizontalAlignment="Center">Enviar Datos</AppBarButton>-->
     </StackPanel>
 </Page>

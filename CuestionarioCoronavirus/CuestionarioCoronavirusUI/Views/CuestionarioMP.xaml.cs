@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CuestionarioCoronavirusUI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,15 +23,26 @@ namespace CuestionarioCoronavirusUI.Views
     /// </summary>
     public sealed partial class CuestionarioMP : Page
     {
+        //public static bool dato = false;
+        //public ClsPreguntasVM ViewModel { get; set; } = new ClsPreguntasVM();
+        public ClsCuestionarioVM ViewModel2 { get; set; } = new ClsCuestionarioVM();
+
+        /// <summary>
+        /// recibe el diagnostico de la otra vista
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //diagnosticoPersona.Text = e.Parameter.ToString().ToLower();
+            //dato = diagnosticoPersona.Text;
+            //this.ViewModel = new ClsPreguntasVM(Convert.ToBoolean(diagnosticoPersona.Text.ToLower()));
+            this.ViewModel2 = new ClsCuestionarioVM(Convert.ToBoolean(e.Parameter.ToString().ToLower()));
+            base.OnNavigatedTo(e);
+        }
+
         public CuestionarioMP()
         {
             this.InitializeComponent();
-        }
-
-        private void abbEnviarDatos_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            BindingExpression be = abbEnviarDatos.GetBindingExpression(TextBox.TextProperty);
-            be.UpdateSource();
         }
     }
 }

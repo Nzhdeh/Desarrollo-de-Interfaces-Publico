@@ -121,6 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ListadosBL\ClsListadoPreguntasBL.cs" />
+    <Compile Include="ListadosBL\ClsListadoRespuestasBL.cs" />
     <Compile Include="ManejadorasBL\ClsGestionPersonaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\CuestionarioCoronavirusBL.rd.xml" />

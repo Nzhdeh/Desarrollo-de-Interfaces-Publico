@@ -26,7 +26,7 @@ namespace JuegoParejasNzhdehDAL.Conexion
             this.server = "nzhdeh.database.windows.net";
             this.dataBase = "Personas";
             this.user = "nzhdeh";
-            this.pass = "Dnderdnder21";
+            this.pass = "Dnderdnder.21";
         }
         //Con parámetros por si quisiera cambiar las conexiones
         public ClsMyConnection(String server, String database, String user, String pass)

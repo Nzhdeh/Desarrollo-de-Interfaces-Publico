@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="Conexion\ClsMyConnection.cs" />
     <Compile Include="ListadosDAL\ClsListadoPreguntasDAL.cs" />
+    <Compile Include="ListadosDAL\ClsListadoRespuestasDAL.cs" />
     <Compile Include="ManejadorasDAL\ClsGestionPersonaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\CuestionarioCoronavirusDAL.rd.xml" />

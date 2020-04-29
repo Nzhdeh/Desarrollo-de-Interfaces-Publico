@@ -36,6 +36,18 @@ namespace CuestionarioCoronavirusET
             this.posibleCaso = posibleCaso;
         }
 
+        public int IdRespuesta
+        {
+            get
+            {
+                return idRespuesta;
+            }
+            set
+            {
+                idRespuesta = value;
+            }
+        }
+
         public int IdPregunta
         {
             get

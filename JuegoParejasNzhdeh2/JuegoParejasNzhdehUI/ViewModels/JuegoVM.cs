@@ -252,10 +252,6 @@ namespace JuegoParejasNzhdehUI.ViewModels
                 this.isPartidaActiva = true;
                 NotifyPropertyChanged("IsPartidaActiva");
             }
-            else
-            {
-                Carta_Tapped(sender,e);
-            }
 
             if (parejasEncontradas == 6)
             {

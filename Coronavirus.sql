@@ -35,7 +35,7 @@ create table Personas
 	apellidosPersona varchar(30) not null, 
 	telefono varchar(15) not null, 
 	direccion varchar(50) not null, 
-	diagnostico bit not null,
+	diagnostico varchar (5) null,
 
 	-------------pk-----------------------------	
 	constraint PK_Personas primary key (dniPersona)

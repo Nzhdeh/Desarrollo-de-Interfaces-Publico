@@ -36,6 +36,16 @@ namespace CuestionarioCoronavirusET
             this.diagnostico = diagnostico;
         }
 
+        public ClsPersona(bool diagnostico)
+        {
+            this.dniPersona = "";
+            this.nombrePersona = "";
+            this.apellidosPerson = "";
+            this.telefono = "";
+            this.direccion = "";
+            this.diagnostico = diagnostico;
+        }
+
         public string DniPersona
         {
             get

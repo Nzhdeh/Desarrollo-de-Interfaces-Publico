@@ -14,7 +14,7 @@ namespace CuestionarioCoronavirusBL.ManejadorasBL
         /// <summary>
         /// sirve para guardar la persona en la bbdd
         /// </summary>
-        /// <param name="persona"></param>
+        /// <param name="persona">la persona que vamos a guardar</param>
         public void InsertarPersonaBL(ClsPersona persona)
         {
             int resultado = 0;
@@ -28,7 +28,7 @@ namespace CuestionarioCoronavirusBL.ManejadorasBL
                 if (resultado == 0)
                 {
                     //por si ay algun problema con la contraseña o el enlace de la bbdd o el nombre de usuario
-                    var dlg = new MessageDialog("Problemas de conexión. Inténtalo más tarde por favor");
+                    var dlg = new MessageDialog("Hubo un problema. Inténtalo más tarde por favor");
                     var res = dlg.ShowAsync();
                 }
             }

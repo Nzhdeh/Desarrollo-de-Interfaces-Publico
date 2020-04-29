@@ -6,9 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Beige">
 
-    <Grid>
-
-    </Grid>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Atención" Foreground="Red" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Esto no es un test médico, por lo tanto puede no hacer caso a lo que le indique la aplicación." FontSize="30"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Los datos que se recogen en esta aplicación no tienen finalidades comerciales." FontSize="30"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0" FontSize="30" Click="Button_Click">De acuerdo,Empezar</Button>
+    </StackPanel>
 </Page>

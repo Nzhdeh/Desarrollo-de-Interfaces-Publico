@@ -34,13 +34,15 @@ namespace CuestionarioCoronavirusDAL.Conexion
 
         public ClsMyConnection()
         {
-            // this.server = "(local)";
+            //this.server = "(local)";
+            this.server = "nzhdeh.database.windows.net";
             //this.server = "DESKTOP-68D7LR4\\SQLEXPRESS";
-            this.server = "DESKTOP-68D7LR4";
+            //this.server = "localhost:443";
+            //this.server = "ReportServer_SQLEXPRESS";
             //this.server = "107-06";
-            this.dataBase = "Coronavirus";
-            this.user = "prueba";
-            this.pass = "123";
+            this.dataBase = "Personas";
+            this.user = "nzhdeh";
+            this.pass = "Dnderdnder.21";
         }
 
 
@@ -96,17 +98,17 @@ namespace CuestionarioCoronavirusDAL.Conexion
             {
                 connection.Close();
             }
-            catch (SqlException)
+            catch (SqlException se)
             {
-                throw;
+                throw se;
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException ie)
             {
-                throw;
+                throw ie;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw e;
             }
         }
     }

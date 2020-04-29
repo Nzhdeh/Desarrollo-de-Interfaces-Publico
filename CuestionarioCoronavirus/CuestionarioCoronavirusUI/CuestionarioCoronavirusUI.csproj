@@ -119,7 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ClsCuestionarioMP.cs" />
+    <Compile Include="ViewModels\ClsCuestionarioVM.cs" />
     <Compile Include="ViewModels\ClsPreguntasVM.cs" />
     <Compile Include="Views\CuestionarioMP.xaml.cs">
       <DependentUpon>CuestionarioMP.xaml</DependentUpon>

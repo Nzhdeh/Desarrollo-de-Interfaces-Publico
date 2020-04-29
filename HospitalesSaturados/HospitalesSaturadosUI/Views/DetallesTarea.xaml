@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="HospitalesSaturadosUI.Views.DetallesTarea"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HospitalesSaturadosUI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Turquoise">
+
+    <!--<Page.DataContext>
+        <vm:ClsDetallesTareaVM/>
+    </Page.DataContext>-->
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <!--<TextBlock x:Name="codigo" Text="{x:Bind ViewModel.Medico.CodigoMedico}" Visibility="Collapsed"/>-->
+            <TextBlock x:Name="nombreMedico" FontSize="30" FontWeight="Bold" Text="{x:Bind ViewModel.Medico.NombreMedico,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock x:Name="apellidosMedico" FontSize="30" FontWeight="Bold" Text="{x:Bind ViewModel.Medico.ApellidosMedico,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10,0,0,0"/>
+            <TextBlock x:Name="fechaActual" FontSize="30" Text="Fecha:" Margin="30,0,0,0"/>
+            <TextBlock x:Name="fecha" FontSize="30" Text="{x:Bind ViewModel.FechaActual}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel x:Name="noHayTareas" Margin="0,10,0,0" Orientation="Vertical">
+            <TextBlock x:Name="noTarea" Text="{x:Bind ViewModel.NoTieneTarea}" FontSize="50" FontWeight="Bold" Foreground="Red"/>
+        </StackPanel>
+        
+        <StackPanel x:Name="tareas" Margin="0" Orientation="Vertical">
+            <TextBlock x:Name="tbSesion1" FontSize="25" FontWeight="Bold" Text="Primera Sesión" Visibility="{x:Bind ViewModel.IsSesionVisible}"/>
+            <TextBlock x:Name="tareasMedico" FontSize="23" Text="{x:Bind ViewModel.TareasDeMedico.PrimeraSesion}"/>
+
+            <TextBlock x:Name="tbSesion2" FontSize="25" FontWeight="Bold" Text="Segunda Sesión" Margin="0,15,0,0" Visibility="{x:Bind ViewModel.IsSesionVisible}"/>
+            <TextBlock x:Name="tareasMedico1" FontSize="23" Text="{x:Bind ViewModel.TareasDeMedico.SegundaSesion}"/>
+
+            <TextBlock x:Name="tbSesion3" FontSize="25" FontWeight="Bold" Text="Tercera Sesión" Margin="0,15,0,0" Visibility="{x:Bind ViewModel.IsSesionVisible}"/>
+            <TextBlock x:Name="tareasMedico2" FontSize="23" Text="{x:Bind ViewModel.TareasDeMedico.TerceraSesion}"/>
+
+            <TextBlock x:Name="tbSesion4" FontSize="25" FontWeight="Bold" Text="Cuarta Sesión" Margin="0,15,0,0" Visibility="{x:Bind ViewModel.IsSesionVisible}"/>
+            <TextBlock x:Name="tareasMedico3" FontSize="23" Text="{x:Bind ViewModel.TareasDeMedico.CuartaSesion}"/>
+        </StackPanel>
+        <StackPanel x:Name="appSalir" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+            <AppBarButton x:Name="salir" Command="{x:Bind ViewModel.SalirCommand}" 
+                          Content="Salir" Background="Gray" Height="40" Width="100" 
+                          BorderBrush="Black" BorderThickness="1"/>
+        </StackPanel>
+    </StackPanel>
+</Page>

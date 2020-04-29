@@ -5,13 +5,36 @@
     xmlns:local="using:CuestionarioCoronavirusUI.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:CuestionarioCoronavirusUI.ViewModels"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Beige">
 
-    <RelativePanel>
-        <ListView x:Name="lista">
-            
-        </ListView>
-        <Button RelativePanel.Below="lista" x:Name="btn" Click="btn_Click">siguente</Button>
+    <Page.DataContext>
+        <vm:ClsPreguntasVM/>
+    </Page.DataContext>
+    
+    <RelativePanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+        <StackPanel x:Name="pregunta" Margin="0,0,0,20" Orientation="Vertical">
+            <TextBlock x:Name="preguntaActual" Text="{Binding PreguntaActual.Pregunta}" FontSize="40" Width="600"/>
+
+
+            <ListView x:Name="listaRespuestas" ItemsSource="{Binding ListadoRespuestasPorPregunta, Mode=TwoWay}" 
+                      SelectedItem="{Binding RespuestaSeleccionada,Mode=TwoWay}" BorderBrush="Black" BorderThickness="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Respuesta, Mode=OneWay}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+        <StackPanel RelativePanel.Below="pregunta" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0,50,0,0">
+            <AppBarButton x:Name="btn" IsEnabled="{Binding IsSiguente,Mode=TwoWay}" 
+                          Command="{Binding SiguenteCommand}" 
+                          Content="{Binding TextoAppBarButton,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                          Background="Gray" Height="40" Width="150"/>
+        </StackPanel>
+        
     </RelativePanel>
 </Page>
