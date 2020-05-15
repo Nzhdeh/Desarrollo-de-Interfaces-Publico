@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="CamellosUI.Views.Info"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CamellosUI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Lime">
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="650" Height="230">
+        <StackPanel>
+            <AppBarButton Icon="Back" Label="Atras" Click="AppBarButton_Click"/>
+        </StackPanel>
+        <TextBlock Text="En esta aplicación aprenderás mecanografía." HorizontalAlignment="Center" FontFamily="Comic Sans MS, Verdana" FontWeight="ExtraBold" FontSize="15"/>
+        <TextBlock Text="La aplicacion está basada en el juego de los camellos de la feria"  HorizontalAlignment="Center" FontFamily="Comic Sans MS, Verdana" FontWeight="ExtraBold" FontSize="15"/>
+        <TextBlock Text="de Sevilla, para que el aprendizage sea más divertido." HorizontalAlignment="Center" FontFamily="Comic Sans MS, Verdana" FontWeight="ExtraBold" FontSize="15"/>
+        <TextBlock Text="El jugador tendrá que escribir las palabras que le proponga " HorizontalAlignment="Center" FontFamily="Comic Sans MS, Verdana" FontWeight="ExtraBold" FontSize="15"/>
+        <TextBlock Text="la app hasta que el camello llegue a la meta." HorizontalAlignment="Center" FontFamily="Comic Sans MS, Verdana" FontWeight="ExtraBold" FontSize="15"/>
+        <TextBlock Text="Cuando el camello llegue a la meta pasará a la siguente nivel." HorizontalAlignment="Center" FontFamily="Comic Sans MS, Verdana" FontWeight="ExtraBold" FontSize="15"/>
+        <TextBlock Text="Se guardarán los niveles superados." HorizontalAlignment="Center" FontFamily="Comic Sans MS, Verdana" FontWeight="ExtraBold" FontSize="15"/>
+        <TextBlock Text="Te animo a que lo pruebe, porque es muy divertido" HorizontalAlignment="Center" FontFamily="Comic Sans MS, Verdana" FontWeight="ExtraBold" FontSize="15"/>
+    </StackPanel>
+</Page>

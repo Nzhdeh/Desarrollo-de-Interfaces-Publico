@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="CamellosUI.Views.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CamellosUI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Turquoise">
+
+    <StackPanel >
+        <StackPanel.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/Imagenes/menu.png"/>
+        </StackPanel.Background>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,300,0,0">
+            <AppBarButton Content="Jugar" Background="Bisque" Command="{x:Bind viewModel.JugarCommand}" Margin="0,0,10,0" Height="40" Width="100" FontWeight="Bold"/>
+            <AppBarButton Content="Ver Progresos" Background="Bisque" Command="{x:Bind viewModel.VerProgresosCommand}" Margin="0,0,10,0" Height="40" Width="100" FontWeight="Bold"/>
+            <AppBarButton Content="Cerrar sesion" Background="Bisque" Command="{x:Bind viewModel.CerrarSesionCommand}" Margin="0,0,10,0" Height="40" Width="100" FontWeight="Bold"/>
+            <AppBarButton Content="Salir" Background="Bisque" Command="{x:Bind viewModel.SalirCommand}"  Height="40" Width="100" FontWeight="Bold"/>
+        </StackPanel>
+        
+    </StackPanel>
+</Page>

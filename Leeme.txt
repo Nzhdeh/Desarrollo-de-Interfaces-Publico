@@ -1,30 +1,13 @@
-Hola Fernando,
-El ejercicio funciona de maravilla.Puedes usar también el botón enter de tu teclado.Le he
-añadido un progressBar, para cuando le das al botón.Apenas se ve ,pero bueno. También el borderbrush
-del textbox del código de médico se pone rojo cuando el código es erróneo o no existe.
-Estoy orgulloso de mi mismo, y me noto mas suelto y mejor preparado, creo que voy bien. 
-No he podido solucionar el problema de la conexión local ,por lo tanto la bbdd está en azure
+Hola Fernando.
+El ejercicio funciona de maravilla. He hecho una clase ClsParaListadoProgresos (está en entidades), 
+para poder mostrar los progresos de los jugadores. El login y cuando el usuario escribe la palabra
+funciona con el boton enter tambien(lo he hecho de la forma que has dicho tu). 
+hay 4 pruebas en la bbdd, pero mi aplicación funcionaría
+si en un momento dado añadimos más pruebas. He mejorado los summarys de la capa DAL y BL principalmente.
+He puesto un progressRing en el login ,pero no se aprecia bien.
+Por cierto me he dado cuenta de que al x:bind no le gusta la letra ñ jajja.
+Bueno, el ejercicio hace todo lo que pone en el enuciado. Y también he puesto un botón de información 
+arriba, a la derecha de la vista LogIn.
 
-aqui te dejo los inserts de la tabla control diario,para que puedas probar el ejercicio:
-
-select * from HO_Medicos
-
-insert into HO_ControlDiario(codigoMedico,fecha,primeraSesion,segundaSesion,terceraSesion,cuartaSesion)
-values('000ABC0000',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente','Realizar chequeos de rutina y evaluaciones físicas',null,null),
-		('000ABC0001',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente','Realizar chequeos de rutina y evaluaciones físicas','Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física',null),
-		('000ABC0002',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente','Realizar chequeos de rutina y evaluaciones físicas','Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física','Prescribir y administrar los tratamientos adecuados según el diagnóstico'),
-		('000ABC0003',cast(getdate() as date),null,'Realizar chequeos de rutina y evaluaciones físicas','Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física','Prescribir y administrar los tratamientos adecuados según el diagnóstico'),
-		('000ABC0004',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente',null,'Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física','Prescribir y administrar los tratamientos adecuados según el diagnóstico'),
-		('000ABC0006',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente','Realizar chequeos de rutina y evaluaciones físicas','Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física',null),
-		('000ABC0007',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente','Realizar chequeos de rutina y evaluaciones físicas','Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física','Prescribir y administrar los tratamientos adecuados según el diagnóstico'),
-		('000ABC0008',cast(getdate() as date),'Orientar y aconsejar a los pacientes y sus familiares','Llevar registros detallados y precisos de los pacientes, hacer seguimiento de cualquier cambio en su condición y hacer cualquier reemplazo pertinente en el tratamiento asignado de no mejorar su estado','Dirigir a un equipo de salud interdisciplinario e instruirlos en cuanto a la implementación, coordinación y evaluación del cuidado del paciente',null),
-		('000ABC0009',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente','Realizar chequeos de rutina y evaluaciones físicas',null,null),
-		('000ABC0010',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente','Realizar chequeos de rutina y evaluaciones físicas','Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física',null),
-		('000ABC0011',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente','Realizar chequeos de rutina y evaluaciones físicas','Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física','Prescribir y administrar los tratamientos adecuados según el diagnóstico'),
-		('000ABC0012',cast(getdate() as date),null,'Realizar chequeos de rutina y evaluaciones físicas','Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física','Prescribir y administrar los tratamientos adecuados según el diagnóstico'),
-		('000ABC0013',cast(getdate() as date),'Coordinar con cualquier otro Médico que esté tratando al paciente',null,'Diagnosticar y tratar enfermedades, lesiones y demás trastornos de salud luego de realizar el respectivo chequeo médico y la evaluación física','Prescribir y administrar los tratamientos adecuados según el diagnóstico')
-
-select * from HO_ControlDiario
---delete from HO_ControlDiario
 
 un saludo
