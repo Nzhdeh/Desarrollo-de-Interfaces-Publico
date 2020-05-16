@@ -81,16 +81,18 @@ namespace CamellosUI.ViewModels
                     }
                     else
                     {
+                        irAlMenu();
                         var dlg = new MessageDialog("Esta prueba aún no tiene palabras,Pronto podrás jugar. Gracias ");
                         var res = dlg.ShowAsync();
-                        irAlMenu();
+                        
                     }
                 }
                 else
                 {
-                    var dlg = new MessageDialog("Has superado  todas la pruebas");
-                    var res = dlg.ShowAsync();
-                    irAlMenu();
+                    //irAlMenu();
+                    //var dlg = new MessageDialog("Has superado  todas la pruebas");
+                    //var res = dlg.ShowAsync();
+                    nivelesSuperados();
                 }               
             }
             catch (Exception)
@@ -547,16 +549,18 @@ namespace CamellosUI.ViewModels
                     }
                     else
                     {
+                        irAlMenu();
                         var dlg = new MessageDialog("Esta prueba aún no tiene palabras,Pronto podrás jugar. Gracias ");
                         var res = dlg.ShowAsync();
-                        irAlMenu();
+                       
                     }
                 }
                 else
                 {
+                    irAlMenu();
                     var dlg = new MessageDialog("¡Enhorabuenaaa!No hay más pruebas");
                     var res = dlg.ShowAsync();
-                    irAlMenu();
+                    
                 }
                 
             }
@@ -686,6 +690,24 @@ namespace CamellosUI.ViewModels
             {
                 guardarProgreso();
                 siguentePrueba();
+            }
+        }
+
+        /// <summary>
+        /// sirve para cuando no haya más niveles vaya al menú principal
+        /// </summary>
+        private async void nivelesSuperados()
+        {
+            ContentDialog saliDialogo = new ContentDialog
+            {
+                Title = "No hay más pruebas. Pronto habrá nuevos niveles. Gracias",
+                PrimaryButtonText = "Ir al menú",
+            };
+
+
+            if (await saliDialogo.ShowAsync() == ContentDialogResult.Primary)
+            {
+                irAlMenu();
             }
         }
 
