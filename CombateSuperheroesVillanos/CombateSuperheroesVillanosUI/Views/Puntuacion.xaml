@@ -9,22 +9,20 @@
     mc:Ignorable="d"
     Background="Gray">
 
-
-
     <Page.DataContext>
         <vm:ClsPuntuacionVM/>
     </Page.DataContext>
 
-    <RelativePanel>
+    <RelativePanel MinHeight="900" MinWidth="900">
         <RelativePanel.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/VS/vs7.jpg"/>
         </RelativePanel.Background>
 
-        <StackPanel x:Name="spListadoLuchadores1"  Margin="30,100,0,0"
-                     RelativePanel.AlignLeftWithPanel="True" Width="400">
+        <StackPanel x:Name="spListadoLuchadores1"  Width="400" Margin="30,100,0,0"
+                    RelativePanel.AlignLeftWithPanel="True">
             <ListView x:Name="listaLuchadore1" ItemsSource="{Binding ListadoLuchadoresConLaImagenBitmapeada, Mode=TwoWay}" 
-                      SelectedItem="{Binding LuchadorSeleccionado1, Mode=TwoWay}" MaxHeight="650" MinHeight="300"
-                       BorderBrush="White" BorderThickness="1" HorizontalAlignment="Center" >
+                    SelectedItem="{Binding LuchadorSeleccionado1, Mode=TwoWay}" MaxHeight="650" MinHeight="300"
+                    BorderBrush="White" BorderThickness="1" HorizontalAlignment="Center" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
@@ -51,8 +49,9 @@
             </StackPanel>
         </StackPanel>
 
+
         <StackPanel x:Name="boton"  RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" 
-                    Background="LightGoldenrodYellow" BorderBrush="Black" BorderThickness="1" Margin="0,600,0,0" Orientation="Vertical">
+                Background="LightGoldenrodYellow" BorderBrush="Black" BorderThickness="1" Margin="0,600,0,0" Orientation="Vertical">
             <AppBarButton Icon="Save" Label="Enviar puntuación" Command="{Binding EnviarPuntuacionCommand}" Width="120" Height="60"/>
         </StackPanel>
 
@@ -61,17 +60,11 @@
             <TextBlock Text="{Binding MensajeError,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="30" FontWeight="Bold" Foreground="White"/>
         </StackPanel>
 
-        <!--<StackPanel x:Name="ranking"  RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" 
-                    RelativePanel.Below="error" 
-                    Background="AliceBlue" BorderBrush="Black" BorderThickness="1" Margin="0,20,0,0" Orientation="Vertical">
-            <AppBarButton Content="Ranking" Command="{Binding RankingCommand}" Width="120" Height="60"/>
-        </StackPanel>-->
-
-        <StackPanel x:Name="spListadoLuchadores2"  Width="400" RelativePanel.AlignRightWithPanel="True" Margin="0,100,30,0"
+        <StackPanel x:Name="spListadoLuchadores2"  Width="400" RelativePanel.AlignRightWithPanel="True"  Margin="0,100,30,0"
                     RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True">
             <ListView x:Name="listaLuchadore2" ItemsSource="{Binding ListadoLuchadoresConLaImagenBitmapeada, Mode=TwoWay}" 
-                      SelectedItem="{Binding LuchadorSeleccionado2, Mode=TwoWay}" MaxHeight="650" MinHeight="300"
-                       BorderBrush="White" BorderThickness="1" HorizontalAlignment="Center" >
+                    SelectedItem="{Binding LuchadorSeleccionado2, Mode=TwoWay}" MaxHeight="650" MinHeight="300"
+                    BorderBrush="White" BorderThickness="1" HorizontalAlignment="Center" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -99,6 +92,6 @@
                 </Viewbox>
             </StackPanel>
         </StackPanel>
-    </RelativePanel>
 
+    </RelativePanel>
 </Page>
