@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid x:Name="menuHamburguesa" >
+    kjnjnj
         <SplitView x:Name="hamburger" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="50" OpenPaneLength="200">
             <SplitView.Background>
                 <ImageBrush ImageSource="ms-appx:///Assets/VS/fondo.jpg"/><!--por si acaso-->
