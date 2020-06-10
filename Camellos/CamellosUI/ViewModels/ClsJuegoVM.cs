@@ -89,10 +89,10 @@ namespace CamellosUI.ViewModels
                 }
                 else
                 {
-                    //irAlMenu();
-                    //var dlg = new MessageDialog("Has superado  todas la pruebas");
-                    //var res = dlg.ShowAsync();
-                    nivelesSuperados();
+                    irAlMenu();
+                    var dlg = new MessageDialog("Has superado  todas la pruebas");
+                    var res = dlg.ShowAsync();
+                    //nivelesSuperados();
                 }               
             }
             catch (Exception)

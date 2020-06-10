@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="CombateSuperheroesVillanosUI.Views.Puntuacion"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CombateSuperheroesVillanosUI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:CombateSuperheroesVillanosUI.ViewModels"
+    mc:Ignorable="d"
+    Background="Gray">
+
+
+
+    <Page.DataContext>
+        <vm:ClsPuntuacionVM/>
+    </Page.DataContext>
+
+    <RelativePanel>
+        <RelativePanel.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/VS/vs7.jpg"/>
+        </RelativePanel.Background>
+
+        <StackPanel x:Name="spListadoLuchadores1"  Margin="30,100,0,0"
+                     RelativePanel.AlignLeftWithPanel="True" Width="400">
+            <ListView x:Name="listaLuchadore1" ItemsSource="{Binding ListadoLuchadoresConLaImagenBitmapeada, Mode=TwoWay}" 
+                      SelectedItem="{Binding LuchadorSeleccionado1, Mode=TwoWay}" MaxHeight="650" MinHeight="300"
+                       BorderBrush="White" BorderThickness="1" HorizontalAlignment="Center" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel>
+                                <Image Source="{Binding ImagenBitmap}" Width="200" Height="200"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Margin="0,15,0,0">
+                <Viewbox Height="30" HorizontalAlignment="Left" Margin="115,0,0,0">
+                    <TextBlock Text="Puntuar:" Foreground="White"/>
+                </Viewbox>
+
+                <Viewbox Height="50" >
+                    <RatingControl Value="{Binding RatingLuchador1,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MaxRating="5">
+                        <RatingControl.Resources>
+                            <SolidColorBrush x:Key="RatingControlSelectedForeground" Color="Yellow" />
+                            <SolidColorBrush Color="White" x:Key="RatingControlUnselectedForeground" />
+                        </RatingControl.Resources>
+                    </RatingControl>
+                </Viewbox>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="boton"  RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                    Background="LightGoldenrodYellow" BorderBrush="Black" BorderThickness="1" Margin="0,600,0,0" Orientation="Vertical">
+            <AppBarButton Icon="Save" Label="Enviar puntuación" Command="{Binding EnviarPuntuacionCommand}" Width="120" Height="60"/>
+        </StackPanel>
+
+        <StackPanel x:Name="error"  RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                    RelativePanel.Below="boton" Margin="0,50,0,0">
+            <TextBlock Text="{Binding MensajeError,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="30" FontWeight="Bold" Foreground="White"/>
+        </StackPanel>
+
+        <!--<StackPanel x:Name="ranking"  RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                    RelativePanel.Below="error" 
+                    Background="AliceBlue" BorderBrush="Black" BorderThickness="1" Margin="0,20,0,0" Orientation="Vertical">
+            <AppBarButton Content="Ranking" Command="{Binding RankingCommand}" Width="120" Height="60"/>
+        </StackPanel>-->
+
+        <StackPanel x:Name="spListadoLuchadores2"  Width="400" RelativePanel.AlignRightWithPanel="True" Margin="0,100,30,0"
+                    RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True">
+            <ListView x:Name="listaLuchadore2" ItemsSource="{Binding ListadoLuchadoresConLaImagenBitmapeada, Mode=TwoWay}" 
+                      SelectedItem="{Binding LuchadorSeleccionado2, Mode=TwoWay}" MaxHeight="650" MinHeight="300"
+                       BorderBrush="White" BorderThickness="1" HorizontalAlignment="Center" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel>
+                                    <Image Source="{Binding ImagenBitmap}" Width="200" Height="200"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Margin="0,15,0,0">
+                <Viewbox Height="30" HorizontalAlignment="Left" Margin="115,0,0,0">
+                    <TextBlock Text="Puntuar:" Foreground="White"/>
+                </Viewbox>
+                <Viewbox Height="50" >
+                    <RatingControl Value="{Binding RatingLuchador2,Mode=TwoWay}" IsReadOnly="False" MaxRating="5" >
+                        <RatingControl.Resources>
+                            <SolidColorBrush x:Key="RatingControlSelectedForeground" Color="Yellow" />
+                            <SolidColorBrush Color="White" x:Key="RatingControlUnselectedForeground" />
+                        </RatingControl.Resources>
+                    </RatingControl>
+                </Viewbox>
+            </StackPanel>
+        </StackPanel>
+    </RelativePanel>
+
+</Page>
