@@ -6,26 +6,25 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
 
     <Grid x:Name="menuHamburguesa" >
-    kjnjnj
         <SplitView x:Name="hamburger" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="50" OpenPaneLength="200">
             <SplitView.Background>
                 <ImageBrush ImageSource="ms-appx:///Assets/VS/fondo.jpg"/><!--por si acaso-->
             </SplitView.Background>
             <SplitView.Pane>
-                <StackPanel Background="LightYellow">
+                <StackPanel Background="Transparent">
                     <Button x:Name="btnPrincipal" FontFamily="Segoe MDL2 Assets" FontSize="25" Background="Transparent" Height="50" Width="50" Content="&#xE700;" Click="Button_Click"/>
                     <StackPanel Orientation="Horizontal">
                         <AppBarButton FontFamily="Segoe MDL2 Assets" FontSize="25" Background="Transparent" Height="50" Width="50" 
-                                      Content="&#xF7BB;" Click="AppBarButton_Click_1" BorderBrush="Black"/>
+                                      Content="&#xF7BB;" Click="AppBarButton_Click_1" />
                         <TextBlock Text="Puntuar combate" FontSize="15" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <AppBarButton FontFamily="Segoe MDL2 Assets" FontSize="25" Background="Transparent" Height="50" Width="50" 
-                                      Content="&#xE7BC;" Click="AppBarButton_Click" BorderBrush="Black"/>
+                                      Content="&#xE7BC;" Click="AppBarButton_Click" />
                         <TextBlock Text="Ver ranking" FontSize="15" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </StackPanel>
                 </StackPanel>

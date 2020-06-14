@@ -22,13 +22,15 @@ namespace CombateSuperheroesVillanosUI.ViewModels
     public class ClsPuntuacionVM : ClsVMBase
     {
 		private ObservableCollection<ClsLuchador> listadoTodosLosLuchadores;//para obtener el listado de todos los luchadores
-		private ObservableCollection<ClsLuchador> listadoLuchadoresConLaImagenBitmapeada;
+		private ObservableCollection<ClsLuchador> listadoLuchadoresConLaImagenBitmapeada;//es para bindear
 		private int ratingLuchador1;
 		private int ratingLuchador2;
 		private ClsLuchador luchadorSeleccionado1;
 		private ClsLuchador luchadorSeleccionado2;
 		private DelegateCommand enviarPuntuacionCommand;
 		private string mensajeError;//para notificar los errores
+		private string colorError;//para el color del texto de error
+		private string visibilidadProgressBar;
 
 
 
@@ -42,7 +44,7 @@ namespace CombateSuperheroesVillanosUI.ViewModels
 				{
 					for (int i = 0; i < listadoTodosLosLuchadores.Count; i++)
 					{
-						listadoTodosLosLuchadores[i].ImagenBitmap = ArrayBytesToBitmapImage(listadoTodosLosLuchadores[i].FotoLuchador);
+						listadoTodosLosLuchadores[i].ImagenBitmap = ArrayBytesToBitmapImage(listadoTodosLosLuchadores[i].FotoLuchador);//cambio de array de bites a BitmapImage
 					}
 					this.listadoLuchadoresConLaImagenBitmapeada = this.listadoTodosLosLuchadores;
 				}
@@ -62,10 +64,12 @@ namespace CombateSuperheroesVillanosUI.ViewModels
 			this.ratingLuchador1 = (-1);//-1 porque si pongo 0 y ejecuto el rating sale con la primera estrella seleccionada
 			this.ratingLuchador2 = (-1);
 			this.mensajeError = "";
+			this.colorError = "Yellow";
+			this.visibilidadProgressBar = "Collapsed";
 		}
 
 		public ClsPuntuacionVM(ObservableCollection<ClsLuchador> listadoTodosLosLuchadores, ObservableCollection<ClsLuchador> listadoLuchadoresConLaImagenBitmapeada, 
-			int ratingLuchador1, int ratingLuchador2, ClsLuchador luchadorSeleccionado1, ClsLuchador luchadorSeleccionado2, string mensajeError)
+			int ratingLuchador1, int ratingLuchador2, ClsLuchador luchadorSeleccionado1, ClsLuchador luchadorSeleccionado2, string mensajeError, string colorError)
 		{
 			this.listadoTodosLosLuchadores = listadoTodosLosLuchadores;
 			this.listadoLuchadoresConLaImagenBitmapeada = listadoLuchadoresConLaImagenBitmapeada;
@@ -74,12 +78,24 @@ namespace CombateSuperheroesVillanosUI.ViewModels
 			this.luchadorSeleccionado1 = luchadorSeleccionado1;
 			this.luchadorSeleccionado2 = luchadorSeleccionado2;
 			this.mensajeError = mensajeError;
+			this.colorError = colorError;
 		}
-
-
 		#endregion
 
 		#region propiedades publicas
+
+		public string VisibilidadProgressBar
+		{
+			get
+			{
+				return this.visibilidadProgressBar;
+			}
+			set
+			{
+				this.visibilidadProgressBar = value;
+			}
+		}
+
 		public ObservableCollection<ClsLuchador> ListadoLuchadoresConLaImagenBitmapeada
 		{
 			get
@@ -180,45 +196,90 @@ namespace CombateSuperheroesVillanosUI.ViewModels
 				this.mensajeError = value;
 			}
 		}
+
+		public string ColorError
+		{
+			get
+			{
+				return this.colorError;
+			}
+			set
+			{
+				this.colorError = value;
+			}
+		}
 		#endregion
 
 		#region metodos privados
 		/// <summary>
-		/// sirve para enviar los datos a la capa BL
+		/// sirve para enviar los datos a la capa BL o mostrar mensaje de error
 		/// </summary>
 		private void enviar()
 		{
+			this.visibilidadProgressBar = "Visible";
+			NotifyPropertyChanged("VisibilidadProgressBar");
 			if(this.listadoTodosLosLuchadores!= null)
 			{
 				if (this.luchadorSeleccionado1 == null || this.luchadorSeleccionado2 == null || this.ratingLuchador1 <= 0 || this.ratingLuchador2 <= 0)
 				{
+					this.colorError = "Yellow";
+					NotifyPropertyChanged("ColorError");
 					this.mensajeError = "Hay que seleccionar un luchador de cada lista y sus puntuaciones";
 					NotifyPropertyChanged("MensajeError");
+
+					this.visibilidadProgressBar = "Collapsed";
+					NotifyPropertyChanged("VisibilidadProgressBar");
 				}
 				else if (this.luchadorSeleccionado1.IdLuchador == this.luchadorSeleccionado2.IdLuchador)
 				{
+					this.colorError = "Yellow";
+					NotifyPropertyChanged("ColorError");
 					this.mensajeError = "No puedo luchar conmigo mismo picha";
 					NotifyPropertyChanged("MensajeError");
+
+					this.visibilidadProgressBar = "Collapsed";
+					NotifyPropertyChanged("VisibilidadProgressBar");
 				}
 				else
 				{
-					new ClsManejadoraCombatesBL().InsertarCombateOActualizarPuntuacionBL(this.luchadorSeleccionado1.IdLuchador, this.luchadorSeleccionado2.IdLuchador,
-						this.ratingLuchador1, this.ratingLuchador2);
+                    try
+                    {
+						new ClsManejadoraCombatesBL().InsertarCombateOActualizarPuntuacionBL(this.luchadorSeleccionado1.IdLuchador, this.luchadorSeleccionado2.IdLuchador,
+																								this.ratingLuchador1, this.ratingLuchador2);
 
-					mensajeError = "Se ha guardado correctamente";
-					NotifyPropertyChanged("MensajeError");
+						this.colorError = "Chartreuse";
+						NotifyPropertyChanged("ColorError");
+
+						mensajeError = "Se ha guardado correctamente";
+						NotifyPropertyChanged("MensajeError");
+
+						this.visibilidadProgressBar = "Collapsed";
+						NotifyPropertyChanged("VisibilidadProgressBar");
+					}
+                    catch (Exception)
+                    {
+						var dlg = new MessageDialog("Error de conexion. Intentalo más tarde por favor");
+						var res = dlg.ShowAsync();
+					}
+
+					//this.visibilidadProgressBar = "Collapsed";
+					//NotifyPropertyChanged("VisibilidadProgressBar");
 
 					this.luchadorSeleccionado1 = null;//para que deseleccione el luchador seleccionado para poder seleccionarlo otra vez
 					NotifyPropertyChanged("LuchadorSeleccionado1");
+
 					this.luchadorSeleccionado2 = null;
 					NotifyPropertyChanged("LuchadorSeleccionado2");
 
 					this.ratingLuchador1 = (-1);
 					NotifyPropertyChanged("RatingLuchador1");
+
 					this.ratingLuchador2 = (-1);
 					NotifyPropertyChanged("RatingLuchador2");
 				}
-			}			
+				//this.visibilidadProgressBar = "Collapsed";
+				//NotifyPropertyChanged("VisibilidadProgressBar");
+			}
 		}
 
 
@@ -226,7 +287,7 @@ namespace CombateSuperheroesVillanosUI.ViewModels
 		/// sirve para bitmapear una imagen de array de bytes
 		/// </summary>
 		/// <param name="array">la imagen en array de bytes</param>
-		/// <returns></returns>
+		/// <returns> una imagen de tipo BitmapImage</returns>
 		private BitmapImage ArrayBytesToBitmapImage(byte [] array)
 		{
 			//Crea un nuevo stream de salida de acceso aleatorio.
@@ -242,8 +303,8 @@ namespace CombateSuperheroesVillanosUI.ViewModels
 					writer.StoreAsync().GetResults();
 				}
 
-				//Establece la imagen a partir de la fuente de datos, que será el stream definido anteriormente y cargado con el array de bytes.
 				var imagen = new BitmapImage();
+				//establezco la imagen
 				imagen.SetSource(stream);
 				return imagen;
 			}

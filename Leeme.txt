@@ -1,13 +1,10 @@
 Hola Fernando.
-El ejercicio funciona de maravilla. He hecho una clase ClsParaListadoProgresos (está en entidades), 
-para poder mostrar los progresos de los jugadores. El login y cuando el usuario escribe la palabra
-funciona con el boton enter tambien(lo he hecho de la forma que has dicho tu). 
-hay 4 pruebas en la bbdd, pero mi aplicación funcionaría
-si en un momento dado añadimos más pruebas. He mejorado los summarys de la capa DAL y BL principalmente.
-He puesto un progressRing en el login ,pero no se aprecia bien.
-Por cierto me he dado cuenta de que al x:bind no le gusta la letra ñ jajja.
-Bueno, el ejercicio hace todo lo que pone en el enuciado. Y también he puesto un botón de información 
-arriba, a la derecha de la vista LogIn.
 
+El ejercicio funciona de maravilla. Hace lo que pide en el ejercicio. He hecho la mejor
+interfaz que he podido. No sé si te va a gustar ,pero a mi me gusta. Para hacer el menú hamburguesa 
+tuve que ver un video en tailandes. Y la solucíon de hacer que la imagen esté visible en la listview 
+la he visto en mis sueños.  Me desperté ,lo probe y funcionó jajaj. No sé si es la mejor solución o no,
+pero funciona bastante bien. El ProgressBar funcionará infinitamente si no hay conexión
+(lo he hecho a posta).
 
 un saludo
